@@ -66,6 +66,7 @@ include $(CHIBIOS)/os/ports/GCC/ARMCMx/STM32F0xx/port.mk
 include $(CHIBIOS)/os/kernel/kernel.mk
 include $(CHIBIOS)/test/test.mk
 
+
 # Define linker script file here
 LDSCRIPT= $(PORTLD)/STM32F051x8.ld
 
@@ -77,7 +78,12 @@ CSRC = $(PORTSRC) \
        $(HALSRC) \
        $(PLATFORMSRC) \
        $(BOARDSRC) \
-       main.c
+       $(CHIBIOS)/os/various/evtimer.c \
+       $(CHIBIOS)/os/various/syscalls.c \
+       $(CHIBIOS)/os/various/shell.c \
+       $(CHIBIOS)/os/various/chprintf.c \
+       cmd.c \
+       main.c 
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.

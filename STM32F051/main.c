@@ -18,6 +18,19 @@
 #include "hal.h"
 #include "test.h"
 #include "shell.h"
+#include "cmd.h"
+#include "chprintf.h"
+
+
+#define ADC_GRP1_NUM_CHANNELS   1
+#define ADC_GRP1_BUF_DEPTH      8
+
+#define ADC_GRP2_NUM_CHANNELS   4
+#define ADC_GRP2_BUF_DEPTH      16
+
+#define SHELL_WA_SIZE   THD_WA_SIZE(1024)
+
+
 
 /*
  * Blue LED blinker thread, times are in milliseconds.
@@ -34,6 +47,8 @@ static msg_t Thread1(void *arg) {
     chThdSleepMilliseconds(500);
   }
 }
+
+
 
 /*
  * Green LED blinker thread, times are in milliseconds.
@@ -56,6 +71,7 @@ static msg_t Thread2(void *arg) {
  */
 int main(void) {
 
+	Thread *sh = NULL;
   /*
    * System initializations.
    * - HAL initialization, this also initializes the configured device drivers
@@ -70,15 +86,17 @@ int main(void) {
    * Activates the serial driver 1 using the driver default configuration.
    * PA9 and PA10 are routed to USART1.
    */
-  sdStart(&SD1, NULL);
-  palSetPadMode(GPIOA, 9, PAL_MODE_ALTERNATE(1));       /* USART1 TX.       */
-  palSetPadMode(GPIOA, 10, PAL_MODE_ALTERNATE(1));      /* USART1 RX.       */
+	sdStart(&SD1, NULL);
+	palSetPadMode(GPIOA, 9, PAL_MODE_ALTERNATE(1));       /* USART1 TX.       */
+	palSetPadMode(GPIOA, 10, PAL_MODE_ALTERNATE(1));      /* USART1 RX.       */
+	palSetGroupMode(GPIOC, PAL_PORT_BIT(0) | PAL_PORT_BIT(1), 0, PAL_MODE_INPUT_ANALOG);
+
 
   /*
    * Creates the blinker threads.
    */
-  chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
-  chThdCreateStatic(waThread2, sizeof(waThread2), NORMALPRIO, Thread2, NULL);
+	chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
+	chThdCreateStatic(waThread2, sizeof(waThread2), NORMALPRIO, Thread2, NULL);
 
   /*
    * Normal main() thread activity, in this demo it does nothing except
@@ -86,9 +104,19 @@ int main(void) {
    * pressed the test procedure is launched with output on the serial
    * driver 1.
    */
-  while (TRUE) {
-    if (palReadPad(GPIOA, GPIOA_BUTTON))
-      TestThread(&SD1);
-    chThdSleepMilliseconds(500);
-  }
+
+    /*
+    * Starts an ADC continuous conversion.
+    */
+	shellInit();
+	while (TRUE) {
+		if (!sh)
+			sh = shellCreate(&shCfg, SHELL_WA_SIZE, NORMALPRIO);
+		else if (chThdTerminated(sh)) {
+			chThdRelease(sh);
+			sh = NULL;
+		}
+    		chThdSleepMilliseconds(1000);
+    	}
+
 }

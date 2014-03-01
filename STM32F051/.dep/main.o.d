@@ -47,7 +47,9 @@ build/obj/main.o: main.c ../../os/kernel/include/ch.h chconf.h \
  ../../os/hal/include/sdc.h ../../os/hal/include/spi.h \
  ../../os/hal/include/uart.h ../../os/hal/include/usb.h \
  ../../os/hal/include/mmc_spi.h ../../os/hal/include/serial_usb.h \
- ../../test/test.h ../../os/various/shell.h
+ ../../test/test.h ../../os/various/shell.h cmd.h \
+ ../../os/various/chprintf.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h
 
 ../../os/kernel/include/ch.h:
 
@@ -204,3 +206,9 @@ mcuconf.h:
 ../../test/test.h:
 
 ../../os/various/shell.h:
+
+cmd.h:
+
+../../os/various/chprintf.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h:

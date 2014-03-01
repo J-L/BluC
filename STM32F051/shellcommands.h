@@ -1,3 +1,0 @@
-/*
-shell.h includes declarations of commands that can be issued
-*/
