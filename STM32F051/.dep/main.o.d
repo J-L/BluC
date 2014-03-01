@@ -47,7 +47,7 @@ build/obj/main.o: main.c ../../os/kernel/include/ch.h chconf.h \
  ../../os/hal/include/sdc.h ../../os/hal/include/spi.h \
  ../../os/hal/include/uart.h ../../os/hal/include/usb.h \
  ../../os/hal/include/mmc_spi.h ../../os/hal/include/serial_usb.h \
- ../../test/test.h
+ ../../test/test.h ../../os/various/shell.h
 
 ../../os/kernel/include/ch.h:
 
@@ -202,3 +202,5 @@ mcuconf.h:
 ../../os/hal/include/serial_usb.h:
 
 ../../test/test.h:
+
+../../os/various/shell.h:

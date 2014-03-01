@@ -17,6 +17,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "test.h"
+#include "shell.h"
 
 /*
  * Blue LED blinker thread, times are in milliseconds.
