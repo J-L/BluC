@@ -1,0 +1,753 @@
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"board.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.__early_init,"ax",%progbits
+  18              		.align	2
+  19              		.p2align 4,,15
+  20              		.global	__early_init
+  21              		.code	16
+  22              		.thumb_func
+  23              		.type	__early_init, %function
+  24              	__early_init:
+  25              	.LFB40:
+  26              		.file 1 "../../boards/ST_STM32F0_DISCOVERY/board.c"
+  27              		.loc 1 45 0
+  28              		.cfi_startproc
+  29 0000 08B5     		push	{r3, lr}
+  30              		.cfi_def_cfa_offset 8
+  31              		.cfi_offset 3, -8
+  32              		.cfi_offset 14, -4
+  33              		.loc 1 47 0
+  34 0002 FFF7FEFF 		bl	stm32_clock_init
+  35              	.LVL0:
+  36              		.loc 1 48 0
+  37              		@ sp needed
+  38 0006 08BD     		pop	{r3, pc}
+  39              		.cfi_endproc
+  40              	.LFE40:
+  41              		.size	__early_init, .-__early_init
+  42 0008 C046C046 		.section	.text.boardInit,"ax",%progbits
+  42      C046C046 
+  43              		.align	2
+  44              		.p2align 4,,15
+  45              		.global	boardInit
+  46              		.code	16
+  47              		.thumb_func
+  48              		.type	boardInit, %function
+  49              	boardInit:
+  50              	.LFB41:
+  51              		.loc 1 76 0
+  52              		.cfi_startproc
+  53              		.loc 1 77 0
+  54              		@ sp needed
+  55 0000 7047     		bx	lr
+  56              		.cfi_endproc
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 2
+
+
+  57              	.LFE41:
+  58              		.size	boardInit, .-boardInit
+  59              		.global	pal_default_config
+  60 0002 C046C046 		.section	.rodata.pal_default_config,"a",%progbits
+  60      C046C046 
+  60      C046C046 
+  60      C046
+  61              		.align	2
+  62              		.type	pal_default_config, %object
+  63              		.size	pal_default_config, 140
+  64              	pal_default_config:
+  65 0000 00000028 		.word	671088640
+  66 0004 00000000 		.word	0
+  67 0008 000000FC 		.word	-67108864
+  68 000c 54555565 		.word	1700091220
+  69 0010 FFFF0000 		.word	65535
+  70 0014 00000000 		.word	0
+  71 0018 00000000 		.word	0
+  72 001c 00000000 		.word	0
+  73 0020 00000000 		.word	0
+  74 0024 F0030000 		.word	1008
+  75 0028 55555555 		.word	1431655765
+  76 002c FFFF0000 		.word	65535
+  77 0030 00000000 		.word	0
+  78 0034 00000000 		.word	0
+  79 0038 00000500 		.word	327680
+  80 003c 00000000 		.word	0
+  81 0040 00000FF0 		.word	-267452416
+  82 0044 55555005 		.word	89150805
+  83 0048 FFFC0000 		.word	64767
+  84 004c 00000000 		.word	0
+  85 0050 00000000 		.word	0
+  86 0054 00000000 		.word	0
+  87 0058 00000000 		.word	0
+  88 005c 00000000 		.word	0
+  89 0060 55555555 		.word	1431655765
+  90 0064 FFFF0000 		.word	65535
+  91 0068 00000000 		.word	0
+  92 006c 00000000 		.word	0
+  93 0070 00000000 		.word	0
+  94 0074 00000000 		.word	0
+  95 0078 00000000 		.word	0
+  96 007c 50555555 		.word	1431655760
+  97 0080 FFFF0000 		.word	65535
+  98 0084 00000000 		.word	0
+  99 0088 00000000 		.word	0
+ 100              		.text
+ 101              	.Letext0:
+ 102              		.file 2 "../../os/hal/platforms/STM32/GPIOv2/pal_lld.h"
+ 103              		.file 3 "/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/stdint.h"
+ 104              		.file 4 "../../os/hal/platforms/STM32F0xx/hal_lld.h"
+ 105              		.section	.debug_info,"",%progbits
+ 106              	.Ldebug_info0:
+ 107 0000 8E010000 		.4byte	0x18e
+ 108 0004 0400     		.2byte	0x4
+ 109 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 110 000a 04       		.byte	0x4
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 3
+
+
+ 111 000b 01       		.uleb128 0x1
+ 112 000c 00000000 		.4byte	.LASF26
+ 113 0010 01       		.byte	0x1
+ 114 0011 EE010000 		.4byte	.LASF27
+ 115 0015 44010000 		.4byte	.LASF28
+ 116 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 117 001d 00000000 		.4byte	0
+ 118 0021 00000000 		.4byte	.Ldebug_line0
+ 119 0025 02       		.uleb128 0x2
+ 120 0026 04       		.byte	0x4
+ 121 0027 05       		.byte	0x5
+ 122 0028 696E7400 		.ascii	"int\000"
+ 123 002c 03       		.uleb128 0x3
+ 124 002d 04       		.byte	0x4
+ 125 002e 07       		.byte	0x7
+ 126 002f B3010000 		.4byte	.LASF0
+ 127 0033 03       		.uleb128 0x3
+ 128 0034 01       		.byte	0x1
+ 129 0035 06       		.byte	0x6
+ 130 0036 6E020000 		.4byte	.LASF1
+ 131 003a 03       		.uleb128 0x3
+ 132 003b 01       		.byte	0x1
+ 133 003c 08       		.byte	0x8
+ 134 003d 0A010000 		.4byte	.LASF2
+ 135 0041 03       		.uleb128 0x3
+ 136 0042 02       		.byte	0x2
+ 137 0043 05       		.byte	0x5
+ 138 0044 34020000 		.4byte	.LASF3
+ 139 0048 03       		.uleb128 0x3
+ 140 0049 02       		.byte	0x2
+ 141 004a 07       		.byte	0x7
+ 142 004b F0000000 		.4byte	.LASF4
+ 143 004f 03       		.uleb128 0x3
+ 144 0050 04       		.byte	0x4
+ 145 0051 05       		.byte	0x5
+ 146 0052 5F020000 		.4byte	.LASF5
+ 147 0056 04       		.uleb128 0x4
+ 148 0057 56020000 		.4byte	.LASF18
+ 149 005b 03       		.byte	0x3
+ 150 005c 50       		.byte	0x50
+ 151 005d 61000000 		.4byte	0x61
+ 152 0061 03       		.uleb128 0x3
+ 153 0062 04       		.byte	0x4
+ 154 0063 07       		.byte	0x7
+ 155 0064 32010000 		.4byte	.LASF6
+ 156 0068 03       		.uleb128 0x3
+ 157 0069 08       		.byte	0x8
+ 158 006a 05       		.byte	0x5
+ 159 006b 21020000 		.4byte	.LASF7
+ 160 006f 03       		.uleb128 0x3
+ 161 0070 08       		.byte	0x8
+ 162 0071 07       		.byte	0x7
+ 163 0072 C0010000 		.4byte	.LASF8
+ 164 0076 03       		.uleb128 0x3
+ 165 0077 01       		.byte	0x1
+ 166 0078 02       		.byte	0x2
+ 167 0079 7A020000 		.4byte	.LASF9
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 4
+
+
+ 168 007d 03       		.uleb128 0x3
+ 169 007e 04       		.byte	0x4
+ 170 007f 07       		.byte	0x7
+ 171 0080 18020000 		.4byte	.LASF10
+ 172 0084 03       		.uleb128 0x3
+ 173 0085 01       		.byte	0x1
+ 174 0086 08       		.byte	0x8
+ 175 0087 2F020000 		.4byte	.LASF11
+ 176 008b 05       		.uleb128 0x5
+ 177 008c 1C       		.byte	0x1c
+ 178 008d 02       		.byte	0x2
+ 179 008e A3       		.byte	0xa3
+ 180 008f E8000000 		.4byte	0xe8
+ 181 0093 06       		.uleb128 0x6
+ 182 0094 68020000 		.4byte	.LASF12
+ 183 0098 02       		.byte	0x2
+ 184 0099 A5       		.byte	0xa5
+ 185 009a 56000000 		.4byte	0x56
+ 186 009e 00       		.byte	0
+ 187 009f 06       		.uleb128 0x6
+ 188 00a0 03010000 		.4byte	.LASF13
+ 189 00a4 02       		.byte	0x2
+ 190 00a5 A7       		.byte	0xa7
+ 191 00a6 56000000 		.4byte	0x56
+ 192 00aa 04       		.byte	0x4
+ 193 00ab 06       		.uleb128 0x6
+ 194 00ac E1000000 		.4byte	.LASF14
+ 195 00b0 02       		.byte	0x2
+ 196 00b1 A9       		.byte	0xa9
+ 197 00b2 56000000 		.4byte	0x56
+ 198 00b6 08       		.byte	0x8
+ 199 00b7 06       		.uleb128 0x6
+ 200 00b8 A6010000 		.4byte	.LASF15
+ 201 00bc 02       		.byte	0x2
+ 202 00bd AB       		.byte	0xab
+ 203 00be 56000000 		.4byte	0x56
+ 204 00c2 0C       		.byte	0xc
+ 205 00c3 07       		.uleb128 0x7
+ 206 00c4 6F647200 		.ascii	"odr\000"
+ 207 00c8 02       		.byte	0x2
+ 208 00c9 AD       		.byte	0xad
+ 209 00ca 56000000 		.4byte	0x56
+ 210 00ce 10       		.byte	0x10
+ 211 00cf 06       		.uleb128 0x6
+ 212 00d0 7F010000 		.4byte	.LASF16
+ 213 00d4 02       		.byte	0x2
+ 214 00d5 AF       		.byte	0xaf
+ 215 00d6 56000000 		.4byte	0x56
+ 216 00da 14       		.byte	0x14
+ 217 00db 06       		.uleb128 0x6
+ 218 00dc A1010000 		.4byte	.LASF17
+ 219 00e0 02       		.byte	0x2
+ 220 00e1 B1       		.byte	0xb1
+ 221 00e2 56000000 		.4byte	0x56
+ 222 00e6 18       		.byte	0x18
+ 223 00e7 00       		.byte	0
+ 224 00e8 04       		.uleb128 0x4
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 5
+
+
+ 225 00e9 18010000 		.4byte	.LASF19
+ 226 00ed 02       		.byte	0x2
+ 227 00ee B2       		.byte	0xb2
+ 228 00ef 8B000000 		.4byte	0x8b
+ 229 00f3 05       		.uleb128 0x5
+ 230 00f4 8C       		.byte	0x8c
+ 231 00f5 02       		.byte	0x2
+ 232 00f6 BB       		.byte	0xbb
+ 233 00f7 38010000 		.4byte	0x138
+ 234 00fb 06       		.uleb128 0x6
+ 235 00fc 2B010000 		.4byte	.LASF20
+ 236 0100 02       		.byte	0x2
+ 237 0101 BE       		.byte	0xbe
+ 238 0102 E8000000 		.4byte	0xe8
+ 239 0106 00       		.byte	0
+ 240 0107 06       		.uleb128 0x6
+ 241 0108 E9000000 		.4byte	.LASF21
+ 242 010c 02       		.byte	0x2
+ 243 010d C2       		.byte	0xc2
+ 244 010e E8000000 		.4byte	0xe8
+ 245 0112 1C       		.byte	0x1c
+ 246 0113 06       		.uleb128 0x6
+ 247 0114 3E020000 		.4byte	.LASF22
+ 248 0118 02       		.byte	0x2
+ 249 0119 C6       		.byte	0xc6
+ 250 011a E8000000 		.4byte	0xe8
+ 251 011e 38       		.byte	0x38
+ 252 011f 06       		.uleb128 0x6
+ 253 0120 DA000000 		.4byte	.LASF23
+ 254 0124 02       		.byte	0x2
+ 255 0125 CA       		.byte	0xca
+ 256 0126 E8000000 		.4byte	0xe8
+ 257 012a 54       		.byte	0x54
+ 258 012b 06       		.uleb128 0x6
+ 259 012c AC010000 		.4byte	.LASF24
+ 260 0130 02       		.byte	0x2
+ 261 0131 D2       		.byte	0xd2
+ 262 0132 E8000000 		.4byte	0xe8
+ 263 0136 70       		.byte	0x70
+ 264 0137 00       		.byte	0
+ 265 0138 04       		.uleb128 0x4
+ 266 0139 84010000 		.4byte	.LASF25
+ 267 013d 02       		.byte	0x2
+ 268 013e E0       		.byte	0xe0
+ 269 013f F3000000 		.4byte	0xf3
+ 270 0143 08       		.uleb128 0x8
+ 271 0144 E1010000 		.4byte	.LASF29
+ 272 0148 01       		.byte	0x1
+ 273 0149 2D       		.byte	0x2d
+ 274 014a 00000000 		.4byte	.LFB40
+ 275 014e 08000000 		.4byte	.LFE40-.LFB40
+ 276 0152 01       		.uleb128 0x1
+ 277 0153 9C       		.byte	0x9c
+ 278 0154 62010000 		.4byte	0x162
+ 279 0158 09       		.uleb128 0x9
+ 280 0159 06000000 		.4byte	.LVL0
+ 281 015d 89010000 		.4byte	0x189
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 6
+
+
+ 282 0161 00       		.byte	0
+ 283 0162 0A       		.uleb128 0xa
+ 284 0163 D7010000 		.4byte	.LASF30
+ 285 0167 01       		.byte	0x1
+ 286 0168 4C       		.byte	0x4c
+ 287 0169 00000000 		.4byte	.LFB41
+ 288 016d 02000000 		.4byte	.LFE41-.LFB41
+ 289 0171 01       		.uleb128 0x1
+ 290 0172 9C       		.byte	0x9c
+ 291 0173 0B       		.uleb128 0xb
+ 292 0174 8E010000 		.4byte	.LASF31
+ 293 0178 01       		.byte	0x1
+ 294 0179 19       		.byte	0x19
+ 295 017a 84010000 		.4byte	0x184
+ 296 017e 05       		.uleb128 0x5
+ 297 017f 03       		.byte	0x3
+ 298 0180 00000000 		.4byte	pal_default_config
+ 299 0184 0C       		.uleb128 0xc
+ 300 0185 38010000 		.4byte	0x138
+ 301 0189 0D       		.uleb128 0xd
+ 302 018a 45020000 		.4byte	.LASF32
+ 303 018e 04       		.byte	0x4
+ 304 018f 1503     		.2byte	0x315
+ 305 0191 00       		.byte	0
+ 306              		.section	.debug_abbrev,"",%progbits
+ 307              	.Ldebug_abbrev0:
+ 308 0000 01       		.uleb128 0x1
+ 309 0001 11       		.uleb128 0x11
+ 310 0002 01       		.byte	0x1
+ 311 0003 25       		.uleb128 0x25
+ 312 0004 0E       		.uleb128 0xe
+ 313 0005 13       		.uleb128 0x13
+ 314 0006 0B       		.uleb128 0xb
+ 315 0007 03       		.uleb128 0x3
+ 316 0008 0E       		.uleb128 0xe
+ 317 0009 1B       		.uleb128 0x1b
+ 318 000a 0E       		.uleb128 0xe
+ 319 000b 55       		.uleb128 0x55
+ 320 000c 17       		.uleb128 0x17
+ 321 000d 11       		.uleb128 0x11
+ 322 000e 01       		.uleb128 0x1
+ 323 000f 10       		.uleb128 0x10
+ 324 0010 17       		.uleb128 0x17
+ 325 0011 00       		.byte	0
+ 326 0012 00       		.byte	0
+ 327 0013 02       		.uleb128 0x2
+ 328 0014 24       		.uleb128 0x24
+ 329 0015 00       		.byte	0
+ 330 0016 0B       		.uleb128 0xb
+ 331 0017 0B       		.uleb128 0xb
+ 332 0018 3E       		.uleb128 0x3e
+ 333 0019 0B       		.uleb128 0xb
+ 334 001a 03       		.uleb128 0x3
+ 335 001b 08       		.uleb128 0x8
+ 336 001c 00       		.byte	0
+ 337 001d 00       		.byte	0
+ 338 001e 03       		.uleb128 0x3
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 7
+
+
+ 339 001f 24       		.uleb128 0x24
+ 340 0020 00       		.byte	0
+ 341 0021 0B       		.uleb128 0xb
+ 342 0022 0B       		.uleb128 0xb
+ 343 0023 3E       		.uleb128 0x3e
+ 344 0024 0B       		.uleb128 0xb
+ 345 0025 03       		.uleb128 0x3
+ 346 0026 0E       		.uleb128 0xe
+ 347 0027 00       		.byte	0
+ 348 0028 00       		.byte	0
+ 349 0029 04       		.uleb128 0x4
+ 350 002a 16       		.uleb128 0x16
+ 351 002b 00       		.byte	0
+ 352 002c 03       		.uleb128 0x3
+ 353 002d 0E       		.uleb128 0xe
+ 354 002e 3A       		.uleb128 0x3a
+ 355 002f 0B       		.uleb128 0xb
+ 356 0030 3B       		.uleb128 0x3b
+ 357 0031 0B       		.uleb128 0xb
+ 358 0032 49       		.uleb128 0x49
+ 359 0033 13       		.uleb128 0x13
+ 360 0034 00       		.byte	0
+ 361 0035 00       		.byte	0
+ 362 0036 05       		.uleb128 0x5
+ 363 0037 13       		.uleb128 0x13
+ 364 0038 01       		.byte	0x1
+ 365 0039 0B       		.uleb128 0xb
+ 366 003a 0B       		.uleb128 0xb
+ 367 003b 3A       		.uleb128 0x3a
+ 368 003c 0B       		.uleb128 0xb
+ 369 003d 3B       		.uleb128 0x3b
+ 370 003e 0B       		.uleb128 0xb
+ 371 003f 01       		.uleb128 0x1
+ 372 0040 13       		.uleb128 0x13
+ 373 0041 00       		.byte	0
+ 374 0042 00       		.byte	0
+ 375 0043 06       		.uleb128 0x6
+ 376 0044 0D       		.uleb128 0xd
+ 377 0045 00       		.byte	0
+ 378 0046 03       		.uleb128 0x3
+ 379 0047 0E       		.uleb128 0xe
+ 380 0048 3A       		.uleb128 0x3a
+ 381 0049 0B       		.uleb128 0xb
+ 382 004a 3B       		.uleb128 0x3b
+ 383 004b 0B       		.uleb128 0xb
+ 384 004c 49       		.uleb128 0x49
+ 385 004d 13       		.uleb128 0x13
+ 386 004e 38       		.uleb128 0x38
+ 387 004f 0B       		.uleb128 0xb
+ 388 0050 00       		.byte	0
+ 389 0051 00       		.byte	0
+ 390 0052 07       		.uleb128 0x7
+ 391 0053 0D       		.uleb128 0xd
+ 392 0054 00       		.byte	0
+ 393 0055 03       		.uleb128 0x3
+ 394 0056 08       		.uleb128 0x8
+ 395 0057 3A       		.uleb128 0x3a
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 8
+
+
+ 396 0058 0B       		.uleb128 0xb
+ 397 0059 3B       		.uleb128 0x3b
+ 398 005a 0B       		.uleb128 0xb
+ 399 005b 49       		.uleb128 0x49
+ 400 005c 13       		.uleb128 0x13
+ 401 005d 38       		.uleb128 0x38
+ 402 005e 0B       		.uleb128 0xb
+ 403 005f 00       		.byte	0
+ 404 0060 00       		.byte	0
+ 405 0061 08       		.uleb128 0x8
+ 406 0062 2E       		.uleb128 0x2e
+ 407 0063 01       		.byte	0x1
+ 408 0064 3F       		.uleb128 0x3f
+ 409 0065 19       		.uleb128 0x19
+ 410 0066 03       		.uleb128 0x3
+ 411 0067 0E       		.uleb128 0xe
+ 412 0068 3A       		.uleb128 0x3a
+ 413 0069 0B       		.uleb128 0xb
+ 414 006a 3B       		.uleb128 0x3b
+ 415 006b 0B       		.uleb128 0xb
+ 416 006c 27       		.uleb128 0x27
+ 417 006d 19       		.uleb128 0x19
+ 418 006e 11       		.uleb128 0x11
+ 419 006f 01       		.uleb128 0x1
+ 420 0070 12       		.uleb128 0x12
+ 421 0071 06       		.uleb128 0x6
+ 422 0072 40       		.uleb128 0x40
+ 423 0073 18       		.uleb128 0x18
+ 424 0074 9742     		.uleb128 0x2117
+ 425 0076 19       		.uleb128 0x19
+ 426 0077 01       		.uleb128 0x1
+ 427 0078 13       		.uleb128 0x13
+ 428 0079 00       		.byte	0
+ 429 007a 00       		.byte	0
+ 430 007b 09       		.uleb128 0x9
+ 431 007c 898201   		.uleb128 0x4109
+ 432 007f 00       		.byte	0
+ 433 0080 11       		.uleb128 0x11
+ 434 0081 01       		.uleb128 0x1
+ 435 0082 31       		.uleb128 0x31
+ 436 0083 13       		.uleb128 0x13
+ 437 0084 00       		.byte	0
+ 438 0085 00       		.byte	0
+ 439 0086 0A       		.uleb128 0xa
+ 440 0087 2E       		.uleb128 0x2e
+ 441 0088 00       		.byte	0
+ 442 0089 3F       		.uleb128 0x3f
+ 443 008a 19       		.uleb128 0x19
+ 444 008b 03       		.uleb128 0x3
+ 445 008c 0E       		.uleb128 0xe
+ 446 008d 3A       		.uleb128 0x3a
+ 447 008e 0B       		.uleb128 0xb
+ 448 008f 3B       		.uleb128 0x3b
+ 449 0090 0B       		.uleb128 0xb
+ 450 0091 27       		.uleb128 0x27
+ 451 0092 19       		.uleb128 0x19
+ 452 0093 11       		.uleb128 0x11
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 9
+
+
+ 453 0094 01       		.uleb128 0x1
+ 454 0095 12       		.uleb128 0x12
+ 455 0096 06       		.uleb128 0x6
+ 456 0097 40       		.uleb128 0x40
+ 457 0098 18       		.uleb128 0x18
+ 458 0099 9742     		.uleb128 0x2117
+ 459 009b 19       		.uleb128 0x19
+ 460 009c 00       		.byte	0
+ 461 009d 00       		.byte	0
+ 462 009e 0B       		.uleb128 0xb
+ 463 009f 34       		.uleb128 0x34
+ 464 00a0 00       		.byte	0
+ 465 00a1 03       		.uleb128 0x3
+ 466 00a2 0E       		.uleb128 0xe
+ 467 00a3 3A       		.uleb128 0x3a
+ 468 00a4 0B       		.uleb128 0xb
+ 469 00a5 3B       		.uleb128 0x3b
+ 470 00a6 0B       		.uleb128 0xb
+ 471 00a7 49       		.uleb128 0x49
+ 472 00a8 13       		.uleb128 0x13
+ 473 00a9 3F       		.uleb128 0x3f
+ 474 00aa 19       		.uleb128 0x19
+ 475 00ab 02       		.uleb128 0x2
+ 476 00ac 18       		.uleb128 0x18
+ 477 00ad 00       		.byte	0
+ 478 00ae 00       		.byte	0
+ 479 00af 0C       		.uleb128 0xc
+ 480 00b0 26       		.uleb128 0x26
+ 481 00b1 00       		.byte	0
+ 482 00b2 49       		.uleb128 0x49
+ 483 00b3 13       		.uleb128 0x13
+ 484 00b4 00       		.byte	0
+ 485 00b5 00       		.byte	0
+ 486 00b6 0D       		.uleb128 0xd
+ 487 00b7 2E       		.uleb128 0x2e
+ 488 00b8 00       		.byte	0
+ 489 00b9 3F       		.uleb128 0x3f
+ 490 00ba 19       		.uleb128 0x19
+ 491 00bb 03       		.uleb128 0x3
+ 492 00bc 0E       		.uleb128 0xe
+ 493 00bd 3A       		.uleb128 0x3a
+ 494 00be 0B       		.uleb128 0xb
+ 495 00bf 3B       		.uleb128 0x3b
+ 496 00c0 05       		.uleb128 0x5
+ 497 00c1 27       		.uleb128 0x27
+ 498 00c2 19       		.uleb128 0x19
+ 499 00c3 3C       		.uleb128 0x3c
+ 500 00c4 19       		.uleb128 0x19
+ 501 00c5 00       		.byte	0
+ 502 00c6 00       		.byte	0
+ 503 00c7 00       		.byte	0
+ 504              		.section	.debug_aranges,"",%progbits
+ 505 0000 24000000 		.4byte	0x24
+ 506 0004 0200     		.2byte	0x2
+ 507 0006 00000000 		.4byte	.Ldebug_info0
+ 508 000a 04       		.byte	0x4
+ 509 000b 00       		.byte	0
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 10
+
+
+ 510 000c 0000     		.2byte	0
+ 511 000e 0000     		.2byte	0
+ 512 0010 00000000 		.4byte	.LFB40
+ 513 0014 08000000 		.4byte	.LFE40-.LFB40
+ 514 0018 00000000 		.4byte	.LFB41
+ 515 001c 02000000 		.4byte	.LFE41-.LFB41
+ 516 0020 00000000 		.4byte	0
+ 517 0024 00000000 		.4byte	0
+ 518              		.section	.debug_ranges,"",%progbits
+ 519              	.Ldebug_ranges0:
+ 520 0000 00000000 		.4byte	.LFB40
+ 521 0004 08000000 		.4byte	.LFE40
+ 522 0008 00000000 		.4byte	.LFB41
+ 523 000c 02000000 		.4byte	.LFE41
+ 524 0010 00000000 		.4byte	0
+ 525 0014 00000000 		.4byte	0
+ 526              		.section	.debug_line,"",%progbits
+ 527              	.Ldebug_line0:
+ 528 0000 19010000 		.section	.debug_str,"MS",%progbits,1
+ 528      0200F100 
+ 528      00000201 
+ 528      FB0E0D00 
+ 528      01010101 
+ 529              	.LASF26:
+ 530 0000 474E5520 		.ascii	"GNU C 4.8.3 20131129 (release) [ARM/embedded-4_8-br"
+ 530      4320342E 
+ 530      382E3320 
+ 530      32303133 
+ 530      31313239 
+ 531 0033 616E6368 		.ascii	"anch revision 205641] -mcpu=cortex-m0 -mno-thumb-in"
+ 531      20726576 
+ 531      6973696F 
+ 531      6E203230 
+ 531      35363431 
+ 532 0066 74657277 		.ascii	"terwork -mthumb -ggdb -O2 -fomit-frame-pointer -fal"
+ 532      6F726B20 
+ 532      2D6D7468 
+ 532      756D6220 
+ 532      2D676764 
+ 533 0099 69676E2D 		.ascii	"ign-functions=16 -ffunction-sections -fdata-section"
+ 533      66756E63 
+ 533      74696F6E 
+ 533      733D3136 
+ 533      202D6666 
+ 534 00cc 73202D66 		.ascii	"s -fno-common\000"
+ 534      6E6F2D63 
+ 534      6F6D6D6F 
+ 534      6E00
+ 535              	.LASF23:
+ 536 00da 50444461 		.ascii	"PDData\000"
+ 536      746100
+ 537              	.LASF14:
+ 538 00e1 6F737065 		.ascii	"ospeedr\000"
+ 538      65647200 
+ 539              	.LASF21:
+ 540 00e9 50424461 		.ascii	"PBData\000"
+ 540      746100
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 11
+
+
+ 541              	.LASF4:
+ 542 00f0 73686F72 		.ascii	"short unsigned int\000"
+ 542      7420756E 
+ 542      7369676E 
+ 542      65642069 
+ 542      6E7400
+ 543              	.LASF13:
+ 544 0103 6F747970 		.ascii	"otyper\000"
+ 544      657200
+ 545              	.LASF2:
+ 546 010a 756E7369 		.ascii	"unsigned char\000"
+ 546      676E6564 
+ 546      20636861 
+ 546      7200
+ 547              	.LASF19:
+ 548 0118 73746D33 		.ascii	"stm32_gpio_setup_t\000"
+ 548      325F6770 
+ 548      696F5F73 
+ 548      65747570 
+ 548      5F7400
+ 549              	.LASF20:
+ 550 012b 50414461 		.ascii	"PAData\000"
+ 550      746100
+ 551              	.LASF6:
+ 552 0132 6C6F6E67 		.ascii	"long unsigned int\000"
+ 552      20756E73 
+ 552      69676E65 
+ 552      6420696E 
+ 552      7400
+ 553              	.LASF28:
+ 554 0144 2F557365 		.ascii	"/Users/John/Development/embedded/ChibiOs-Rt/BluC/ST"
+ 554      72732F4A 
+ 554      6F686E2F 
+ 554      44657665 
+ 554      6C6F706D 
+ 555 0177 4D333246 		.ascii	"M32F051\000"
+ 555      30353100 
+ 556              	.LASF16:
+ 557 017f 6166726C 		.ascii	"afrl\000"
+ 557      00
+ 558              	.LASF25:
+ 559 0184 50414C43 		.ascii	"PALConfig\000"
+ 559      6F6E6669 
+ 559      6700
+ 560              	.LASF31:
+ 561 018e 70616C5F 		.ascii	"pal_default_config\000"
+ 561      64656661 
+ 561      756C745F 
+ 561      636F6E66 
+ 561      696700
+ 562              	.LASF17:
+ 563 01a1 61667268 		.ascii	"afrh\000"
+ 563      00
+ 564              	.LASF15:
+ 565 01a6 70757064 		.ascii	"pupdr\000"
+ 565      7200
+ 566              	.LASF24:
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 12
+
+
+ 567 01ac 50464461 		.ascii	"PFData\000"
+ 567      746100
+ 568              	.LASF0:
+ 569 01b3 756E7369 		.ascii	"unsigned int\000"
+ 569      676E6564 
+ 569      20696E74 
+ 569      00
+ 570              	.LASF8:
+ 571 01c0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 571      206C6F6E 
+ 571      6720756E 
+ 571      7369676E 
+ 571      65642069 
+ 572              	.LASF30:
+ 573 01d7 626F6172 		.ascii	"boardInit\000"
+ 573      64496E69 
+ 573      7400
+ 574              	.LASF29:
+ 575 01e1 5F5F6561 		.ascii	"__early_init\000"
+ 575      726C795F 
+ 575      696E6974 
+ 575      00
+ 576              	.LASF27:
+ 577 01ee 2E2E2F2E 		.ascii	"../../boards/ST_STM32F0_DISCOVERY/board.c\000"
+ 577      2E2F626F 
+ 577      61726473 
+ 577      2F53545F 
+ 577      53544D33 
+ 578              	.LASF10:
+ 579 0218 73697A65 		.ascii	"sizetype\000"
+ 579      74797065 
+ 579      00
+ 580              	.LASF7:
+ 581 0221 6C6F6E67 		.ascii	"long long int\000"
+ 581      206C6F6E 
+ 581      6720696E 
+ 581      7400
+ 582              	.LASF11:
+ 583 022f 63686172 		.ascii	"char\000"
+ 583      00
+ 584              	.LASF3:
+ 585 0234 73686F72 		.ascii	"short int\000"
+ 585      7420696E 
+ 585      7400
+ 586              	.LASF22:
+ 587 023e 50434461 		.ascii	"PCData\000"
+ 587      746100
+ 588              	.LASF32:
+ 589 0245 73746D33 		.ascii	"stm32_clock_init\000"
+ 589      325F636C 
+ 589      6F636B5F 
+ 589      696E6974 
+ 589      00
+ 590              	.LASF18:
+ 591 0256 75696E74 		.ascii	"uint32_t\000"
+ 591      33325F74 
+ 591      00
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 13
+
+
+ 592              	.LASF5:
+ 593 025f 6C6F6E67 		.ascii	"long int\000"
+ 593      20696E74 
+ 593      00
+ 594              	.LASF12:
+ 595 0268 6D6F6465 		.ascii	"moder\000"
+ 595      7200
+ 596              	.LASF1:
+ 597 026e 7369676E 		.ascii	"signed char\000"
+ 597      65642063 
+ 597      68617200 
+ 598              	.LASF9:
+ 599 027a 5F426F6F 		.ascii	"_Bool\000"
+ 599      6C00
+ 600              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 board.c
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s:18     .text.__early_init:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s:24     .text.__early_init:0000000000000000 __early_init
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s:43     .text.boardInit:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s:49     .text.boardInit:0000000000000000 boardInit
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s:64     .rodata.pal_default_config:0000000000000000 pal_default_config
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccb6NcwP.s:61     .rodata.pal_default_config:0000000000000000 $d
+                     .debug_frame:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+stm32_clock_init
