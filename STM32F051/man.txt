@@ -1,0 +1,17 @@
+NAME
+	adc
+
+DESCRIPTION
+	adc is the systems method for using the analogue to digital converter provided by the host microcontroller.
+	This can be used to poll one or multiple pins in one shot or continuous mode. Output is selectable based on 
+	locations enabled.
+
+USAGE
+	adc -12345 -c >output.txt
+
+NAME
+	pwm
+
+DESCRIPTION
+	
+

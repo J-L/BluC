@@ -26,6 +26,13 @@ void cmdGetBattery(BaseSequentialStream *chp, int argc, char *argv[])
 
 }
 
+/*
+cmdAdc
+	handles the 'adc' command when entered, making sense of the command
+	received,  setting up the adc, callback etc.
+
+*/
+
 void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
     chprintf(chp, "Hello World");  

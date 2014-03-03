@@ -1,0 +1,2 @@
+DRC SAVE '/Users/John/Documents/bluc/R3/bluc_r3.dru';
+RUN eagle2freerouter.ulp 'bluc_r3.dru';

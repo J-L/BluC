@@ -1,0 +1,384 @@
+(PCB "/Users/John/Documents/bluc/R3/bluc_r3.brd"
+  (parser
+    (string_quote ")
+    (space_in_quoted_tokens on)
+    (host_cad CadSoft)
+    (host_version 'Eagle V 6.5 - Using eagle2freerouter.ulp, version 30 Sept 2013, on 2/24/2014 7:39 PM')
+    (case_sensitive off)
+    (via_rotate_first on)
+  )
+  (resolution inch 2540000)
+  (unit inch)
+  (structure
+    (layer "1#Top" (type signal))
+    (layer "16#Bottom" (type signal))
+    (boundary
+      (rect pcb 0.000000 0.450000 1.037008 2.549606))
+    (boundary
+      (path signal 0 0.000000 0.450000 1.037008 0.450000 1.037008 2.549606 0.000000 2.549606  0.000000 0.450000)
+      (clearance_class boundary)
+    )
+    (via
+      "Round1$0.024000"
+    )
+    (control
+      (via_at_smd on)
+    )
+    (rule (width 0.010000)(clearance 0.008000))
+    (rule (clearance 0.040000 (type default_boundary)))
+    (rule (clearance 0.040000 (type area_wire)))
+    (rule (clearance 0.040000 (type area_via)))
+  )
+  (placement
+    (place_control (flip_style rotate_first))
+    (component "1X07$SparkFun-Connectors"
+      (place "JP1" 0.650000 0.550000 Front 180.000000)
+    )
+    (component "1X05$SparkFun-Connectors"
+      (place "JP2" 0.900000 2.150000 Front 270.000000)
+    )
+    (component "1X02$SparkFun-Connectors"
+      (place "JP3" 0.500000 0.800000 Front 0.000000)
+    )
+    (component "1X07$SparkFun-Connectors"
+      (place "JP4" 0.900000 0.800000 Front 90.000000)
+    )
+    (component "32768_CRYSTAL_PACKAGE$bluec"
+      (place "Q1" 0.550000 2.200000 Front 90.000000)
+    )
+    (component "R0603$bluec"
+      (place "R1" 0.850000 2.450000 Front 90.000000)
+    )
+    (component "R0603$bluec"
+      (place "R2" 0.850000 2.300000 Front 90.000000)
+    )
+    (component "C0805K$bluec"
+      (place "R3" 0.150000 2.200000 Back 270.000000)
+    )
+    (component "C0805K$bluec"
+      (place "R4" 0.050000 2.200000 Back 270.000000)
+    )
+    (component "R0603$bluec"
+      (place "R5" 0.150000 2.350000 Back 270.000000)
+    )
+    (component "R0603$bluec"
+      (place "R6" 0.050000 2.350000 Back 90.000000)
+    )
+    (component "LQFP32-7X7$bluec"
+      (place "U$1" 0.350000 1.500000 Front 0.000000)
+    )
+    (component "HC-05$bluec"
+      (place "U$2" 0.600000 1.050000 Back 0.000000)
+    )
+    (component "SOT23$bluec"
+      (place "U$3" 0.900000 1.550000 Front 90.000000)
+    )
+    (component "SOT23$bluec"
+      (place "U$4" 0.900000 0.600000 Front 90.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$5" 0.600000 1.150000 Front 270.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$6" 0.700000 1.150000 Front 270.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$7" 0.100000 2.050000 Front 0.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$8" 0.100000 1.950000 Front 0.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$9" 0.100000 2.150000 Front 0.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$10" 0.100000 0.900000 Front 180.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$11" 0.950000 2.400000 Front 0.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$12" 0.950000 2.300000 Front 0.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$13" 0.350000 2.300000 Front 90.000000)
+    )
+    (component "C0805K$bluec"
+      (place "U$14" 0.700000 2.300000 Front 90.000000)
+    )
+  )
+  (library
+    (image "1X02$SparkFun-Connectors"
+      (pin "Round1" "1" 0.000000 0.000000)
+      (pin "Round1" "2" 0.100000 0.000000)
+    )
+    (image "1X05$SparkFun-Connectors"
+      (pin "Round1" "1" 0.000000 0.000000)
+      (pin "Round1" "2" 0.100000 0.000000)
+      (pin "Round1" "3" 0.200000 0.000000)
+      (pin "Round1" "4" 0.300000 0.000000)
+      (pin "Round1" "5" 0.400000 0.000000)
+    )
+    (image "1X07$SparkFun-Connectors"
+      (pin "Round1" "1" 0.000000 0.000000)
+      (pin "Round1" "2" 0.100000 0.000000)
+      (pin "Round1" "3" 0.200000 0.000000)
+      (pin "Round1" "4" 0.300000 0.000000)
+      (pin "Round1" "5" 0.400000 0.000000)
+      (pin "Round1" "6" 0.500000 0.000000)
+      (pin "Round1" "7" 0.600000 0.000000)
+    )
+    (image "32768_CRYSTAL_PACKAGE$bluec"
+      (pin "SMD_1" "1" -0.023622 -0.035433)
+      (pin "SMD_1" "2" 0.188976 -0.035433)
+      (pin "SMD_1" "3" 0.188976 0.090551)
+      (pin "SMD_1" "4" -0.023622 0.090551)
+    )
+    (image "C0805K$bluec"
+      (pin "SMD_2" "1" -0.039370 0.000000)
+      (pin "SMD_2" "2" 0.039370 0.000000)
+    )
+    (image "HC-05$bluec"
+      (pin "SMD_3" "3.3V" -0.011811 0.118110)
+      (pin "SMD_3" "AIO0" -0.011811 0.295276)
+      (pin "SMD_3" "AIO1" -0.011811 0.236220)
+      (pin "SMD_4" "CLK" 0.338583 -0.027559)
+      (pin "SMD_4" "CSB" 0.161417 -0.027559)
+      (pin "SMD_3" "CTS" -0.011811 0.649606)
+      (pin "SMD_3" "GND0" -0.011811 0.059055)
+      (pin "SMD_4" "GND1" 0.456693 -0.027559)
+      (pin "SMD_3" "GND2" 0.511811 0.059055)
+      (pin "SMD_4" "MISO" 0.279528 -0.027559)
+      (pin "SMD_4" "MOSI" 0.220472 -0.027559)
+      (pin "SMD_4" "NC" 0.043307 -0.027559)
+      (pin "SMD_3" "PCM_CLK" -0.011811 0.531496)
+      (pin "SMD_3" "PCM_IN" -0.011811 0.413386)
+      (pin "SMD_3" "PCM_OUT" -0.011811 0.472441)
+      (pin "SMD_3" "PCM_SYNC" -0.011811 0.354331)
+      (pin "SMD_3" "PIO0" 0.511811 0.118110)
+      (pin "SMD_3" "PIO1" 0.511811 0.177165)
+      (pin "SMD_3" "PIO2" 0.511811 0.236220)
+      (pin "SMD_3" "PIO3" 0.511811 0.295276)
+      (pin "SMD_3" "PIO4" 0.511811 0.354331)
+      (pin "SMD_3" "PIO5" 0.511811 0.413386)
+      (pin "SMD_3" "PIO6" 0.511811 0.472441)
+      (pin "SMD_3" "PIO7" 0.511811 0.531496)
+      (pin "SMD_3" "PIO8" 0.511811 0.590551)
+      (pin "SMD_3" "PIO9" 0.511811 0.649606)
+      (pin "SMD_3" "PIO10" 0.511811 0.708661)
+      (pin "SMD_3" "PIO11" 0.511811 0.767717)
+      (pin "SMD_3" "RESET" -0.011811 0.177165)
+      (pin "SMD_3" "RTS" -0.011811 0.590551)
+      (pin "SMD_3" "RX" -0.011811 0.708661)
+      (pin "SMD_3" "TX" -0.011811 0.767717)
+      (pin "SMD_4" "USB_D+" 0.397638 -0.027559)
+      (pin "SMD_4" "USB_D-" 0.102362 -0.027559)
+    )
+    (image "LQFP32-7X7$bluec"
+      (pin "SMD_5" "1" -0.169291 0.110236)
+      (pin "SMD_5" "2" -0.169291 0.078740)
+      (pin "SMD_5" "3" -0.169291 0.047244)
+      (pin "SMD_5" "4" -0.169291 0.015748)
+      (pin "SMD_5" "5" -0.169291 -0.015748)
+      (pin "SMD_5" "6" -0.169291 -0.047244)
+      (pin "SMD_5" "7" -0.169291 -0.078740)
+      (pin "SMD_5" "8" -0.169291 -0.110236)
+      (pin "SMD_6" "9" -0.110236 -0.169291)
+      (pin "SMD_6" "10" -0.078740 -0.169291)
+      (pin "SMD_6" "11" -0.047244 -0.169291)
+      (pin "SMD_6" "12" -0.015748 -0.169291)
+      (pin "SMD_6" "13" 0.015748 -0.169291)
+      (pin "SMD_6" "14" 0.047244 -0.169291)
+      (pin "SMD_6" "15" 0.078740 -0.169291)
+      (pin "SMD_6" "16" 0.110236 -0.169291)
+      (pin "SMD_5" "17" 0.169291 -0.110236)
+      (pin "SMD_5" "18" 0.169291 -0.078740)
+      (pin "SMD_5" "19" 0.169291 -0.047244)
+      (pin "SMD_5" "20" 0.169291 -0.015748)
+      (pin "SMD_5" "21" 0.169291 0.015748)
+      (pin "SMD_5" "22" 0.169291 0.047244)
+      (pin "SMD_5" "23" 0.169291 0.078740)
+      (pin "SMD_5" "24" 0.169291 0.110236)
+      (pin "SMD_6" "25" 0.110236 0.169291)
+      (pin "SMD_6" "26" 0.078740 0.169291)
+      (pin "SMD_6" "27" 0.047244 0.169291)
+      (pin "SMD_6" "28" 0.015748 0.169291)
+      (pin "SMD_6" "29" -0.015748 0.169291)
+      (pin "SMD_6" "30" -0.047244 0.169291)
+      (pin "SMD_6" "31" -0.078740 0.169291)
+      (pin "SMD_6" "32" -0.110236 0.169291)
+    )
+    (image "R0603$bluec"
+      (place_keepout(path "1#Top" 0 -0.057992 0.038701  0.057992 0.038701))
+      (place_keepout(path "1#Top" 0 0.057992 0.038701  0.057992 -0.038701))
+      (place_keepout(path "1#Top" 0 0.057992 -0.038701  -0.057992 -0.038701))
+      (place_keepout(path "1#Top" 0 -0.057992 -0.038701  -0.057992 0.038701))
+      (pin "SMD_7" "1" -0.033465 0.000000)
+      (pin "SMD_7" "2" 0.033465 0.000000)
+    )
+    (image "SOT23$bluec"
+      (pin "SMD_8" "1" -0.037402 -0.043307)
+      (pin "SMD_8" "2" 0.037402 -0.043307)
+      (pin "SMD_9" "3" 0.000000 0.059055)
+    )
+    (padstack "ViaDefault$0.024000"
+      (shape (circle signal 0.040000 0 0))
+      (attach off)
+    )
+    (padstack "Round1$0.024000"
+      (shape (circle "1#Top" 0.040000 0 0))
+      (shape (circle "16#Bottom" 0.040000 0 0))
+      (attach off)
+    )
+    (padstack "SMD_1"
+      (shape (polygon "1#Top" 0 -0.025000 -0.037402 0.025000 -0.037402 0.025000 0.037402 -0.025000 0.037402))
+      (attach off)
+    )
+    (padstack "SMD_2"
+      (shape (polygon "1#Top" 0 0.025591 0.031496 -0.025591 0.031496 -0.025591 -0.031496 0.025591 -0.031496))
+      (attach off)
+    )
+    (padstack "SMD_3"
+      (shape (polygon "1#Top" 0 0.043000 0.021000 -0.043000 0.021000 -0.043000 -0.021000 0.043000 -0.021000))
+      (attach off)
+    )
+    (padstack "SMD_4"
+      (shape (polygon "1#Top" 0 -0.021000 0.043000 -0.021000 -0.043000 0.021000 -0.043000 0.021000 0.043000))
+      (attach off)
+    )
+    (padstack "SMD_5"
+      (shape (polygon "1#Top" 0 0.023622 -0.007874 0.023622 0.007874 -0.023622 0.007874 -0.023622 -0.007874))
+      (attach off)
+    )
+    (padstack "SMD_6"
+      (shape (polygon "1#Top" 0 0.007874 -0.023622 0.007874 0.023622 -0.007874 0.023622 -0.007874 -0.023622))
+      (attach off)
+    )
+    (padstack "SMD_7"
+      (shape (polygon "1#Top" 0 0.019685 0.021654 -0.019685 0.021654 -0.019685 -0.021654 0.019685 -0.021654))
+      (attach off)
+    )
+    (padstack "SMD_8"
+      (shape (polygon "1#Top" 0 0.019685 0.027559 -0.019685 0.027559 -0.019685 -0.027559 0.019685 -0.027559))
+      (attach off)
+    )
+    (padstack "SMD_9"
+      (shape (polygon "1#Top" 0 -0.016000 0.033000 -0.016000 -0.033000 0.016000 -0.033000 0.016000 0.033000))
+      (attach off)
+    )
+    (padstack "Round1"
+      (shape (circle "1#Top" 0.074000 0 0))
+      (shape (circle "16#Bottom" 0.074000 0 0))
+      (attach off)
+    )
+  )
+  (network
+    (net "GND"
+      (pins "U$1"-"16" "U$2"-"GND0" "U$5"-"2" "U$6"-"2" "U$1"-"32" "U$7"-"2" "U$8"-"2" "U$9"-"2" "R5"-"2" "R6"-"2" "JP2"-"3" "JP4"-"2" "U$12"-"2" "U$11"-"2" "U$14"-"2" "U$13"-"2" "U$10"-"2")
+    )
+    (net "N$1"
+      (pins "U$1"-"20" "U$2"-"TX" "JP3"-"2")
+    )
+    (net "N$2"
+      (pins "U$1"-"19" "U$2"-"RX" "JP3"-"1")
+    )
+    (net "N$3"
+      (pins "U$1"-"21" "U$2"-"RTS")
+    )
+    (net "N$4"
+      (pins "U$1"-"22" "U$2"-"CTS")
+    )
+    (net "N$6"
+      (pins "U$1"-"25" "U$2"-"PIO11")
+    )
+    (net "N$7"
+      (pins "U$1"-"18" "U$3"-"1")
+    )
+    (net "N$8"
+      (pins "U$1"-"17" "U$3"-"3")
+    )
+    (net "N$9"
+      (pins "U$1"-"6" "JP1"-"7")
+    )
+    (net "N$10"
+      (pins "U$3"-"2" "U$2"-"3.3V" "U$4"-"3" "U$5"-"1" "U$6"-"1")
+    )
+    (net "N$11"
+      (pins "U$1"-"23" "JP2"-"5")
+    )
+    (net "N$12"
+      (pins "U$1"-"24" "JP2"-"4")
+    )
+    (net "N$13"
+      (pins "U$1"-"4" "U$10"-"1" "JP2"-"1")
+    )
+    (net "N$14"
+      (pins "U$1"-"7" "JP1"-"6")
+    )
+    (net "N$15"
+      (pins "U$1"-"1" "U$1"-"5" "U$7"-"1" "U$9"-"1" "U$8"-"1" "JP2"-"2" "JP4"-"4")
+    )
+    (net "N$16"
+      (pins "U$1"-"8" "JP1"-"5")
+    )
+    (net "N$17"
+      (pins "U$1"-"15" "U$4"-"1")
+    )
+    (net "N$19"
+      (pins "U$11"-"1" "R1"-"1" "R2"-"2")
+    )
+    (net "N$20"
+      (pins "U$1"-"9" "JP1"-"4")
+    )
+    (net "N$21"
+      (pins "U$1"-"14" "R1"-"2")
+    )
+    (net "N$22"
+      (pins "R2"-"1" "JP4"-"3" "U$12"-"1")
+    )
+    (net "N$23"
+      (pins "U$1"-"10" "JP1"-"3")
+    )
+    (net "N$24"
+      (pins "U$1"-"11" "JP1"-"2")
+    )
+    (net "N$25"
+      (pins "U$1"-"12" "JP1"-"1")
+    )
+    (net "N$26"
+      (pins "U$1"-"13" "JP4"-"7")
+    )
+    (net "N$28"
+      (pins "U$4"-"2" "JP4"-"1")
+    )
+    (net "N$29"
+      (pins "R4"-"1" "R6"-"1")
+    )
+    (net "N$30"
+      (pins "U$1"-"28" "JP4"-"5")
+    )
+    (net "N$31"
+      (pins "U$1"-"29" "JP4"-"6")
+    )
+    (net "N$32"
+      (pins "U$1"-"3" "Q1"-"1" "U$14"-"1")
+    )
+    (net "N$33"
+      (pins "U$1"-"2" "Q1"-"4" "U$13"-"1")
+    )
+    (net "N$35"
+      (pins "U$1"-"27" "R4"-"2")
+    )
+    (net "N$36"
+      (pins "U$1"-"26" "R3"-"2")
+    )
+    (net "N$37"
+      (pins "R3"-"1" "R5"-"1")
+    )
+    (net "N$38"
+      (pins "U$1"-"30" "U$2"-"PIO9")
+    )
+  )
+  (wiring
+  )
+)
