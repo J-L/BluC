@@ -20,6 +20,7 @@
 #include "shell.h"
 #include "cmd.h"
 #include "chprintf.h"
+#include "cmdadc.h"
 
 
 #define ADC_GRP1_NUM_CHANNELS   1
@@ -30,6 +31,8 @@
 
 #define SHELL_WA_SIZE   THD_WA_SIZE(1024)
 
+
+ Thread *sh = NULL;
 
 
 /*

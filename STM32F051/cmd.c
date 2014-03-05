@@ -1,17 +1,22 @@
 
-
 #include "ch.h"
 #include "hal.h"
-#include "chprintf.h"
 #include "shell.h"
+#include "chprintf.h"
+#include "cmdadc.h"
+        
 
 
-
+static WORKING_AREA(adcTempArea, 128);
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-    chprintf(chp, "Hello World");  
-
+	(void)chThdCreateStatic(adcTempArea,
+		sizeof(adcTempArea),
+		NORMALPRIO,    /* Initial priority.    */
+		adcConversionThread,      /* Thread function.     */
+                NULL); 
+chThdSleepMilliseconds(500);
 }
 
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 
