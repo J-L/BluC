@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
   55              		.loc 1 120 0
   56 001a 5068     		ldr	r0, [r2, #4]
   57 001c 9847     		blx	r3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 2
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 2
 
 
   58              	.LVL3:
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  110 0012 0A01     		lsl	r2, r1, #4
  111 0014 5A60     		str	r2, [r3, #4]
  112              		.loc 1 139 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 3
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 3
 
 
  113 0016 0D4A     		ldr	r2, .L22+4
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  167              		.type	Vector6C, %function
  168              	Vector6C:
  169              	.LFB42:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 4
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 4
 
 
  170              		.loc 1 159 0
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  224              	.LVL21:
  225              	.L29:
  226              		.loc 1 180 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 5
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 5
 
 
  227 003c FFF7FEFF 		bl	dbg_check_leave_isr
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  281 001a 1361     		str	r3, [r2, #16]
  282              	.LVL28:
  283              		.loc 1 197 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 6
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 6
 
 
  284 001c 0B60     		str	r3, [r1]
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  338              		.loc 1 235 0
  339 0006 194C     		ldr	r4, .L50
  340              		.loc 1 230 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 7
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 7
 
 
  341 0008 8C46     		mov	ip, r1
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  395              		.loc 1 252 0
  396 0050 0029     		cmp	r1, #0
  397 0052 09D0     		beq	.L46
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 8
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 8
 
 
  398              		.loc 1 253 0
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  451 0006 FFF7FEFF 		bl	nvicDisableVector
  452              	.LVL42:
  453              		.loc 1 283 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 9
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 9
 
 
  454 000a 637A     		ldrb	r3, [r4, #9]
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  502 000b 00       		.space	1
  503 000c 1C000240 		.word	1073872924
  504 0010 04000240 		.word	1073872900
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 10
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 10
 
 
  505 0014 04       		.byte	4
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  559 0027 05       		.byte	0x5
  560 0028 696E7400 		.ascii	"int\000"
  561 002c 03       		.uleb128 0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 11
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 11
 
 
  562 002d 04       		.byte	0x4
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  616 0093 04       		.uleb128 0x4
  617 0094 B0000000 		.4byte	.LASF13
  618 0098 04       		.byte	0x4
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 12
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 12
 
 
  619 0099 A0       		.byte	0xa0
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  673 0102 22040000 		.4byte	.LASF27
  674 0106 06       		.sleb128 6
  675 0107 08       		.uleb128 0x8
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 13
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 13
 
 
  676 0108 01050000 		.4byte	.LASF28
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  730 0174 FC030000 		.4byte	.LASF46
  731 0178 1A       		.sleb128 26
  732 0179 08       		.uleb128 0x8
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 14
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 14
 
 
  733 017a 23020000 		.4byte	.LASF47
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  787 01eb 00       		.byte	0
  788 01ec 0B       		.uleb128 0xb
  789 01ed ED010000 		.4byte	.LASF54
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 15
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 15
 
 
  790 01f1 05       		.byte	0x5
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  844 0262 1F02     		.2byte	0x21f
  845 0264 A0000000 		.4byte	0xa0
  846 0268 18       		.byte	0x18
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 16
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 16
 
 
  847 0269 0B       		.uleb128 0xb
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  901 02da 2F040000 		.4byte	.LASF67
  902 02de 06       		.byte	0x6
  903 02df B7       		.byte	0xb7
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 17
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 17
 
 
  904 02e0 16030000 		.4byte	0x316
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  958 034f 04       		.byte	0x4
  959 0350 54030000 		.4byte	0x354
  960 0354 12       		.uleb128 0x12
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 18
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 18
 
 
  961 0355 22030000 		.4byte	0x322
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1015 03d3 17       		.uleb128 0x17
  1016 03d4 01       		.uleb128 0x1
  1017 03d5 50       		.byte	0x50
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 19
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 19
 
 
  1018 03d6 02       		.uleb128 0x2
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1072 044b 01       		.byte	0x1
  1073 044c A0       		.byte	0xa0
  1074 044d 61000000 		.4byte	0x61
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 20
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 20
 
 
  1075 0451 57000000 		.4byte	.LLST4
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1129 04ca 4E030000 		.4byte	0x34e
  1130 04ce D8000000 		.4byte	.LLST7
  1131 04d2 1B       		.uleb128 0x1b
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 21
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 21
 
 
  1132 04d3 1F000000 		.4byte	.LASF84
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1186 054a 61000000 		.4byte	0x61
  1187 054e 05       		.uleb128 0x5
  1188 054f 03       		.byte	0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 22
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 22
 
 
  1189 0550 00000000 		.4byte	dma_streams_mask
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1243 05c7 11       		.uleb128 0x11
  1244 05c8 61000000 		.4byte	0x61
  1245 05cc 11       		.uleb128 0x11
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 23
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 23
 
 
  1246 05cd 61000000 		.4byte	0x61
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1300 002a 16       		.uleb128 0x16
  1301 002b 00       		.byte	0
  1302 002c 03       		.uleb128 0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 24
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 24
 
 
  1303 002d 0E       		.uleb128 0xe
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1357 0063 3B       		.uleb128 0x3b
  1358 0064 05       		.uleb128 0x5
  1359 0065 01       		.uleb128 0x1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 25
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 25
 
 
  1360 0066 13       		.uleb128 0x13
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1414 009c 0B       		.uleb128 0xb
  1415 009d 01       		.uleb128 0x1
  1416 009e 13       		.uleb128 0x13
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 26
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 26
 
 
  1417 009f 00       		.byte	0
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1471 00d5 03       		.uleb128 0x3
  1472 00d6 0E       		.uleb128 0xe
  1473 00d7 3A       		.uleb128 0x3a
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 27
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 27
 
 
  1474 00d8 0B       		.uleb128 0xb
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1528 0115 18       		.uleb128 0x18
  1529 0116 9142     		.uleb128 0x2111
  1530 0118 18       		.uleb128 0x18
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 28
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 28
 
 
  1531 0119 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1585 0150 19       		.uleb128 0x19
  1586 0151 49       		.uleb128 0x49
  1587 0152 13       		.uleb128 0x13
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 29
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 29
 
 
  1588 0153 11       		.uleb128 0x11
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1642 018b 00       		.byte	0
  1643 018c 03       		.uleb128 0x3
  1644 018d 0E       		.uleb128 0xe
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 30
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 30
 
 
  1645 018e 3A       		.uleb128 0x3a
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1699 01c4 3F       		.uleb128 0x3f
  1700 01c5 19       		.uleb128 0x19
  1701 01c6 02       		.uleb128 0x2
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 31
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 31
 
 
  1702 01c7 18       		.uleb128 0x18
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1756 01fd 00       		.byte	0
  1757 01fe 00       		.byte	0
  1758 01ff 00       		.byte	0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 32
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 32
 
 
  1759              		.section	.debug_loc,"",%progbits
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1813 008c 10000000 		.4byte	.LVL26
  1814 0090 0200     		.2byte	0x2
  1815 0092 30       		.byte	0x30
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 33
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 33
 
 
  1816 0093 9F       		.byte	0x9f
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1870 0119 5C       		.byte	0x5c
  1871 011a 5D000000 		.4byte	.LVL37-1
  1872 011e 68000000 		.4byte	.LVL39
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 34
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 34
 
 
  1873 0122 0400     		.2byte	0x4
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1927 01a2 68000000 		.4byte	.LVL39
  1928 01a6 78000000 		.4byte	.LFE44
  1929 01aa 0100     		.2byte	0x1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 35
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 35
 
 
  1930 01ac 59       		.byte	0x59
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  1984 0024 78000000 		.4byte	.LFE44
  1985 0028 00000000 		.4byte	.LFB45
  1986 002c 34000000 		.4byte	.LFE45
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 36
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 36
 
 
  1987 0030 00000000 		.4byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2014              	.LASF100:
  2015 006f 6E766963 		.ascii	"nvicDisableVector\000"
  2015      44697361 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 37
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 37
 
 
  2015      626C6556 
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2043      382E3320 
  2043      32303133 
  2043      31313239 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 38
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 38
 
 
  2044 012a 616E6368 		.ascii	"anch revision 205641] -mcpu=cortex-m0 -mno-thumb-in"
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2065      52516E00 
  2066              	.LASF19:
  2067 022f 50656E64 		.ascii	"PendSV_IRQn\000"
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 39
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 39
 
 
  2067      53565F49 
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2092      4952516E 
  2092      00
  2093              	.LASF74:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 40
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 40
 
 
  2094 02eb 646D615F 		.ascii	"dma_func\000"
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2118      6B5F656E 
  2118      7465725F 
  2118      69737200 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 41
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 41
 
 
  2119              	.LASF41:
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2144      6C00
  2145              	.LASF27:
  2146 0422 45585449 		.ascii	"EXTI2_3_IRQn\000"
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 42
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 42
 
 
  2146      325F335F 
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2168      6E745F49 
  2168      52516E00 
  2169              	.LASF52:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 43
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 43
 
 
  2170 04d1 434D4152 		.ascii	"CMAR\000"
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2194 0565 2E2E2F2E 		.ascii	"../../os/hal/platforms/STM32F0xx/stm32_dma.c\000"
  2194      2E2F6F73 
  2194      2F68616C 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 44
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 44
 
 
  2194      2F706C61 
@@ -2591,39 +2591,39 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 1
  2198      65645F6C 
  2198      7200
  2199              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s 			page 45
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s 			page 45
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32_dma.c
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:18     .text.Vector64:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:24     .text.Vector64:0000000000000000 Vector64
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:73     .text.Vector64:000000000000002c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:79     .text.Vector68:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:85     .text.Vector68:0000000000000000 Vector68
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:156    .text.Vector68:0000000000000048 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:162    .text.Vector6C:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:168    .text.Vector6C:0000000000000000 Vector6C
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:239    .text.Vector6C:0000000000000048 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:245    .text.dmaInit:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:251    .text.dmaInit:0000000000000000 dmaInit
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:304    .text.dmaInit:0000000000000030 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:316    .text.dmaStreamAllocate:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:322    .text.dmaStreamAllocate:0000000000000000 dmaStreamAllocate
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:424    .text.dmaStreamAllocate:000000000000006c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:431    .text.dmaStreamRelease:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:437    .text.dmaStreamRelease:0000000000000000 dmaStreamRelease
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:479    .text.dmaStreamRelease:000000000000002c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:496    .rodata._stm32_dma_streams:0000000000000000 _stm32_dma_streams
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:486    .bss.dma_isr_redir:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:490    .bss.dma_isr_redir:0000000000000000 dma_isr_redir
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:493    .rodata._stm32_dma_streams:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:528    .bss.dma_streams_mask:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:532    .bss.dma_streams_mask:0000000000000000 dma_streams_mask
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:18     .text.Vector64:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:24     .text.Vector64:0000000000000000 Vector64
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:73     .text.Vector64:000000000000002c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:79     .text.Vector68:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:85     .text.Vector68:0000000000000000 Vector68
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:156    .text.Vector68:0000000000000048 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:162    .text.Vector6C:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:168    .text.Vector6C:0000000000000000 Vector6C
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:239    .text.Vector6C:0000000000000048 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:245    .text.dmaInit:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:251    .text.dmaInit:0000000000000000 dmaInit
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:304    .text.dmaInit:0000000000000030 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:316    .text.dmaStreamAllocate:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:322    .text.dmaStreamAllocate:0000000000000000 dmaStreamAllocate
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:424    .text.dmaStreamAllocate:000000000000006c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:431    .text.dmaStreamRelease:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:437    .text.dmaStreamRelease:0000000000000000 dmaStreamRelease
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:479    .text.dmaStreamRelease:000000000000002c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:496    .rodata._stm32_dma_streams:0000000000000000 _stm32_dma_streams
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:486    .bss.dma_isr_redir:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:490    .bss.dma_isr_redir:0000000000000000 dma_isr_redir
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:493    .rodata._stm32_dma_streams:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:528    .bss.dma_streams_mask:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:532    .bss.dma_streams_mask:0000000000000000 dma_streams_mask
                      .debug_frame:0000000000000010 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:78     .text.Vector64:0000000000000034 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:430    .text.dmaStreamAllocate:0000000000000078 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccZSBPzL.s:485    .text.dmaStreamRelease:0000000000000034 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:78     .text.Vector64:0000000000000034 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:430    .text.dmaStreamAllocate:0000000000000078 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccmgIsse.s:485    .text.dmaStreamRelease:0000000000000034 $t
 
 UNDEFINED SYMBOLS
 dbg_check_enter_isr

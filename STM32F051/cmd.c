@@ -5,8 +5,8 @@
 #include "chprintf.h"
 #include "cmdadc.h"
 extern int adcDataReady;        
-
-
+extern float value;
+float valu = 12.0;
 
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -19,7 +19,9 @@ void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[])
 	{	
 		chprintf((BaseSequentialStream*)&SD1, "waiting");
 	}
-	chprintf((BaseSequentialStream*)&SD1, "DOOOOOONE");
+	float value1 = 3.3*(value/40)*100;
+	float valu2 = 12.54;
+	chprintf(chp, "TEMP DCV: %2.6f \n\r", valu2); 
 }
 
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -47,7 +49,7 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 
 }
 
-void cmdPwm(BaseSequentialStream *chp, int argc, char *argv[]) 
+void cmdDac(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
     chprintf(chp, "Hello World");  
 
@@ -70,3 +72,26 @@ void cmdBluetooth(BaseSequentialStream *chp, int argc, char *argv[])
     chprintf(chp, "Hello World");  
 
 }
+
+
+
+void cmdI2c(BaseSequentialStream *chp, int argc, char *argv[]) 
+{
+    chprintf(chp, "Hello World");  
+
+}
+
+
+void cmdPwm(BaseSequentialStream *chp, int argc, char *argv[]) 
+{
+    chprintf(chp, "Hello World");  
+
+}
+
+void cmdDate(BaseSequentialStream *chp, int argc, char *argv[]) 
+{
+    chprintf(chp, "Hello World");  
+
+}
+
+
