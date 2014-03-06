@@ -1306,16 +1306,14 @@ Discarded input sections
  .text          0x0000000000000000        0x0 build/obj/cmdadc.o
  .data          0x0000000000000000        0x0 build/obj/cmdadc.o
  .bss           0x0000000000000000        0x0 build/obj/cmdadc.o
+ .text.chprintf.constprop.0
+                0x0000000000000000       0x30 build/obj/cmdadc.o
  .text.hello    0x0000000000000000       0x20 build/obj/cmdadc.o
- .text.adcTempCallBack
-                0x0000000000000000       0x20 build/obj/cmdadc.o
- .data.bufferDepth
-                0x0000000000000000        0x4 build/obj/cmdadc.o
+ .rodata.str1.4
+                0x0000000000000000        0x8 build/obj/cmdadc.o
  .text          0x0000000000000000        0x0 build/obj/cmd.o
  .data          0x0000000000000000        0x0 build/obj/cmd.o
  .bss           0x0000000000000000        0x0 build/obj/cmd.o
- .text.chprintf.constprop.0
-                0x0000000000000000       0x20 build/obj/cmd.o
  .text.cmdGetVoltage
                 0x0000000000000000       0x10 build/obj/cmd.o
  .text.cmdGetBattery
@@ -1326,8 +1324,6 @@ Discarded input sections
  .text.cmdSpi   0x0000000000000000       0x10 build/obj/cmd.o
  .text.cmdBluetooth
                 0x0000000000000000       0x10 build/obj/cmd.o
- .rodata.str1.4
-                0x0000000000000000        0xc build/obj/cmd.o
  .text          0x0000000000000000        0x0 build/obj/main.o
  .data          0x0000000000000000        0x0 build/obj/main.o
  .bss           0x0000000000000000        0x0 build/obj/main.o
@@ -1472,7 +1468,7 @@ destructors     0x00000000080000c0        0x0
  *(SORT(.fini_array.*))
                 0x00000000080000c0                PROVIDE (__fini_array_end, .)
 
-.text           0x00000000080000c0     0x2d94
+.text           0x00000000080000c0     0x2da4
  *(.text.startup.*)
  .text.startup.main
                 0x00000000080000c0       0xb0 build/obj/main.o
@@ -1841,107 +1837,108 @@ destructors     0x00000000080000c0        0x0
  .text.chvprintf
                 0x0000000008002340      0x270 build/obj/chprintf.o
                 0x0000000008002340                chvprintf
- .text.chprintf.constprop.0
-                0x00000000080025b0       0x20 build/obj/cmdadc.o
+ .text.adcTempCallBack
+                0x00000000080025b0       0x10 build/obj/cmdadc.o
+                0x00000000080025b0                adcTempCallBack
  .text.adcErrorCallBack
-                0x00000000080025d0       0x20 build/obj/cmdadc.o
-                0x00000000080025d0                adcErrorCallBack
+                0x00000000080025c0       0x10 build/obj/cmdadc.o
+                0x00000000080025c0                adcErrorCallBack
  .text.adcConversionThread
-                0x00000000080025f0       0x60 build/obj/cmdadc.o
-                0x00000000080025f0                adcConversionThread
+                0x00000000080025d0       0x30 build/obj/cmdadc.o
+                0x00000000080025d0                adcConversionThread
+ .text.chprintf
+                0x0000000008002600       0x20 build/obj/cmd.o
  .text.cmdGetTemp
-                0x0000000008002650       0x30 build/obj/cmd.o
-                0x0000000008002650                cmdGetTemp
- .text.Thread2  0x0000000008002680       0x30 build/obj/main.o
- .text.Thread1  0x00000000080026b0       0x40 build/obj/main.o
+                0x0000000008002620       0x70 build/obj/cmd.o
+                0x0000000008002620                cmdGetTemp
+ .text.Thread2  0x0000000008002690       0x30 build/obj/main.o
+ .text.Thread1  0x00000000080026c0       0x40 build/obj/main.o
  .text.strcasecmp
-                0x00000000080026f0       0x4c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcasecmp.o)
-                0x00000000080026f0                strcasecmp
- *fill*         0x000000000800273c        0x4 
- .text.strpbrk  0x0000000008002740       0x54 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strpbrk.o)
-                0x0000000008002740                strpbrk
- *fill*         0x0000000008002794        0xc 
- .text.strspn   0x00000000080027a0       0x38 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strspn.o)
-                0x00000000080027a0                strspn
+                0x0000000008002700       0x4c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcasecmp.o)
+                0x0000000008002700                strcasecmp
+ *fill*         0x000000000800274c        0x4 
+ .text.strpbrk  0x0000000008002750       0x54 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strpbrk.o)
+                0x0000000008002750                strpbrk
+ *fill*         0x00000000080027a4        0xc 
+ .text.strspn   0x00000000080027b0       0x38 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strspn.o)
+                0x00000000080027b0                strspn
  *(.rodata)
  *(.rodata.*)
- *fill*         0x00000000080027d8        0x8 
+ *fill*         0x00000000080027e8        0x8 
  .rodata.str1.4
-                0x00000000080027e0        0x5 build/obj/chsys.o
+                0x00000000080027f0        0x5 build/obj/chsys.o
                                           0x8 (size before relaxing)
- *fill*         0x00000000080027e5        0xb 
+ *fill*         0x00000000080027f5        0xb 
  .rodata.str1.4
-                0x00000000080027f0       0x56 build/obj/chdebug.o
+                0x0000000008002800       0x56 build/obj/chdebug.o
                                          0x58 (size before relaxing)
- *fill*         0x0000000008002846        0xa 
+ *fill*         0x0000000008002856        0xa 
  .rodata.ch_debug
-                0x0000000008002850       0x18 build/obj/chregistry.o
-                0x0000000008002850                ch_debug
- *fill*         0x0000000008002868        0x8 
- .rodata.vmt    0x0000000008002870       0x20 build/obj/serial.o
+                0x0000000008002860       0x18 build/obj/chregistry.o
+                0x0000000008002860                ch_debug
+ *fill*         0x0000000008002878        0x8 
+ .rodata.vmt    0x0000000008002880       0x20 build/obj/serial.o
  .rodata._stm32_dma_streams
-                0x0000000008002890       0x3c build/obj/stm32_dma.o
-                0x0000000008002890                _stm32_dma_streams
- *fill*         0x00000000080028cc        0x4 
+                0x00000000080028a0       0x3c build/obj/stm32_dma.o
+                0x00000000080028a0                _stm32_dma_streams
+ *fill*         0x00000000080028dc        0x4 
  .rodata.default_config
-                0x00000000080028d0       0x10 build/obj/serial_lld.o
+                0x00000000080028e0       0x10 build/obj/serial_lld.o
  .rodata.pal_default_config
-                0x00000000080028e0       0x8c build/obj/board.o
-                0x00000000080028e0                pal_default_config
- *fill*         0x000000000800296c        0x4 
+                0x00000000080028f0       0x8c build/obj/board.o
+                0x00000000080028f0                pal_default_config
+ *fill*         0x000000000800297c        0x4 
  .rodata.str1.4
-                0x0000000008002970      0x241 build/obj/shell.o
+                0x0000000008002980      0x241 build/obj/shell.o
                                         0x248 (size before relaxing)
- *fill*         0x0000000008002bb1        0xf 
+ *fill*         0x0000000008002bc1        0xf 
  .rodata.chvprintf
-                0x0000000008002bc0       0xd4 build/obj/chprintf.o
- *fill*         0x0000000008002c94        0xc 
+                0x0000000008002bd0       0xd4 build/obj/chprintf.o
+ *fill*         0x0000000008002ca4        0xc 
  .rodata.str1.4
-                0x0000000008002ca0        0x7 build/obj/chprintf.o
+                0x0000000008002cb0        0x7 build/obj/chprintf.o
                                           0x8 (size before relaxing)
- *fill*         0x0000000008002ca7        0x9 
- .rodata.str1.4
-                0x0000000008002cb0       0x35 build/obj/cmdadc.o
-                                         0x38 (size before relaxing)
- *fill*         0x0000000008002ce5        0xb 
+ *fill*         0x0000000008002cb7        0x9 
  .rodata.adcgrpcfg1
-                0x0000000008002cf0       0x1c build/obj/cmdadc.o
- *fill*         0x0000000008002d0c        0x4 
- .rodata.shCmds
-                0x0000000008002d10       0x10 build/obj/main.o
-                0x0000000008002d10                shCmds
- .rodata.shCfg  0x0000000008002d20        0x8 build/obj/main.o
- *fill*         0x0000000008002d28        0x8 
+                0x0000000008002cc0       0x1c build/obj/cmdadc.o
+ *fill*         0x0000000008002cdc        0x4 
  .rodata.str1.4
-                0x0000000008002d30       0x20 build/obj/main.o
+                0x0000000008002ce0       0x40 build/obj/cmd.o
+ .rodata.shCmds
+                0x0000000008002d20       0x10 build/obj/main.o
+                0x0000000008002d20                shCmds
+ .rodata.shCfg  0x0000000008002d30        0x8 build/obj/main.o
+ *fill*         0x0000000008002d38        0x8 
+ .rodata.str1.4
+                0x0000000008002d40       0x20 build/obj/main.o
  .rodata._ctype_
-                0x0000000008002d50      0x104 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-ctype_.o)
-                0x0000000008002d50                _ctype_
+                0x0000000008002d60      0x104 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-ctype_.o)
+                0x0000000008002d60                _ctype_
  *(.glue_7t)
  .glue_7t       0x0000000000000000        0x0 linker stubs
  *(.glue_7)
  .glue_7        0x0000000000000000        0x0 linker stubs
  *(.gcc*)
 
-.vfp11_veneer   0x0000000008002e54        0x0
+.vfp11_veneer   0x0000000008002e64        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000008002e54        0x0
+.v4_bx          0x0000000008002e64        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000008002e54        0x0
+.iplt           0x0000000008002e64        0x0
  .iplt          0x0000000000000000        0x0 build/obj/crt0.o
 
-.rel.dyn        0x0000000008002e54        0x0
+.rel.dyn        0x0000000008002e64        0x0
  .rel.iplt      0x0000000000000000        0x0 build/obj/crt0.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM.exidx      0x0000000008002e54        0x0
-                0x0000000008002e54                PROVIDE (__exidx_start, .)
+.ARM.exidx      0x0000000008002e64        0x0
+                0x0000000008002e64                PROVIDE (__exidx_start, .)
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0000000008002e54                PROVIDE (__exidx_end, .)
+                0x0000000008002e64                PROVIDE (__exidx_end, .)
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -1949,12 +1946,12 @@ destructors     0x00000000080000c0        0x0
 .eh_frame
  *(.eh_frame)
 
-.textalign      0x0000000008002e54        0x4
-                0x0000000008002e58                . = ALIGN (0x8)
- *fill*         0x0000000008002e54        0x4 
-                0x0000000008002e58                . = ALIGN (0x4)
-                0x0000000008002e58                _etext = .
-                0x0000000008002e58                _textdata = _etext
+.textalign      0x0000000008002e64        0x4
+                0x0000000008002e68                . = ALIGN (0x8)
+ *fill*         0x0000000008002e64        0x4 
+                0x0000000008002e68                . = ALIGN (0x4)
+                0x0000000008002e68                _etext = .
+                0x0000000008002e68                _textdata = _etext
 
 .stacks         0x0000000020000000      0x800
                 0x0000000020000000                . = ALIGN (0x8)
@@ -1971,7 +1968,7 @@ destructors     0x00000000080000c0        0x0
                 0x0000000020000800                __process_stack_end__ = .
                 0x0000000020000800                __main_thread_stack_end__ = .
 
-.data           0x0000000020000800       0x1c load address 0x0000000008002e58
+.data           0x0000000020000800       0x1c load address 0x0000000008002e68
                 0x0000000020000800                . = ALIGN (0x4)
                 0x0000000020000800                PROVIDE (_data, .)
  *(.data)
@@ -1987,10 +1984,10 @@ destructors     0x00000000080000c0        0x0
                 0x000000002000081c                . = ALIGN (0x4)
                 0x000000002000081c                PROVIDE (_edata, .)
 
-.igot.plt       0x000000002000081c        0x0 load address 0x0000000008002e74
+.igot.plt       0x000000002000081c        0x0 load address 0x0000000008002e84
  .igot.plt      0x0000000000000000        0x0 build/obj/crt0.o
 
-.bss            0x0000000020000820      0x658 load address 0x0000000008002e74
+.bss            0x0000000020000820      0x5e0 load address 0x0000000008002e84
                 0x0000000020000820                . = ALIGN (0x4)
                 0x0000000020000820                PROVIDE (_bss_start, .)
  *(.bss)
@@ -2029,25 +2026,27 @@ destructors     0x00000000080000c0        0x0
  .bss.shell_terminated
                 0x0000000020000a64        0x4 build/obj/shell.o
                 0x0000000020000a64                shell_terminated
- .bss.samples   0x0000000020000a68       0x80 build/obj/cmdadc.o
-                0x0000000020000a68                samples
- .bss.adcTempArea
-                0x0000000020000ae8      0x130 build/obj/cmd.o
+ .bss.adcDataReady
+                0x0000000020000a68        0x4 build/obj/cmdadc.o
+                0x0000000020000a68                adcDataReady
+ *fill*         0x0000000020000a6c        0x4 
+ .bss.adcTempArea.5718
+                0x0000000020000a70      0x130 build/obj/cmd.o
  .bss.waThread1
-                0x0000000020000c18      0x130 build/obj/main.o
+                0x0000000020000ba0      0x130 build/obj/main.o
  .bss.waThread2
-                0x0000000020000d48      0x130 build/obj/main.o
-                0x0000000020000e78                . = ALIGN (0x4)
+                0x0000000020000cd0      0x130 build/obj/main.o
+                0x0000000020000e00                . = ALIGN (0x4)
  *(COMMON)
-                0x0000000020000e78                . = ALIGN (0x4)
-                0x0000000020000e78                PROVIDE (_bss_end, .)
-                0x0000000020000e78                PROVIDE (end, .)
-                0x0000000020000e78                _end = .
-                0x0000000020000e78                __heap_base__ = _end
+                0x0000000020000e00                . = ALIGN (0x4)
+                0x0000000020000e00                PROVIDE (_bss_end, .)
+                0x0000000020000e00                PROVIDE (end, .)
+                0x0000000020000e00                _end = .
+                0x0000000020000e00                __heap_base__ = _end
                 0x0000000020002000                __heap_end__ = __ram_end__
 OUTPUT(build/ch.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0xf453
+.debug_info     0x0000000000000000     0xfea1
  .debug_info    0x0000000000000000      0x2ac build/obj/crt0.o
  .debug_info    0x00000000000002ac      0x1c1 build/obj/vectors.o
  .debug_info    0x000000000000046d       0x92 build/obj/chcore.o
@@ -2077,11 +2076,11 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .debug_info    0x000000000000b273      0x192 build/obj/board.o
  .debug_info    0x000000000000b405     0x13f3 build/obj/shell.o
  .debug_info    0x000000000000c7f8      0x633 build/obj/chprintf.o
- .debug_info    0x000000000000ce2b      0xf4f build/obj/cmdadc.o
- .debug_info    0x000000000000dd7a      0x8d5 build/obj/cmd.o
- .debug_info    0x000000000000e64f      0xe04 build/obj/main.o
+ .debug_info    0x000000000000ce2b      0xe40 build/obj/cmdadc.o
+ .debug_info    0x000000000000dc6b     0x1092 build/obj/cmd.o
+ .debug_info    0x000000000000ecfd     0x11a4 build/obj/main.o
 
-.debug_abbrev   0x0000000000000000     0x3bb4
+.debug_abbrev   0x0000000000000000     0x3bf0
  .debug_abbrev  0x0000000000000000       0xdc build/obj/crt0.o
  .debug_abbrev  0x00000000000000dc       0xaf build/obj/vectors.o
  .debug_abbrev  0x000000000000018b       0x42 build/obj/chcore.o
@@ -2111,11 +2110,11 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .debug_abbrev  0x0000000000002de9       0xc8 build/obj/board.o
  .debug_abbrev  0x0000000000002eb1      0x3b7 build/obj/shell.o
  .debug_abbrev  0x0000000000003268      0x252 build/obj/chprintf.o
- .debug_abbrev  0x00000000000034ba      0x2b7 build/obj/cmdadc.o
- .debug_abbrev  0x0000000000003771      0x1db build/obj/cmd.o
- .debug_abbrev  0x000000000000394c      0x268 build/obj/main.o
+ .debug_abbrev  0x00000000000034ba      0x295 build/obj/cmdadc.o
+ .debug_abbrev  0x000000000000374f      0x22c build/obj/cmd.o
+ .debug_abbrev  0x000000000000397b      0x275 build/obj/main.o
 
-.debug_loc      0x0000000000000000     0x4eb6
+.debug_loc      0x0000000000000000     0x4e32
  .debug_loc     0x0000000000000000       0xec build/obj/crt0.o
  .debug_loc     0x00000000000000ec       0x89 build/obj/chcore_v6m.o
  .debug_loc     0x0000000000000175      0x16a build/obj/nvic.o
@@ -2140,9 +2139,9 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .debug_loc     0x0000000000003716      0x21c build/obj/serial_lld.o
  .debug_loc     0x0000000000003932      0x84f build/obj/shell.o
  .debug_loc     0x0000000000004181      0x89d build/obj/chprintf.o
- .debug_loc     0x0000000000004a1e       0xe7 build/obj/cmdadc.o
- .debug_loc     0x0000000000004b05      0x339 build/obj/cmd.o
- .debug_loc     0x0000000000004e3e       0x78 build/obj/main.o
+ .debug_loc     0x0000000000004a1e       0x63 build/obj/cmdadc.o
+ .debug_loc     0x0000000000004a81      0x339 build/obj/cmd.o
+ .debug_loc     0x0000000000004dba       0x78 build/obj/main.o
 
 .debug_aranges  0x0000000000000000      0x900
  .debug_aranges
@@ -2244,7 +2243,7 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .debug_ranges  0x0000000000000948       0x50 build/obj/cmd.o
  .debug_ranges  0x0000000000000998       0x20 build/obj/main.o
 
-.debug_line     0x0000000000000000     0x45bf
+.debug_line     0x0000000000000000     0x46c2
  .debug_line    0x0000000000000000      0x103 build/obj/crt0.o
  .debug_line    0x0000000000000103       0xb0 build/obj/vectors.o
  .debug_line    0x00000000000001b3       0x53 build/obj/chcore.o
@@ -2274,11 +2273,11 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .debug_line    0x0000000000003624      0x11d build/obj/board.o
  .debug_line    0x0000000000003741      0x3ad build/obj/shell.o
  .debug_line    0x0000000000003aee      0x2b1 build/obj/chprintf.o
- .debug_line    0x0000000000003d9f      0x2d1 build/obj/cmdadc.o
- .debug_line    0x0000000000004070      0x247 build/obj/cmd.o
- .debug_line    0x00000000000042b7      0x308 build/obj/main.o
+ .debug_line    0x0000000000003d9f      0x2c9 build/obj/cmdadc.o
+ .debug_line    0x0000000000004068      0x321 build/obj/cmd.o
+ .debug_line    0x0000000000004389      0x339 build/obj/main.o
 
-.debug_str      0x0000000000000000     0x203f
+.debug_str      0x0000000000000000     0x2040
  .debug_str     0x0000000000000000      0x2a8 build/obj/crt0.o
                                         0x2dc (size before relaxing)
  .debug_str     0x00000000000002a8      0x145 build/obj/vectors.o
@@ -2337,12 +2336,12 @@ OUTPUT(build/ch.elf elf32-littlearm)
                                         0x6b0 (size before relaxing)
  .debug_str     0x0000000000001e89       0xbd build/obj/chprintf.o
                                         0x30a (size before relaxing)
- .debug_str     0x0000000000001f46       0x6e build/obj/cmdadc.o
-                                        0x7ba (size before relaxing)
- .debug_str     0x0000000000001fb4       0x63 build/obj/cmd.o
-                                        0x43b (size before relaxing)
- .debug_str     0x0000000000002017       0x28 build/obj/main.o
-                                        0x6bf (size before relaxing)
+ .debug_str     0x0000000000001f46       0x5c build/obj/cmdadc.o
+                                        0x79d (size before relaxing)
+ .debug_str     0x0000000000001fa2       0x76 build/obj/cmd.o
+                                        0x7d9 (size before relaxing)
+ .debug_str     0x0000000000002018       0x28 build/obj/main.o
+                                        0x8b2 (size before relaxing)
 
 .comment        0x0000000000000000       0x70
  .comment       0x0000000000000000       0x70 build/obj/crt0.o
@@ -2458,7 +2457,7 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .ARM.attributes
                 0x00000000000006e0       0x2c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-ctype_.o)
 
-.debug_frame    0x0000000000000000     0x18a0
+.debug_frame    0x0000000000000000     0x1888
  .debug_frame   0x0000000000000000       0x50 build/obj/crt0.o
  .debug_frame   0x0000000000000050       0x20 build/obj/vectors.o
  .debug_frame   0x0000000000000070       0x20 build/obj/chcore.o
@@ -2488,13 +2487,13 @@ OUTPUT(build/ch.elf elf32-littlearm)
  .debug_frame   0x00000000000013bc       0x3c build/obj/board.o
  .debug_frame   0x00000000000013f8      0x14c build/obj/shell.o
  .debug_frame   0x0000000000001544       0x94 build/obj/chprintf.o
- .debug_frame   0x00000000000015d8       0xa4 build/obj/cmdadc.o
- .debug_frame   0x000000000000167c      0x10c build/obj/cmd.o
- .debug_frame   0x0000000000001788       0x70 build/obj/main.o
- .debug_frame   0x00000000000017f8       0x20 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/armv6-m/libgcc.a(_udivsi3.o)
- .debug_frame   0x0000000000001818       0x30 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcasecmp.o)
- .debug_frame   0x0000000000001848       0x2c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strpbrk.o)
- .debug_frame   0x0000000000001874       0x2c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strspn.o)
+ .debug_frame   0x00000000000015d8       0x84 build/obj/cmdadc.o
+ .debug_frame   0x000000000000165c      0x114 build/obj/cmd.o
+ .debug_frame   0x0000000000001770       0x70 build/obj/main.o
+ .debug_frame   0x00000000000017e0       0x20 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/armv6-m/libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000001800       0x30 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strcasecmp.o)
+ .debug_frame   0x0000000000001830       0x2c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strpbrk.o)
+ .debug_frame   0x000000000000185c       0x2c /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/bin/../lib/gcc/arm-none-eabi/4.8.3/../../../../arm-none-eabi/lib/armv6-m/libc.a(lib_a-strspn.o)
 
 Cross Reference Table
 
@@ -2512,6 +2511,7 @@ ResetHandler                                      build/obj/crt0.o
                                                   build/obj/vectors.o
 SD1                                               build/obj/serial_lld.o
                                                   build/obj/main.o
+                                                  build/obj/cmd.o
                                                   build/obj/cmdadc.o
 SVCallVector                                      build/obj/vectors.o
 SysTickVector                                     build/obj/chcore_v6m.o
@@ -2660,6 +2660,8 @@ adcAcquireBus                                     build/obj/adc.o
 adcConversionThread                               build/obj/cmdadc.o
                                                   build/obj/cmd.o
 adcConvert                                        build/obj/adc.o
+adcDataReady                                      build/obj/cmdadc.o
+                                                  build/obj/cmd.o
 adcErrorCallBack                                  build/obj/cmdadc.o
 adcInit                                           build/obj/adc.o
                                                   build/obj/hal.o
@@ -2687,7 +2689,6 @@ adc_lld_stop_conversion                           build/obj/adc_lld.o
                                                   build/obj/adc.o
 boardInit                                         build/obj/board.o
                                                   build/obj/hal.o
-bufferDepth                                       build/obj/cmdadc.o
 chCondBroadcast                                   build/obj/chcond.o
                                                   build/obj/testmtx.o
 chCondBroadcastI                                  build/obj/chcond.o
@@ -3001,8 +3002,6 @@ chThdSetPriority                                  build/obj/chthreads.o
                                                   build/obj/testthd.o
 chThdSleep                                        build/obj/chthreads.o
                                                   build/obj/main.o
-                                                  build/obj/cmd.o
-                                                  build/obj/cmdadc.o
                                                   build/obj/testbmk.o
                                                   build/obj/testdyn.o
                                                   build/obj/testevt.o
@@ -3203,7 +3202,6 @@ rlist                                             build/obj/chschd.o
                                                   build/obj/chthreads.o
                                                   build/obj/chsys.o
                                                   build/obj/chcore_v6m.o
-samples                                           build/obj/cmdadc.o
 sdIncomingDataI                                   build/obj/serial.o
                                                   build/obj/serial_lld.o
 sdInit                                            build/obj/serial.o

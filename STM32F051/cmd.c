@@ -4,19 +4,22 @@
 #include "shell.h"
 #include "chprintf.h"
 #include "cmdadc.h"
-        
+extern int adcDataReady;        
 
 
-static WORKING_AREA(adcTempArea, 128);
+
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-	(void)chThdCreateStatic(adcTempArea,
-		sizeof(adcTempArea),
-		NORMALPRIO,    /* Initial priority.    */
-		adcConversionThread,      /* Thread function.     */
-                NULL); 
-chThdSleepMilliseconds(500);
+	static WORKING_AREA(adcTempArea, 128);
+        adcSTM32SetCCR(ADC_CCR_VBATEN | ADC_CCR_TSEN | ADC_CCR_VREFEN);
+        chprintf((BaseSequentialStream*)&SD1, "Temperature Conversion Started");
+	(void)chThdCreateStatic(adcTempArea,sizeof(adcTempArea), NORMALPRIO,adcConversionThread,NULL); 
+	while (adcDataReady ==FALSE)
+	{	
+		chprintf((BaseSequentialStream*)&SD1, "waiting");
+	}
+	chprintf((BaseSequentialStream*)&SD1, "DOOOOOONE");
 }
 
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 
