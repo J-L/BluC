@@ -4,14 +4,47 @@ NAME
 DESCRIPTION
 	adc is the systems method for using the analogue to digital converter provided by the host microcontroller.
 	This can be used to poll one or multiple pins in one shot or continuous mode. Output is selectable based on 
-	locations enabled.
+	locations enabled. adc always prints system time.
 
 USAGE
-	adc -12345 -c >output.txt
+	adc -c -12345   >output.txt 	collects data from pins 1, 2, 3, 4, 5, continuously writing to output.txt (sd card must be present) 
+	adc -o -4 			reads pin 4 and prints to console
+
+NAME
+	dac
+
+DESCRIPTION
+	dac is the console command for setting up the digital to analogue converter on. This method can only set one pin at a time,
+	and is restricted to the number of timers enabled
+USAGE
+	dac -4  1.79			creates a voltage of 1.76 on pin 4
 
 NAME
 	pwm
 
 DESCRIPTION
-	
+	pwm is the console command for setting up pwm on a pin.  This method is restricted to the timers and pins available on
+	the microcontroller. The pin, frequency, and duty cycle must be specified
+USAGE
+	pwm -3 -1.5 -72 	pin 3 toggled at 1.5 MHz with a 72% duty cycle
 
+NAME
+	date
+
+DESCRIPTION	
+	date is a console command which can be used to read or set current systemtime used by the microcontroller. All returned 
+	I/O or adc values are stamped with this time, unless a flag has been set to inore this using -s(ilence) option
+
+USAGE
+	date			return current date 2014.03.05.12.05.57.69
+	date -s 		silences datestamp
+	date 2042.02.29.23.59
+
+NAME
+	uart
+DESCRIPTION
+	uart is the console command for enabling uart passthough mode.  Frequency is selectable upto max handled by bluetooth
+	during this mode, the console is not accessible, except by using a break character.  By default this character is ~, but can be
+	selected as desired.
+USAGE
+	uart -38400 -8N1 	

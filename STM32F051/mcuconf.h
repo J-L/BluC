@@ -87,7 +87,7 @@
 /*
  * I2C driver system settings.
  */
-#define STM32_I2C_USE_I2C1                  FALSE
+#define STM32_I2C_USE_I2C1                  TRUE
 #define STM32_I2C_USE_I2C2                  FALSE
 #define STM32_I2C_I2C1_IRQ_PRIORITY         10
 #define STM32_I2C_I2C2_IRQ_PRIORITY         10
@@ -108,8 +108,8 @@
 /*
  * PWM driver system settings.
  */
-#define STM32_PWM_USE_ADVANCED              FALSE
-#define STM32_PWM_USE_TIM1                  FALSE
+#define STM32_PWM_USE_ADVANCED              TRUE
+#define STM32_PWM_USE_TIM1                  TRUE
 #define STM32_PWM_USE_TIM2                  FALSE
 #define STM32_PWM_USE_TIM3                  FALSE
 #define STM32_PWM_TIM1_IRQ_PRIORITY         3
@@ -127,7 +127,7 @@
 /*
  * SPI driver system settings.
  */
-#define STM32_SPI_USE_SPI1                  FALSE
+#define STM32_SPI_USE_SPI1                  TRUE
 #define STM32_SPI_USE_SPI2                  FALSE
 #define STM32_SPI_SPI1_DMA_PRIORITY         1
 #define STM32_SPI_SPI2_DMA_PRIORITY         1
@@ -138,7 +138,7 @@
 /*
  * UART driver system settings.
  */
-#define STM32_UART_USE_USART1               FALSE
+#define STM32_UART_USE_USART1               TRUE
 #define STM32_UART_USE_USART2               FALSE
 #define STM32_UART_USART1_IRQ_PRIORITY      3
 #define STM32_UART_USART2_IRQ_PRIORITY      3

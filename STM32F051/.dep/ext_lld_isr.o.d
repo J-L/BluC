@@ -41,13 +41,17 @@ build/obj/ext_lld_isr.o: ../../os/hal/platforms/STM32F0xx/ext_lld_isr.c \
  ../../os/hal/include/adc.h ../../os/hal/platforms/STM32F0xx/adc_lld.h \
  ../../os/hal/include/can.h ../../os/hal/include/dac.h \
  ../../os/hal/include/ext.h ../../os/hal/include/gpt.h \
- ../../os/hal/include/i2c.h ../../os/hal/include/icu.h \
- ../../os/hal/include/mac.h ../../os/hal/include/pwm.h \
- ../../os/hal/include/rtc.h ../../os/hal/include/serial.h \
+ ../../os/hal/include/i2c.h ../../os/hal/platforms/STM32/I2Cv2/i2c_lld.h \
+ ../../os/hal/include/icu.h ../../os/hal/include/mac.h \
+ ../../os/hal/include/pwm.h ../../os/hal/platforms/STM32/TIMv1/pwm_lld.h \
+ ../../os/hal/platforms/STM32/TIMv1/stm32_tim.h \
+ ../../os/hal/include/rtc.h ../../os/hal/platforms/STM32/RTCv2/rtc_lld.h \
+ ../../os/hal/include/serial.h \
  ../../os/hal/platforms/STM32/USARTv2/serial_lld.h \
  ../../os/hal/include/sdc.h ../../os/hal/include/spi.h \
- ../../os/hal/include/uart.h ../../os/hal/include/usb.h \
- ../../os/hal/include/mmc_spi.h ../../os/hal/include/serial_usb.h
+ ../../os/hal/platforms/STM32/SPIv2/spi_lld.h ../../os/hal/include/uart.h \
+ ../../os/hal/include/usb.h ../../os/hal/include/mmc_spi.h \
+ ../../os/hal/include/serial_usb.h
 
 ../../os/kernel/include/ch.h:
 
@@ -179,13 +183,21 @@ mcuconf.h:
 
 ../../os/hal/include/i2c.h:
 
+../../os/hal/platforms/STM32/I2Cv2/i2c_lld.h:
+
 ../../os/hal/include/icu.h:
 
 ../../os/hal/include/mac.h:
 
 ../../os/hal/include/pwm.h:
 
+../../os/hal/platforms/STM32/TIMv1/pwm_lld.h:
+
+../../os/hal/platforms/STM32/TIMv1/stm32_tim.h:
+
 ../../os/hal/include/rtc.h:
+
+../../os/hal/platforms/STM32/RTCv2/rtc_lld.h:
 
 ../../os/hal/include/serial.h:
 
@@ -194,6 +206,8 @@ mcuconf.h:
 ../../os/hal/include/sdc.h:
 
 ../../os/hal/include/spi.h:
+
+../../os/hal/platforms/STM32/SPIv2/spi_lld.h:
 
 ../../os/hal/include/uart.h:
 

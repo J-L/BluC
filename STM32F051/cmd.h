@@ -1,4 +1,32 @@
 
+#define CMD_TEMP	0x0
+#define CMD_VOLT	0x1
+#define CMD_BATT	0x2
+#define CMD_BLUE	0x3
+#define CMD_ADC		0x4
+#define CMD_DAC		0x5
+#define CMD_PWM		0x6
+#define CMD_I2C		0x7
+#define CMD_SPI		0x8
+#define CMD_DATE	0x9
+#define CMD_WRITE	0xA
+#define CMD_IF		0XB
+#define CMD_SLEEP	0xC
+#define CMD_WHILE	0xD
+#define CMD_FOR		0xF
+#define CMD_DEFINE	0x11
+#define CMD_BREAK	0x12
+#define CMD_KILL	0x13
+#define CMD_IO		0x14
+#define CMD_MAN		0x15
+
+	
+
+
+
+
+
+
 //base functionality
 void cmdGetTemp(BaseSequentialStream *, int , char *[]);
 void cmdGetVoltage(BaseSequentialStream *, int , char *[]);
@@ -22,11 +50,11 @@ void cmdFor(BaseSequentialStream *, int , char *[]);
 void cmdDefine(BaseSequentialStream *, int , char *[]);
 void cmdBreak(BaseSequentialStream *, int , char *[]);
 
+//helper functions (static), not used  elsewhere
 
 
 
-
- const ShellCommand shCmds[] = {
+static  const ShellCommand shCmds[] = {
 	{"temp",  (shellcmd_t)  cmdGetTemp},
 	{"voltage",  (shellcmd_t)  cmdGetVoltage},
 	{"battery",  (shellcmd_t)  cmdGetBattery},
