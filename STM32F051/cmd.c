@@ -6,23 +6,32 @@
 #include "cmdadc.h"
 extern int adcDataReady;        
 extern float value;
-float valu = 12.0;
+extern ADCConversionGroup adcSettings;
 
 static int cmdParseArguments (BaseSequentialStream *, int, char *[], int);
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+ADCConversionGroup adcSettings = {
+    FALSE,
+    ADCTEMPCHANNELS,
+    adcTempCallBack,
+    adcErrorCallBack,
+    ADC_CFGR1_RES_12BIT,                              /* CFGRR1 */
+    ADC_TR(0, 0),                                     /* TR */
+    ADC_SMPR_SMP_1P5,                                 /* SMPR */
+    ADC_CHSELR_CHSEL16                                /* CHSELR */
+};
 	static WORKING_AREA(adcTempArea, 128);
         adcSTM32SetCCR(ADC_CCR_VBATEN | ADC_CCR_TSEN | ADC_CCR_VREFEN);
         chprintf((BaseSequentialStream*)&SD1, "Temperature Conversion Started");
-	(void)chThdCreateStatic(adcTempArea,sizeof(adcTempArea), NORMALPRIO,adcConversionThread,NULL); 
+	(void)chThdCreateStatic(adcTempArea,sizeof(adcTempArea), NORMALPRIO,adcConversionThread,&adcSettings); 
 	while (adcDataReady ==FALSE)
 	{	
 		chprintf((BaseSequentialStream*)&SD1, "waiting");
 	}
-	float value1 = 3.3*(value/40)*100;
-	float valu2 = 12.54;
-	chprintf(chp, "TEMP DCV: %2.6f \n\r", valu2); 
+	int value1 = (int)(330*value/4095);
+	chprintf(chp, "TEMP DCV: %d \n\r", value1); 
 }
 
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 

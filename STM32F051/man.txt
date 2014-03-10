@@ -48,3 +48,15 @@ DESCRIPTION
 	selected as desired.
 USAGE
 	uart -38400 -8N1 	
+	uart -dts_hi
+	uart -rts_lo
+
+NAME
+	bluetooth
+DESCRIPTION
+	bluetooth is the console command for checking and modifying bluetooth parameters.  When arguments are null, the output of the
+	command will be current configuration.  Bluetooth configurations can be set, however changes will not be applied until restart command
+	is entered.
+USAGE
+	bluetooth
+	name:'BluC',power:'on',status:'connected',address:'8f9a6787', device_mode:'slave'	

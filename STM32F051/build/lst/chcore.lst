@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
   53 001d 00000000 		.4byte	0
   54 0021 00000000 		.4byte	.Ldebug_line0
   55 0025 02       		.uleb128 0x2
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 2
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 2
 
 
   56 0026 04       		.byte	0x4
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
  110 0086 27       		.byte	0x27
  111 0087 00000000 		.4byte	.LFB7
  112 008b 04000000 		.4byte	.LFE7-.LFB7
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 3
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 3
 
 
  113 008f 01       		.uleb128 0x1
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
  167 0031 0B       		.uleb128 0xb
  168 0032 3B       		.uleb128 0x3b
  169 0033 0B       		.uleb128 0xb
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 4
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 4
 
 
  170 0034 27       		.uleb128 0x27
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
  210              	.LASF6:
  211 003e 6C6F6E67 		.ascii	"long unsigned int\000"
  211      20756E73 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 5
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 5
 
 
  211      69676E65 
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
  229      6E7400
  230              	.LASF1:
  231 0176 7369676E 		.ascii	"signed char\000"
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 6
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 6
 
 
  231      65642063 
@@ -324,13 +324,13 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 1
  240      74797065 
  240      00
  241              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s 			page 7
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chcore.c
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s:18     .text.port_halt:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccBqoBOD.s:24     .text.port_halt:0000000000000000 port_halt
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s:18     .text.port_halt:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccAOR9HS.s:24     .text.port_halt:0000000000000000 port_halt
                      .debug_frame:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS
