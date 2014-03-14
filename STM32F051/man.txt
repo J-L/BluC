@@ -7,8 +7,8 @@ DESCRIPTION
 	locations enabled. adc always prints system time.
 
 USAGE
-	adc -c -12345   >output.txt 	collects data from pins 1, 2, 3, 4, 5, continuously writing to output.txt (sd card must be present) 
-	adc -o -4 			reads pin 4 and prints to console
+	adc -c -12345 -freq  >output.txt  	collects data from pins 1, 2, 3, 4, 5, continuously writing to output.txt (sd card must be present) 
+	adc -o -4 					reads pin 4 and prints to console
 
 NAME
 	dac
