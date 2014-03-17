@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
   55              		.size	_core_init, .-_core_init
   56 0028 C046C046 		.section	.text.chCoreAllocI,"ax",%progbits
   56      C046C046 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 2
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 2
 
 
   57              		.align	2
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  111              		.cfi_endproc
  112              	.LFE9:
  113              		.size	chCoreAllocI, .-chCoreAllocI
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 3
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 3
 
 
  114              		.section	.text.chCoreAlloc,"ax",%progbits
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  168              	.LFB10:
  169              		.loc 1 125 0
  170              		.cfi_startproc
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 4
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 4
 
 
  171              		.loc 1 127 0
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  223 0025 02       		.uleb128 0x2
  224 0026 04       		.byte	0x4
  225 0027 05       		.byte	0x5
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 5
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 5
 
 
  226 0028 696E7400 		.ascii	"int\000"
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  280 008b 04       		.byte	0x4
  281 008c 07       		.byte	0x7
  282 008d F3010000 		.4byte	.LASF12
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 6
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 6
 
 
  283 0091 04       		.uleb128 0x4
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  337 010a 0E       		.uleb128 0xe
  338 010b 08000000 		.4byte	.LVL1
  339 010f BD010000 		.4byte	0x1bd
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 7
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 7
 
 
  340 0113 00       		.byte	0
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  394 018c 98000000 		.4byte	0x98
  395 0190 05       		.uleb128 0x5
  396 0191 03       		.byte	0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 8
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 8
 
 
  397 0192 00000000 		.4byte	nextmem
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  451 0014 24       		.uleb128 0x24
  452 0015 00       		.byte	0
  453 0016 0B       		.uleb128 0xb
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 9
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 9
 
 
  454 0017 0B       		.uleb128 0xb
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  508 004d 3A       		.uleb128 0x3a
  509 004e 0B       		.uleb128 0xb
  510 004f 3B       		.uleb128 0x3b
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 10
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 10
 
 
  511 0050 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  565 0087 0B       		.uleb128 0xb
  566 0088 3B       		.uleb128 0x3b
  567 0089 0B       		.uleb128 0xb
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 11
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 11
 
 
  568 008a 27       		.uleb128 0x27
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  622 00c3 00       		.byte	0
  623 00c4 0F       		.uleb128 0xf
  624 00c5 898201   		.uleb128 0x4109
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 12
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 12
 
 
  625 00c8 01       		.byte	0x1
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  679 0102 02       		.uleb128 0x2
  680 0103 18       		.uleb128 0x18
  681 0104 00       		.byte	0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 13
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 13
 
 
  682 0105 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  736 0043 9F       		.byte	0x9f
  737 0044 22000000 		.4byte	.LVL7
  738 0048 30000000 		.4byte	.LFE9
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 14
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 14
 
 
  739 004c 0100     		.2byte	0x1
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  793 0018 00000000 		.4byte	.LFB9
  794 001c 30000000 		.4byte	.LFE9-.LFB9
  795 0020 00000000 		.4byte	.LFB8
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 15
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 15
 
 
  796 0024 1C000000 		.4byte	.LFE8-.LFB8
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  825      6E00
  826              	.LASF22:
  827 00e8 6462675F 		.ascii	"dbg_check_lock\000"
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 16
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 16
 
 
  827      63686563 
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  849      676E6564 
  849      20696E74 
  849      00
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 17
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 17
 
 
  850              	.LASF10:
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  874 0252 6C6F6E67 		.ascii	"long int\000"
  874      20696E74 
  874      00
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 18
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 18
 
 
  875              	.LASF1:
@@ -1029,29 +1029,29 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 1
  878 0267 5F426F6F 		.ascii	"_Bool\000"
  878      6C00
  879              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s 			page 19
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 chmemcore.c
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:18     .text._core_init:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:24     .text._core_init:0000000000000000 _core_init
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:49     .text._core_init:0000000000000018 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:57     .text.chCoreAllocI:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:63     .text.chCoreAllocI:0000000000000000 chCoreAllocI
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:109    .text.chCoreAllocI:0000000000000028 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:115    .text.chCoreAlloc:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:121    .text.chCoreAlloc:0000000000000000 chCoreAlloc
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:161    .text.chCoreStatus:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:167    .text.chCoreStatus:0000000000000000 chCoreStatus
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:185    .text.chCoreStatus:000000000000000c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:191    .bss.endmem:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:195    .bss.endmem:0000000000000000 endmem
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:198    .bss.nextmem:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:202    .bss.nextmem:0000000000000000 nextmem
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:18     .text._core_init:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:24     .text._core_init:0000000000000000 _core_init
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:49     .text._core_init:0000000000000018 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:57     .text.chCoreAllocI:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:63     .text.chCoreAllocI:0000000000000000 chCoreAllocI
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:109    .text.chCoreAllocI:0000000000000028 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:115    .text.chCoreAlloc:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:121    .text.chCoreAlloc:0000000000000000 chCoreAlloc
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:161    .text.chCoreStatus:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:167    .text.chCoreStatus:0000000000000000 chCoreStatus
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:185    .text.chCoreStatus:000000000000000c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:191    .bss.endmem:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:195    .bss.endmem:0000000000000000 endmem
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:198    .bss.nextmem:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:202    .bss.nextmem:0000000000000000 nextmem
                      .debug_frame:0000000000000010 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:56     .text._core_init:0000000000000028 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccropRY4.s:190    .text.chCoreStatus:0000000000000014 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:56     .text._core_init:0000000000000028 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//cc7n0KA8.s:190    .text.chCoreStatus:0000000000000014 $t
 
 UNDEFINED SYMBOLS
 __heap_base__

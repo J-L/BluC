@@ -53,7 +53,16 @@ build/obj/cmd.o: cmd.c ../../os/kernel/include/ch.h chconf.h \
  ../../os/hal/include/serial_usb.h ../../os/various/shell.h \
  ../../os/various/chprintf.h \
  /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h \
- cmdadc.h
+ cmdadc.h cmd.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/string.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/_ansi.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/reent.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/_types.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/machine/_types.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/machine/_default_types.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/lock.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include-fixed/sys/cdefs.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/string.h
 
 ../../os/kernel/include/ch.h:
 
@@ -226,3 +235,23 @@ mcuconf.h:
 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h:
 
 cmdadc.h:
+
+cmd.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/string.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/_ansi.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/reent.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/_types.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/machine/_types.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/machine/_default_types.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/lock.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include-fixed/sys/cdefs.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/sys/string.h:

@@ -30,9 +30,11 @@
 #define ADC_GRP2_BUF_DEPTH      16
 
 #define SHELL_WA_SIZE   THD_WA_SIZE(1024)
+MemoryPool mp;
+WORKING_AREA(thd1, 512);
+WORKING_AREA(thd2, 512);
 
-
- Thread *sh = NULL;
+Thread *sh = NULL;
 
 
 /*
@@ -74,6 +76,9 @@ static msg_t Thread2(void *arg) {
  */
 int main(void) {
 
+	chPoolInit(&mp, 512, NULL);
+	chPoolFree(&mp, thd1);
+	chPoolFree(&mp, thd2);
 	Thread *sh = NULL;
   /*
    * System initializations.

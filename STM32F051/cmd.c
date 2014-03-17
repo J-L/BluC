@@ -4,40 +4,47 @@
 #include "shell.h"
 #include "chprintf.h"
 #include "cmdadc.h"
-extern int adcDataReady;        
-extern float value;
-extern ADCConversionGroup adcSettings;
+#include "cmd.h"
+#include  <string.h>
 
-static int cmdParseArguments (BaseSequentialStream *, int, char *[], int);
+extern int adcDataReady;        
+extern int value;
+extern ADCConversionGroup adcSettings;
+extern MemoryPool mp;
+extern adcsample_t samples;
+extern BinarySemaphore adcSemDataReady;
+char error[] = "Error Parsing String";
+
+
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+
 	// adc settings are settingspassed to new thread
 	ADCConversionGroup adcSettings = {
     		FALSE,
     		ADCTEMPCHANNELS,
-    		adcTempCallBack,
+    		adcCallBack,
     		adcErrorCallBack,
     		ADC_CFGR1_RES_12BIT,                              /* CFGRR1 */
     		ADC_TR(0, 0),                                     /* TR */
     		ADC_SMPR_SMP_1P5,                                 /* SMPR */
-    		ADC_CHSELR_CHSEL16                                /* CHSELR */
+    		ADC_CHSELR_CHSEL1                                /* CHSELR */
 	};
 	//creating space in memory for the adc thread
-	static WORKING_AREA(adcTempArea, 128);
 	//turning on pheripherals
         adcSTM32SetCCR(ADC_CCR_VBATEN | ADC_CCR_TSEN | ADC_CCR_VREFEN);
-        chprintf((BaseSequentialStream*)&SD1, "Temperature Conversion Started");
 	//thread created, need to change to dynamic pool allocation
-	(void)chThdCreateStatic(adcTempArea,sizeof(adcTempArea), NORMALPRIO,adcConversionThread,&adcSettings); 
+	Thread *tp = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, &adcSettings);
 	//this should be replaced with a thread wait for message
-	while (adcDataReady ==FALSE)
-	{	
+	while(adcDataReady == FALSE)
+	{
 		chprintf((BaseSequentialStream*)&SD1, "waiting");
+
 	}
+
 	//data made
-	int value1 = (int)(330*value/4095);
-	chprintf(chp, "TEMP DCV: %d \n\r", value1); 
+	chprintf(chp, "TEMP DCV: %d \n\r", value); 
 	//should kill adc thread at this point
 }
 
@@ -83,17 +90,19 @@ cmdAdc
 
 void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-	//parse input arguments
-	cmdParseArguments (chp,argc, *argv,  14);
-	//set up peripherals
+	//parse input arguments make settings
+	cmdParseArguments (chp,argc, argv,  CMD_ADC);
 
+	Thread *outputThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcOutput, NULL);
+        Thread *adcThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+
+        //this should be replaced with a thread wait for message
 	//setup adc conversion arguments
 
 	//create thread
 
 
 
-	chprintf(chp, "Hello World");  
 
 }
 
@@ -178,19 +187,23 @@ void cmdDate(BaseSequentialStream *chp, int argc, char *argv[])
 
 //parses commands for sense. if no sense, prints error to console
 
-static int cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int caller)
+msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int caller)
 {
 	//removes white space
 	int i = 0;
-	while (i< argc)
-	{
-		chprintf(chp, argv);
-		i++;
-	}
 	//checks option list for caller
 	switch(caller)
 	{
 		case CMD_ADC:
+			if (*argv[0] == '\0')
+			{
+				chprintf(chp, "adc status selected");
+				break;
+			}
+			else
+			{
+ 				return parseCmdAdc (chp,argc, argv);
+			}
 			break;
                 case CMD_DAC:
                         break;
@@ -214,66 +227,153 @@ static int cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[],
 
 }
 
-static int parseCmdAdc (BaseSequentialStream *chp, int argc, char *argv[])
+ADCConversionGroup *parseCmdAdc (BaseSequentialStream *chp, int argc, char *argv[])
 {
 	// find first argument
+	int adcMode = 0;
 	int adcSelectedChannels = 0;
 	int adcNumberOfSelectedChannel = 0;
+	int adcSampleDivider = 0;
 	// check if continuous os one shot
-	if (char =='c')
+	if (*(argv[0]+1) =='c')
 	{
+		chprintf(chp, "Continuous Mode\n");
+		adcMode = TRUE;
 		//continuous
 	}
-	else if ( char == 'o')
+	else if ( *(argv[0]+1)  == 'o')
 	{
-		//one shot
+		chprintf(chp, "One Shot\n");
+
 	}
 	else
 	{
-		return False;
+		return FALSE;
 	}
 	// while characters in channel selection argument
-	while (number of characters in second  arg)
+	int i =1;
+	int adcChannelAdded =0;
+	while (*(argv[1]+i) != '\0')
 	{
 		//switch for charcter	
-		switch (pointer_to_char)
+		switch (*(argv[1]+i))
 		{
+					chprintf(chp, "Channels Selected:");
 				case '1':
+			    		adcChannelAdded =ADC_CHSELR_CHSEL1;                                /* CHSELR */
+					adcNumberOfSelectedChannel++;
+					chprintf(chp, "1,");
 					break;
 				case '2':
+					adcChannelAdded =ADC_CHSELR_CHSEL2;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "2,");
 					break;
 				case '3':
+					adcChannelAdded =ADC_CHSELR_CHSEL3;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "3,");
 					break;
 				case '4':
+					adcChannelAdded =ADC_CHSELR_CHSEL4;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "4,");
 					break;
 				case '5':
+                                        adcChannelAdded=ADC_CHSELR_CHSEL5;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "5,");
 					break;
 				case '6':
+                                        adcChannelAdded =ADC_CHSELR_CHSEL6;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "6,");
 					break;
                                 case '7':
+                                        adcChannelAdded =ADC_CHSELR_CHSEL7;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "7,");
                                         break;
                                 case '8':
+                                        adcChannelAdded =ADC_CHSELR_CHSEL8;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "8,");
                                         break;
                                 case '9':
+                                        adcChannelAdded =ADC_CHSELR_CHSEL9;                                /* CHSELR */
+                                        adcNumberOfSelectedChannel++;
+					chprintf(chp, "9,");
                                         break;
 				default:
-					return False;
+					return FALSE;
 				//not a valid  charc
 		}
-		
+		if ((adcSelectedChannels && adcChannelAdded)!= adcChannelAdded)
+		{
+			adcSelectedChannels |= adcChannelAdded;
+		}
+		i++;
 	}
-	//looks at frequency argument (if exists)
-	while (characters in next arg)
+/*
+define ADC_SMPR_SMP_1P5        0   < @brief 14 cycles conversion time   
+#define ADC_SMPR_SMP_7P5        1   < @brief 21 cycles conversion time.  
+#define ADC_SMPR_SMP_13P5       2   < @brief 28 cycles conversion time.  
+#define ADC_SMPR_SMP_28P5       3   < @brief 41 cycles conversion time.  
+#define ADC_SMPR_SMP_41P5       4   < @brief 54 cycles conversion time.  
+#define ADC_SMPR_SMP_55P5       5   < @brief 68 cycles conversion time.  
+#define ADC_SMPR_SMP_71P5       6   < @brief 84 cycles conversion time.  
+#define ADC_SMPR_SMP_239P5      7   < @brief 252 cycles conversion time. 	
+*/	
+	if (*(argv[2])=='\0')
 	{
-		
+		chprintf(chp, "default frequency");
 	}
+	else if (strcmp(argv[2], "-1MHz") ==0)
+	{
+		chprintf(chp, "true");
+
+	}
+        else if (strcmp(argv[2], "-666kHz") ==0)
+        {
+                chprintf(chp, "true");
+
+        }
+        else if (strcmp(argv[2], "-500kHz") ==0)
+        {
+                chprintf(chp, "true");
+
+        }
+        else if (strcmp(argv[2], "-341kHz") ==0)
+        {
+                chprintf(chp, "true");
+
+        }
+        else if (strcmp(argv[2], "-259kHz") ==0)
+        {
+                chprintf(chp, "true");
+
+        }
+        else if (strcmp(argv[2], "-206kHz") ==0)
+        {
+                chprintf(chp, "true");
+
+        }
+        else if (strcmp(argv[2], "-167kHz") ==0)
+        {
+                chprintf(chp, "true");
+
+        }
+        adcSettings.circular=adcMode;
+        adcSettings.num_channels=adcNumberOfSelectedChannel;
+	return &adcSettings;
+	//looks at frequency argument (if exists)
 	// looks at output pointer (if exists)
 	//sets output pins, warn is not ok.
 	
 
 }
 
-statitc int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
+static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 {
 	//check if first command is letter or number
 
@@ -286,7 +386,7 @@ statitc int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 			// check if escape argument has been given
 }
 
-
+/*
 static int parseCmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 {
 	// check if input or output
@@ -317,5 +417,5 @@ static int parseCmdDate(BaseSequentialStream *chp, int argc, char *argv[])
 
 
 }
-
+*/
 

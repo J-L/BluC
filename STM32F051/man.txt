@@ -60,3 +60,7 @@ DESCRIPTION
 USAGE
 	bluetooth
 	name:'BluC',power:'on',status:'connected',address:'8f9a6787', device_mode:'slave'	
+NAME
+	man
+DESCRIPTION
+	man is the system manual. which you successfully used to read this.

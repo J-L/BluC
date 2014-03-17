@@ -19,6 +19,8 @@
 #define CMD_KILL	0x13
 #define CMD_IO		0x14
 #define CMD_MAN		0x15
+#define CMD_UART	0x16
+#define CMD_BLUETOOTH	0x17
 
 	
 
@@ -51,8 +53,8 @@ void cmdDefine(BaseSequentialStream *, int , char *[]);
 void cmdBreak(BaseSequentialStream *, int , char *[]);
 
 //helper functions (static), not used  elsewhere
-
-
+ADCConversionGroup *parseCmdAdc (BaseSequentialStream *, int, char *[]);
+msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int caller);
 
 static  const ShellCommand shCmds[] = {
 	{"temp",  (shellcmd_t)  cmdGetTemp},
