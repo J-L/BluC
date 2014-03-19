@@ -25,15 +25,17 @@ struct pinUse;
 
 
 struct pinSetting {
-	int pinPort
-	int pinNumber
-	int pinOptions
+	int pinPort;
+	int pinNumber;
+	int pinOptions;
 };
-
-pinSetting pin_0;
-pin_0.pinPort = GPIOA;
-pin_0.pinNumber = 0;
-pin_0.pinOptions = INPUT | OUTPUT |ADC |DAC |UART;
+/*
+pin[0].pinPort = GPIOA;
+pin[0].pinNumber = 0;
+pin[0].pinOptions = INPUT | OUTPUT |ADC |DAC |UART;
+*/
+struct pinSetting pinCapabilities[8];
+   //      pinCapabilities
 
 int hardwareSetPins(int,int);
 int hardwareCheckPins(int,int);

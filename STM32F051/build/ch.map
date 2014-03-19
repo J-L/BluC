@@ -1382,19 +1382,21 @@ Discarded input sections
  .text.hardwareSetPins
                 0x0000000000000000       0x10 build/obj/hardware.o
  .text.hardwareCheckPins
-                0x0000000000000000       0x10 build/obj/hardware.o
- .debug_info    0x0000000000000000       0x95 build/obj/hardware.o
- .debug_abbrev  0x0000000000000000       0x73 build/obj/hardware.o
- .debug_loc     0x0000000000000000       0x42 build/obj/hardware.o
+                0x0000000000000000       0x40 build/obj/hardware.o
+ .bss.pinCapabilities
+                0x0000000000000000       0x60 build/obj/hardware.o
+ .debug_info    0x0000000000000000      0x110 build/obj/hardware.o
+ .debug_abbrev  0x0000000000000000       0xb4 build/obj/hardware.o
+ .debug_loc     0x0000000000000000       0x98 build/obj/hardware.o
  .debug_aranges
                 0x0000000000000000       0x28 build/obj/hardware.o
  .debug_ranges  0x0000000000000000       0x18 build/obj/hardware.o
- .debug_line    0x0000000000000000       0x49 build/obj/hardware.o
- .debug_str     0x0000000000000000      0x154 build/obj/hardware.o
+ .debug_line    0x0000000000000000       0x75 build/obj/hardware.o
+ .debug_str     0x0000000000000000      0x1ac build/obj/hardware.o
  .comment       0x0000000000000000       0x71 build/obj/hardware.o
  .ARM.attributes
                 0x0000000000000000       0x31 build/obj/hardware.o
- .debug_frame   0x0000000000000000       0x30 build/obj/hardware.o
+ .debug_frame   0x0000000000000000       0x40 build/obj/hardware.o
  .text          0x0000000000000000        0x0 build/obj/cmdadc.o
  .data          0x0000000000000000        0x0 build/obj/cmdadc.o
  .bss           0x0000000000000000        0x0 build/obj/cmdadc.o
@@ -3645,6 +3647,7 @@ patternsem                                        build/obj/testsem.o
                                                   build/obj/test.o
 patternthd                                        build/obj/testthd.o
                                                   build/obj/test.o
+pinCapabilities                                   build/obj/hardware.o
 port_halt                                         build/obj/chcore.o
                                                   build/obj/spi_lld.o
                                                   build/obj/i2c_lld.o
