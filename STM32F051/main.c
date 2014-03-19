@@ -103,6 +103,7 @@ int main(void) {
   /*
    * Creates the blinker threads.
    */
+	Thread *outputThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, outputResponse, NULL);
 	chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
 	chThdCreateStatic(waThread2, sizeof(waThread2), NORMALPRIO, Thread2, NULL);
 

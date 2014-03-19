@@ -55,6 +55,7 @@ void cmdBreak(BaseSequentialStream *, int , char *[]);
 //helper functions (static), not used  elsewhere
 ADCConversionGroup *parseCmdAdc (BaseSequentialStream *, int, char *[]);
 msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int caller);
+void outputResponse(void);
 
 static  const ShellCommand shCmds[] = {
 	{"temp",  (shellcmd_t)  cmdGetTemp},

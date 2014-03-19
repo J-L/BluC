@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 1
 
 
    1              		.cpu cortex-m0
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
   55 001e 4900     		lsl	r1, r1, #1
   56 0020 9846     		mov	r8, r3
   57 0022 0398     		ldr	r0, [sp, #12]
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 2
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 2
 
 
   58 0024 331C     		mov	r3, r6
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  112 007a 0298     		ldr	r0, [sp, #8]
  113 007c FFF7FEFF 		bl	chThdCreateStatic
  114              	.LVL3:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 3
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 3
 
 
  115              		.loc 1 90 0
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  169 00d2 9A68     		ldr	r2, [r3, #8]
  170 00d4 4346     		mov	r3, r8
  171 00d6 0093     		str	r3, [sp]
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 4
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 4
 
 
  172 00d8 0532     		add	r2, r2, #5
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  226 0124 00000000 		.word	thread1
  227 0128 00000000 		.word	.LC3
  228 012c 00000000 		.word	threads
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 5
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 5
 
 
  229 0130 04000000 		.word	.LC6
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  281              		.type	thread1, %function
  282              	thread1:
  283              	.LFB8:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 6
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 6
 
 
  284              		.loc 1 77 0
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  337              		.align	2
  338              	.L13:
  339 000c 00000000 		.word	.LANCHOR0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 7
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 7
 
 
  340              		.cfi_endproc
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  394              	.L20:
  395              		.align	2
  396              	.L19:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 8
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 8
 
 
  397 000c 00000000 		.word	.LANCHOR0
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  451              	.LFE11:
  452              		.size	thread2, .-thread2
  453 0028 C046C046 		.section	.text.thread4,"ax",%progbits
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 9
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 9
 
 
  453      C046C046 
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  505      C046
  506              		.align	2
  507              		.p2align 4,,15
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 10
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 10
 
 
  508              		.code	16
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  562              	.LVL48:
  563 0044 2B4B     		ldr	r3, .L35+12
  564 0046 1860     		str	r0, [r3]
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 11
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 11
 
 
  565              		.loc 1 265 0
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  619 009a C4D1     		bne	.L27
  620              		.loc 1 277 0
  621              	@ 277 "../../test/testsem.c" 1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 12
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 12
 
 
  622 009c 72B6     		cpsid   i
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  676 00ec 00000000 		.word	wa
  677 00f0 00000000 		.word	thread4
  678 00f4 00000000 		.word	threads
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 13
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 13
 
 
  679              		.cfi_endproc
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  732 0030 FFF7FEFF 		bl	_test_assert
  733              	.LVL66:
  734 0034 0028     		cmp	r0, #0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 14
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 14
 
 
  735 0036 F3D1     		bne	.L37
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  789 008a 191B     		sub	r1, r3, r4
  790 008c 4B42     		neg	r3, r1
  791 008e 5941     		adc	r1, r1, r3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 15
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 15
 
 
  792 0090 C9B2     		uxtb	r1, r1
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  846 00e8 0028     		cmp	r0, #0
  847 00ea 99D1     		bne	.L37
  848              		.loc 1 179 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 16
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 16
 
 
  849 00ec A268     		ldr	r2, [r4, #8]
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  903 014c C046C046 		.section	.text.sem3_execute,"ax",%progbits
  904              		.align	2
  905              		.p2align 4,,15
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 17
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 17
 
 
  906              		.code	16
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  960 0040 02B0     		add	sp, sp, #8
  961              		@ sp needed
  962 0042 10BD     		pop	{r4, pc}
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 18
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 18
 
 
  963              	.L50:
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1017              		.global	testsem2
  1018              		.global	testsem1
  1019 0098 C046C046 		.section	.rodata.testsem1,"a",%progbits
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 19
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 19
 
 
  1019      C046C046 
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1073 0010 00000000 		.word	0
  1074              		.section	.rodata.str1.4,"aMS",%progbits,1
  1075              		.align	2
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 20
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 20
 
 
  1076              	.LC3:
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1113              		.file 9 "../../os/kernel/include/chschd.h"
  1114              		.file 10 "../../os/kernel/include/chsem.h"
  1115              		.file 11 "../../os/kernel/include/chbsem.h"
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 21
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 21
 
 
  1116              		.file 12 "../../os/kernel/include/chmtx.h"
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1170 006b 4F       		.byte	0x4f
  1171 006c 70000000 		.4byte	0x70
  1172 0070 04       		.uleb128 0x4
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 22
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 22
 
 
  1173 0071 04       		.byte	0x4
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1227 00e0 03       		.uleb128 0x3
  1228 00e1 6A020000 		.4byte	.LASF20
  1229 00e5 04       		.byte	0x4
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 23
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 23
 
 
  1230 00e6 2A       		.byte	0x2a
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1284 0158 06       		.byte	0x6
  1285 0159 5F       		.byte	0x5f
  1286 015a 35020000 		.4byte	0x235
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 24
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 24
 
 
  1287 015e 10       		.byte	0x10
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1341 01ca 28       		.byte	0x28
  1342 01cb 06       		.uleb128 0x6
  1343 01cc 77050000 		.4byte	.LASF38
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 25
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 25
 
 
  1344 01d0 06       		.byte	0x6
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1398 0236 04       		.byte	0x4
  1399 0237 0C010000 		.4byte	0x10c
  1400 023b 03       		.uleb128 0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 26
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 26
 
 
  1401 023c F5030000 		.4byte	.LASF44
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1455 02a6 07       		.byte	0x7
  1456 02a7 B7       		.byte	0xb7
  1457 02a8 66020000 		.4byte	0x266
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 27
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 27
 
 
  1458 02ac 0C       		.byte	0xc
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1512 0310 08       		.byte	0x8
  1513 0311 51       		.byte	0x51
  1514 0312 16030000 		.4byte	0x316
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 28
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 28
 
 
  1515 0316 09       		.uleb128 0x9
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1569 0382 10       		.byte	0x10
  1570 0383 08       		.byte	0x8
  1571 0384 6F       		.byte	0x6f
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 29
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 29
 
 
  1572 0385 BA030000 		.4byte	0x3ba
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1626 03f1 E5020000 		.4byte	0x2e5
  1627 03f5 0C       		.byte	0xc
  1628 03f6 06       		.uleb128 0x6
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 30
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 30
 
 
  1629 03f7 58010000 		.4byte	.LASF62
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1683 0463 0B       		.byte	0xb
  1684 0464 3E       		.byte	0x3e
  1685 0465 4B040000 		.4byte	0x44b
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 31
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 31
 
 
  1686 0469 00       		.byte	0
@@ -1858,7 +1858,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1740 04d2 E0000000 		.4byte	0xe0
  1741 04d6 0F       		.uleb128 0xf
  1742 04d7 C8050000 		.4byte	.LASF77
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 32
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 32
 
 
  1743 04db 06       		.byte	0x6
@@ -1918,7 +1918,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1797 054a F0010000 		.4byte	.LASF84
  1798 054e 0D       		.byte	0xd
  1799 054f 3E       		.byte	0x3e
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 33
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 33
 
 
  1800 0550 63050000 		.4byte	0x563
@@ -1978,7 +1978,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1854 05c0 01       		.uleb128 0x1
  1855 05c1 53       		.byte	0x53
  1856 05c2 02       		.uleb128 0x2
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 34
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 34
 
 
  1857 05c3 76       		.byte	0x76
@@ -2038,7 +2038,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1911 0607 18       		.uleb128 0x18
  1912 0608 64000000 		.4byte	.LVL2
  1913 060c 060E0000 		.4byte	0xe06
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 35
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 35
 
 
  1914 0610 33060000 		.4byte	0x633
@@ -2098,7 +2098,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  1968 0657 00       		.sleb128 0
  1969 0658 05       		.uleb128 0x5
  1970 0659 03       		.byte	0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 36
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 36
 
 
  1971 065a 0C000000 		.4byte	.LC10
@@ -2158,7 +2158,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2025 06b2 18       		.uleb128 0x18
  2026 06b3 B2000000 		.4byte	.LVL7
  2027 06b7 300E0000 		.4byte	0xe30
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 37
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 37
 
 
  2028 06bb C6060000 		.4byte	0x6c6
@@ -2218,7 +2218,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2082 0721 01       		.uleb128 0x1
  2083 0722 53       		.byte	0x53
  2084 0723 02       		.uleb128 0x2
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 38
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 38
 
 
  2085 0724 76       		.byte	0x76
@@ -2278,7 +2278,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2139 0782 19       		.uleb128 0x19
  2140 0783 01       		.uleb128 0x1
  2141 0784 50       		.byte	0x50
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 39
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 39
 
 
  2142 0785 01       		.uleb128 0x1
@@ -2338,7 +2338,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2196 07f0 01       		.byte	0x1
  2197 07f1 4D       		.byte	0x4d
  2198 07f2 71020000 		.4byte	0x271
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 40
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 40
 
 
  2199 07f6 21000000 		.4byte	.LLST1
@@ -2398,7 +2398,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2253 0868 01       		.uleb128 0x1
  2254 0869 51       		.byte	0x51
  2255 086a 01       		.uleb128 0x1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 41
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 41
 
 
  2256 086b 30       		.byte	0x30
@@ -2458,7 +2458,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2310 08d8 19       		.uleb128 0x19
  2311 08d9 01       		.uleb128 0x1
  2312 08da 50       		.byte	0x50
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 42
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 42
 
 
  2313 08db 02       		.uleb128 0x2
@@ -2518,7 +2518,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2367 095d 01       		.uleb128 0x1
  2368 095e 50       		.byte	0x50
  2369 095f 02       		.uleb128 0x2
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 43
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 43
 
 
  2370 0960 74       		.byte	0x74
@@ -2578,7 +2578,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2424 09ba 22000000 		.4byte	.LVL47
  2425 09be 990E0000 		.4byte	0xe99
  2426 09c2 CC090000 		.4byte	0x9cc
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 44
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 44
 
 
  2427 09c6 19       		.uleb128 0x19
@@ -2638,7 +2638,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2481 0a21 1A       		.uleb128 0x1a
  2482 0a22 70000000 		.4byte	.LVL52
  2483 0a26 8B0E0000 		.4byte	0xe8b
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 45
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 45
 
 
  2484 0a2a 1A       		.uleb128 0x1a
@@ -2698,7 +2698,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2538 0a9f 010F0000 		.4byte	0xf01
  2539 0aa3 AE0A0000 		.4byte	0xaae
  2540 0aa7 19       		.uleb128 0x19
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 46
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 46
 
 
  2541 0aa8 01       		.uleb128 0x1
@@ -2758,7 +2758,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2595 0b1b 03       		.byte	0x3
  2596 0b1c 00000000 		.4byte	thread2
  2597 0b20 19       		.uleb128 0x19
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 47
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 47
 
 
  2598 0b21 01       		.uleb128 0x1
@@ -2818,7 +2818,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2652 0b83 36       		.byte	0x36
  2653 0b84 00       		.byte	0
  2654 0b85 1A       		.uleb128 0x1a
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 48
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 48
 
 
  2655 0b86 B0000000 		.4byte	.LVL76
@@ -2878,7 +2878,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2709 0bf0 19       		.uleb128 0x19
  2710 0bf1 01       		.uleb128 0x1
  2711 0bf2 50       		.byte	0x50
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 49
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 49
 
 
  2712 0bf3 01       		.uleb128 0x1
@@ -2938,7 +2938,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2766 0c46 74       		.byte	0x74
  2767 0c47 00       		.sleb128 0
  2768 0c48 00       		.byte	0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 50
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 50
 
 
  2769 0c49 18       		.uleb128 0x18
@@ -2998,7 +2998,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2823 0cb0 02       		.uleb128 0x2
  2824 0cb1 7D       		.byte	0x7d
  2825 0cb2 00       		.sleb128 0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 51
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 51
 
 
  2826 0cb3 01       		.uleb128 0x1
@@ -3058,7 +3058,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2880 0d0d 74       		.byte	0x74
  2881 0d0e 00       		.sleb128 0
  2882 0d0f 00       		.byte	0
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 52
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 52
 
 
  2883 0d10 18       		.uleb128 0x18
@@ -3118,7 +3118,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2937 0d7f 00       		.byte	0
  2938 0d80 28       		.uleb128 0x28
  2939 0d81 776100   		.ascii	"wa\000"
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 53
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 53
 
 
  2940 0d84 0D       		.byte	0xd
@@ -3178,7 +3178,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  2994 0dfb 05       		.uleb128 0x5
  2995 0dfc 03       		.byte	0x3
  2996 0dfd 00000000 		.4byte	patternsem
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 54
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 54
 
 
  2997 0e01 10       		.uleb128 0x10
@@ -3238,7 +3238,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3051 0e7a 0A       		.byte	0xa
  3052 0e7b 37       		.byte	0x37
  3053 0e7c 8B0E0000 		.4byte	0xe8b
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 55
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 55
 
 
  3054 0e80 0C       		.uleb128 0xc
@@ -3298,7 +3298,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3108 0ef5 6E01     		.2byte	0x16e
  3109 0ef7 010F0000 		.4byte	0xf01
  3110 0efb 0C       		.uleb128 0xc
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 56
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 56
 
 
  3111 0efc F6000000 		.4byte	0xf6
@@ -3358,7 +3358,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3165 0f77 0C       		.uleb128 0xc
  3166 0f78 410E0000 		.4byte	0xe41
  3167 0f7c 0C       		.uleb128 0xc
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 57
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 57
 
 
  3168 0f7d 410E0000 		.4byte	0xe41
@@ -3418,7 +3418,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3222 0031 0B       		.uleb128 0xb
  3223 0032 03       		.uleb128 0x3
  3224 0033 0E       		.uleb128 0xe
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 58
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 58
 
 
  3225 0034 00       		.byte	0
@@ -3478,7 +3478,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3279 006a 3B       		.uleb128 0x3b
  3280 006b 0B       		.uleb128 0xb
  3281 006c 01       		.uleb128 0x1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 59
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 59
 
 
  3282 006d 13       		.uleb128 0x13
@@ -3538,7 +3538,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3336 00a3 00       		.byte	0
  3337 00a4 0F       		.uleb128 0xf
  3338 00a5 0D       		.uleb128 0xd
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 60
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 60
 
 
  3339 00a6 00       		.byte	0
@@ -3598,7 +3598,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3393 00dc 34       		.uleb128 0x34
  3394 00dd 00       		.byte	0
  3395 00de 03       		.uleb128 0x3
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 61
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 61
 
 
  3396 00df 08       		.uleb128 0x8
@@ -3658,7 +3658,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3450 0115 9742     		.uleb128 0x2117
  3451 0117 19       		.uleb128 0x19
  3452 0118 01       		.uleb128 0x1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 62
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 62
 
 
  3453 0119 13       		.uleb128 0x13
@@ -3718,7 +3718,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3507 0158 11       		.uleb128 0x11
  3508 0159 01       		.uleb128 0x1
  3509 015a 12       		.uleb128 0x12
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 63
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 63
 
 
  3510 015b 06       		.uleb128 0x6
@@ -3778,7 +3778,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3564 0193 00       		.byte	0
  3565 0194 00       		.byte	0
  3566 0195 20       		.uleb128 0x20
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 64
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 64
 
 
  3567 0196 34       		.uleb128 0x34
@@ -3838,7 +3838,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3621 01cc 01       		.byte	0x1
  3622 01cd 49       		.uleb128 0x49
  3623 01ce 13       		.uleb128 0x13
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 65
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 65
 
 
  3624 01cf 01       		.uleb128 0x1
@@ -3898,7 +3898,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3678 0205 00       		.byte	0
  3679 0206 03       		.uleb128 0x3
  3680 0207 0E       		.uleb128 0xe
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 66
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 66
 
 
  3681 0208 3A       		.uleb128 0x3a
@@ -3958,7 +3958,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3735 023e 00       		.byte	0
  3736 023f 3F       		.uleb128 0x3f
  3737 0240 19       		.uleb128 0x19
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 67
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 67
 
 
  3738 0241 03       		.uleb128 0x3
@@ -4018,7 +4018,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3792 0277 00       		.byte	0
  3793 0278 3F       		.uleb128 0x3f
  3794 0279 19       		.uleb128 0x19
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 68
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 68
 
 
  3795 027a 03       		.uleb128 0x3
@@ -4078,7 +4078,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3849 002b 50       		.byte	0x50
  3850 002c 06000000 		.4byte	.LVL24
  3851 0030 12000000 		.4byte	.LVL27
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 69
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 69
 
 
  3852 0034 0100     		.2byte	0x1
@@ -4138,7 +4138,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3906              	.LLST5:
  3907 00b8 72000000 		.4byte	.LVL70
  3908 00bc 75000000 		.4byte	.LVL71-1
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 70
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 70
 
 
  3909 00c0 0100     		.2byte	0x1
@@ -4198,7 +4198,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3963 0020 00000000 		.4byte	.LFB10
  3964 0024 10000000 		.4byte	.LFE10
  3965 0028 00000000 		.4byte	.LFB13
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 71
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 71
 
 
  3966 002c 10000000 		.4byte	.LFE13
@@ -4258,7 +4258,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  3999      7369676E 
  3999      65642069 
  4000              	.LASF76:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 72
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 72
 
 
  4001 0063 65786974 		.ascii	"exitcode\000"
@@ -4318,7 +4318,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4027      20696E74 
  4027      00
  4028              	.LASF86:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 73
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 73
 
 
  4029 00fd 74617267 		.ascii	"target_time\000"
@@ -4378,7 +4378,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4056              	.LASF121:
  4057 0194 63685365 		.ascii	"chSemWaitTimeout\000"
  4057      6D576169 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 74
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 74
 
 
  4057      7454696D 
@@ -4438,7 +4438,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4083              	.LASF6:
  4084 0247 73686F72 		.ascii	"short unsigned int\000"
  4084      7420756E 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 75
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 75
 
 
  4084      7369676E 
@@ -4498,7 +4498,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4112      4320342E 
  4112      382E3320 
  4112      32303133 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 76
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 76
 
 
  4112      31313239 
@@ -4558,7 +4558,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4136 0408 5F746573 		.ascii	"_test_assert_sequence\000"
  4136      745F6173 
  4136      73657274 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 77
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 77
 
 
  4136      5F736571 
@@ -4618,7 +4618,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4164      73742F74 
  4164      65737473 
  4164      656D2E63 
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 78
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 78
 
 
  4165              	.LASF32:
@@ -4678,7 +4678,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4196 053a 6D5F6E65 		.ascii	"m_next\000"
  4196      787400
  4197              	.LASF22:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 79
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 79
 
 
  4198 0541 73797374 		.ascii	"systime_t\000"
@@ -4738,7 +4738,7 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4228 05c8 77746F62 		.ascii	"wtobjp\000"
  4228      6A7000
  4229              	.LASF31:
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 80
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 80
 
 
  4230 05cf 705F6E61 		.ascii	"p_name\000"
@@ -4773,67 +4773,67 @@ ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 1
  4246      6D496E69 
  4246      7400
  4247              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.8.3 20131129 (release) [ARM/embedded-4_8-br
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 81
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 81
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 testsem.c
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:18     .text.sem1_execute:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:23     .text.sem1_execute:0000000000000000 sem1_execute
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:224    .text.sem1_execute:000000000000011c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:282    .text.thread1:0000000000000000 thread1
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:239    .text.thread3:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:244    .text.thread3:0000000000000000 thread3
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:272    .text.thread3:0000000000000014 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:277    .text.thread1:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:310    .text.thread1:0000000000000014 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:315    .text.sem1_setup:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:320    .text.sem1_setup:0000000000000000 sem1_setup
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:339    .text.sem1_setup:000000000000000c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:344    .text.sem2_setup:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:349    .text.sem2_setup:0000000000000000 sem2_setup
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:368    .text.sem2_setup:000000000000000c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:373    .text.sem3_setup:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:378    .text.sem3_setup:0000000000000000 sem3_setup
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:397    .text.sem3_setup:000000000000000c $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:402    .text.thread2:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:407    .text.thread2:0000000000000000 thread2
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:449    .text.thread2:0000000000000024 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:454    .text.thread4:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:459    .text.thread4:0000000000000000 thread4
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:506    .text.sem4_execute:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:511    .text.sem4_execute:0000000000000000 sem4_execute
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:675    .text.sem4_execute:00000000000000e8 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:683    .text.sem2_execute:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:688    .text.sem2_execute:0000000000000000 sem2_execute
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:889    .text.sem2_execute:0000000000000128 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:904    .text.sem3_execute:0000000000000000 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:909    .text.sem3_execute:0000000000000000 sem3_execute
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1004   .text.sem3_execute:0000000000000084 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1068   .rodata.patternsem:0000000000000000 patternsem
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1050   .rodata.testsem4:0000000000000000 testsem4
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1041   .rodata.testsem3:0000000000000000 testsem3
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1032   .rodata.testsem2:0000000000000000 testsem2
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1023   .rodata.testsem1:0000000000000000 testsem1
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1020   .rodata.testsem1:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1029   .rodata.testsem2:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1038   .rodata.testsem3:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1047   .rodata.testsem4:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1056   .data.sem1:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1060   .data.sem1:0000000000000000 sem1
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1065   .rodata.patternsem:0000000000000000 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1075   .rodata.str1.4:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:18     .text.sem1_execute:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:23     .text.sem1_execute:0000000000000000 sem1_execute
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:224    .text.sem1_execute:000000000000011c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:282    .text.thread1:0000000000000000 thread1
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:239    .text.thread3:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:244    .text.thread3:0000000000000000 thread3
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:272    .text.thread3:0000000000000014 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:277    .text.thread1:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:310    .text.thread1:0000000000000014 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:315    .text.sem1_setup:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:320    .text.sem1_setup:0000000000000000 sem1_setup
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:339    .text.sem1_setup:000000000000000c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:344    .text.sem2_setup:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:349    .text.sem2_setup:0000000000000000 sem2_setup
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:368    .text.sem2_setup:000000000000000c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:373    .text.sem3_setup:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:378    .text.sem3_setup:0000000000000000 sem3_setup
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:397    .text.sem3_setup:000000000000000c $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:402    .text.thread2:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:407    .text.thread2:0000000000000000 thread2
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:449    .text.thread2:0000000000000024 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:454    .text.thread4:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:459    .text.thread4:0000000000000000 thread4
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:506    .text.sem4_execute:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:511    .text.sem4_execute:0000000000000000 sem4_execute
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:675    .text.sem4_execute:00000000000000e8 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:683    .text.sem2_execute:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:688    .text.sem2_execute:0000000000000000 sem2_execute
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:889    .text.sem2_execute:0000000000000128 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:904    .text.sem3_execute:0000000000000000 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:909    .text.sem3_execute:0000000000000000 sem3_execute
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1004   .text.sem3_execute:0000000000000084 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1068   .rodata.patternsem:0000000000000000 patternsem
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1050   .rodata.testsem4:0000000000000000 testsem4
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1041   .rodata.testsem3:0000000000000000 testsem3
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1032   .rodata.testsem2:0000000000000000 testsem2
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1023   .rodata.testsem1:0000000000000000 testsem1
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1020   .rodata.testsem1:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1029   .rodata.testsem2:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1038   .rodata.testsem3:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1047   .rodata.testsem4:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1056   .data.sem1:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1060   .data.sem1:0000000000000000 sem1
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1065   .rodata.patternsem:0000000000000000 $d
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1075   .rodata.str1.4:0000000000000000 $d
                      .debug_frame:0000000000000010 $d
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:238    .text.sem1_execute:0000000000000148 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:276    .text.thread3:0000000000000018 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:314    .text.thread1:0000000000000018 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:453    .text.thread2:0000000000000028 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:682    .text.sem4_execute:00000000000000f8 $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:903    .text.sem2_execute:000000000000014c $t
-/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s:1019   .text.sem3_execute:0000000000000098 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:238    .text.sem1_execute:0000000000000148 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:276    .text.thread3:0000000000000018 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:314    .text.thread1:0000000000000018 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:453    .text.thread2:0000000000000028 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:682    .text.sem4_execute:00000000000000f8 $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:903    .text.sem2_execute:000000000000014c $t
+/var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s:1019   .text.sem3_execute:0000000000000098 $t
 
 UNDEFINED SYMBOLS
-ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccibPMdb.s 			page 82
+ARM GAS  /var/folders/qh/xwg3v3kj02qbxczjpdb8lzfr0000gn/T//ccnCQgl3.s 			page 82
 
 
 chThdCreateStatic

@@ -7,7 +7,6 @@
 #include "cmd.h"
 #include  <string.h>
 
-extern int adcDataReady;        
 extern int value;
 extern ADCConversionGroup adcSettings;
 extern MemoryPool mp;
@@ -19,33 +18,6 @@ char error[] = "Error Parsing String";
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-
-	// adc settings are settingspassed to new thread
-	ADCConversionGroup adcSettings = {
-    		FALSE,
-    		ADCTEMPCHANNELS,
-    		adcCallBack,
-    		adcErrorCallBack,
-    		ADC_CFGR1_RES_12BIT,                              /* CFGRR1 */
-    		ADC_TR(0, 0),                                     /* TR */
-    		ADC_SMPR_SMP_1P5,                                 /* SMPR */
-    		ADC_CHSELR_CHSEL1                                /* CHSELR */
-	};
-	//creating space in memory for the adc thread
-	//turning on pheripherals
-        adcSTM32SetCCR(ADC_CCR_VBATEN | ADC_CCR_TSEN | ADC_CCR_VREFEN);
-	//thread created, need to change to dynamic pool allocation
-	Thread *tp = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, &adcSettings);
-	//this should be replaced with a thread wait for message
-	while(adcDataReady == FALSE)
-	{
-		chprintf((BaseSequentialStream*)&SD1, "waiting");
-
-	}
-
-	//data made
-	chprintf(chp, "TEMP DCV: %d \n\r", value); 
-	//should kill adc thread at this point
 }
 
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -93,7 +65,6 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 	//parse input arguments make settings
 	cmdParseArguments (chp,argc, argv,  CMD_ADC);
 
-	Thread *outputThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcOutput, NULL);
         Thread *adcThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
 
         //this should be replaced with a thread wait for message
@@ -419,3 +390,17 @@ static int parseCmdDate(BaseSequentialStream *chp, int argc, char *argv[])
 }
 */
 
+void outputResponse(void)
+{
+	while(1)
+	{
+        chBSemWait(&adcSemDataReady);	
+
+	        if (chBSemGetStateI(&adcSemDataReady))
+                {
+                        chBSemResetI(&adcSemDataReady, FALSE);
+                }	
+
+	}
+
+}
