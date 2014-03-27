@@ -1391,7 +1391,7 @@ Discarded input sections
  .debug_aranges
                 0x0000000000000000       0x28 build/obj/hardware.o
  .debug_ranges  0x0000000000000000       0x18 build/obj/hardware.o
- .debug_line    0x0000000000000000       0x75 build/obj/hardware.o
+ .debug_line    0x0000000000000000       0x77 build/obj/hardware.o
  .debug_str     0x0000000000000000      0x1ac build/obj/hardware.o
  .comment       0x0000000000000000       0x71 build/obj/hardware.o
  .ARM.attributes

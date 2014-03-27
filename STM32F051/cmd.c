@@ -177,12 +177,36 @@ msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int
 			}
 			break;
                 case CMD_DAC:
+			if(*argv[0] == '\0')
+			{
+				//check on dacs setup
+			}
+			else
+			{	
+				chprintf(chp,"dac setup chosen");
+				return parseCmdDac(chp,argc,argv);
+			}
                         break;
                 case CMD_PWM:
                         break;
                 case CMD_DATE:
                         break;
                 case CMD_UART:
+                        if(*argv[0] == '\0')
+                        {
+                                //check on uarts setup
+                        }
+                        else(*argv[0] == '-')
+                        {       
+                                chprintf(chp,"UART setup chosen");
+                                return parseCmdDac(chp,argc,argv);
+                        }
+			else
+			{
+				//if uart setup
+					//create thread to send it
+				//else  remind uart is not setup
+			}
                         break;
                 case CMD_SPI:
                         break;
