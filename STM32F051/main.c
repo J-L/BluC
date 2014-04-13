@@ -21,18 +21,16 @@
 #include "cmd.h"
 #include "chprintf.h"
 #include "cmdadc.h"
+#include "hardware.h"
 
-
-#define ADC_GRP1_NUM_CHANNELS   1
-#define ADC_GRP1_BUF_DEPTH      8
-
-#define ADC_GRP2_NUM_CHANNELS   4
-#define ADC_GRP2_BUF_DEPTH      16
-
-#define SHELL_WA_SIZE   THD_WA_SIZE(1024)
+#define SHELL_WA_SIZE   THD_WA_SIZE(512)
 MemoryPool mp;
-WORKING_AREA(thd1, 512);
-WORKING_AREA(thd2, 512);
+#define NUM_THREADS_POSSIBLE 3 
+int threadCount =0;
+Thread* threadArray[NUM_THREADS_POSSIBLE];
+WORKING_AREA(thread_area0, 256);
+WORKING_AREA(thread_area1, 256);
+WORKING_AREA(thread_area2, 256);
 
 Thread *sh = NULL;
 
@@ -76,9 +74,7 @@ static msg_t Thread2(void *arg) {
  */
 int main(void) {
 
-	chPoolInit(&mp, 512, NULL);
-	chPoolFree(&mp, thd1);
-	chPoolFree(&mp, thd2);
+//	chPoolFree(&mp, thd2);
 	Thread *sh = NULL;
   /*
    * System initializations.
@@ -89,6 +85,11 @@ int main(void) {
    */
   halInit();
   chSysInit();
+  hardwareInitialise();
+	chPoolInit(&mp, THD_WA_SIZE(256), NULL);
+	chPoolFree(&mp, thread_area0);
+	chPoolFree(&mp, thread_area1);
+	chPoolFree(&mp, thread_area2);
 
   /*
    * Activates the serial driver 1 using the driver default configuration.
@@ -102,8 +103,9 @@ int main(void) {
 
   /*
    * Creates the blinker threads.
-   */
-	Thread *outputThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, outputResponse, NULL);
+*/
+	chThdCreateFromMemoryPool(&mp, NORMALPRIO, outputResponse, &SD1);
+	threadCount++;
 	chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
 	chThdCreateStatic(waThread2, sizeof(waThread2), NORMALPRIO, Thread2, NULL);
 
@@ -119,6 +121,7 @@ int main(void) {
     */
 	shellInit();
 	while (TRUE) {
+		//call bt function
 		if (!sh)
 			sh = shellCreate(&shCfg, SHELL_WA_SIZE, NORMALPRIO);
 		else if (chThdTerminated(sh)) {

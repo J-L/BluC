@@ -59,7 +59,7 @@ DESCRIPTION
 	is entered.
 USAGE
 	bluetooth
-	name:'BluC',power:'on',status:'connected',address:'8f9a6787', device_mode:'slave'	
+	name:'BluC',password:'1234',power:'on',status:'connected',address:'8f9a6787',
 NAME
 	man
 DESCRIPTION

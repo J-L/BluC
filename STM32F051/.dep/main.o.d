@@ -53,7 +53,7 @@ build/obj/main.o: main.c ../../os/kernel/include/ch.h chconf.h \
  ../../os/hal/include/serial_usb.h ../../test/test.h \
  ../../os/various/shell.h cmd.h ../../os/various/chprintf.h \
  /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h \
- cmdadc.h
+ cmdadc.h hardware.h
 
 ../../os/kernel/include/ch.h:
 
@@ -230,3 +230,5 @@ cmd.h:
 /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h:
 
 cmdadc.h:
+
+hardware.h:

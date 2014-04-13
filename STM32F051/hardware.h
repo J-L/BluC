@@ -5,41 +5,43 @@ this file contains definitions  and mapping between the mcu and the board pertai
 struct pinUse;
 
 
-#define INPUT 0x01
-#define OUTPUT 0x02
-#define ADC 0x04
-#define DAC 0x08
-#define UART 0x10
-#define SPI 0x20
-#define I2C 0x40
-#define PWM 0x80
 
-#define PIN_0 0x01
-#define PIN_1 0x02
-#define PIN_2 0x04
-#define PIN_3 0x08
-#define PIN_4 0x10
-#define PIN_5 0x20
-#define PIN_6 0x40
-#define PIN_7 0x80
+#define HW_NONE 0x00
+#define HW_INPUT 0x01
+#define HW_OUTPUT 0x02
+#define HW_ADC 0x04
+#define HW_DAC 0x08
+#define HW_UART 0x10
+#define HW_SPI 0x20
+#define HW_I2C 0x40
+#define HW_PWM 0x80
+
+#define PIN_0 0
+#define PIN_1 1
+#define PIN_2 2
+#define PIN_3 3
+#define PIN_4 4
+#define PIN_5 5
+#define PIN_6 6
+#define PIN_7 7
 
 
-struct pinSetting {
-	int pinPort;
+typedef struct {
+	GPIO_TypeDef * pinPort;
 	int pinNumber;
 	int pinOptions;
-};
-/*
-pin[0].pinPort = GPIOA;
-pin[0].pinNumber = 0;
-pin[0].pinOptions = INPUT | OUTPUT |ADC |DAC |UART;
-*/
-struct pinSetting pinCapabilities[8];
-   //      pinCapabilities
+	int pinAdcAddress;
+	int pinTimerAddress;
+	int currentSetting;
+}pinSetting;
 
-int hardwareSetPins(int,int);
-int hardwareCheckPins(int,int);
 
+void hardwareInitialise(void);
+int hardwareSetPins(char *,int);
+int hardwareCheckPins(char *,int);
+int hardwarePinInterpret(char *);
+int hardwarePinParse(char *);
+int hardwareGetAdcAddress(char *);
 //pwm acceptable pins
 //adc pins
 //dac accessible pins

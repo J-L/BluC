@@ -22,13 +22,6 @@
 #define CMD_UART	0x16
 #define CMD_BLUETOOTH	0x17
 
-	
-
-
-
-
-
-
 //base functionality
 void cmdGetTemp(BaseSequentialStream *, int , char *[]);
 void cmdGetVoltage(BaseSequentialStream *, int , char *[]);
@@ -52,10 +45,16 @@ void cmdFor(BaseSequentialStream *, int , char *[]);
 void cmdDefine(BaseSequentialStream *, int , char *[]);
 void cmdBreak(BaseSequentialStream *, int , char *[]);
 
+
+
+
 //helper functions (static), not used  elsewhere
 ADCConversionGroup *parseCmdAdc (BaseSequentialStream *, int, char *[]);
 msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int caller);
-void outputResponse(void);
+tfunc_t  outputResponse(BaseSequentialStream *chp);
+int threadManager(void);
+int checkForMessages(Thread *thdArray);
+
 
 static  const ShellCommand shCmds[] = {
 	{"temp",  (shellcmd_t)  cmdGetTemp},
@@ -75,3 +74,10 @@ static const ShellConfig shCfg = {
     (BaseSequentialStream *)&SD1,
     shCmds
 };
+typedef struct {
+        char * serialString;
+	adcsample_t * adcOutputValues;
+	int numberOfValues;
+	int caller;
+ 
+}outputResponseStruct;

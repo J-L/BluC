@@ -4,17 +4,26 @@
 #include "shell.h"
 #include "chprintf.h"
 #include "cmdadc.h"
+#include "adc.h"
 #include "cmd.h"
 #include  <string.h>
+#include "hardware.h"
 
-extern int value;
+extern int threadCount;
+extern Thread *threadArray[];
+
 extern ADCConversionGroup adcSettings;
 extern MemoryPool mp;
 extern adcsample_t samples;
 extern BinarySemaphore adcSemDataReady;
 char error[] = "Error Parsing String";
+extern int adcSelectedChannels;
+extern int adcNumberOfSelectedChannel;
+outputResponseStruct outputResponseData;
 
 
+
+BSEMAPHORE_DECL(outputResponseDataReady, 0);
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
@@ -62,17 +71,84 @@ cmdAdc
 
 void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+	int commandSuccess = FALSE;
+	int arg1 =FALSE;
+	int adcMode = 0;
+	int adcSampleDivider = 0;
 	//parse input arguments make settings
 	cmdParseArguments (chp,argc, argv,  CMD_ADC);
+	if(*argv[0] == '\0')
+	{
+		chprintf(chp, "adc status selected");
+		arg1 =FALSE;
+		commandSuccess =FALSE;
+	}
+	else if (*(argv[0]+1) == 'o')
+	{
+		//oneshot 
+		adcSettings.circular =FALSE;
+		arg1 = TRUE;
 
-        Thread *adcThread = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+	}
+	else if (*(argv[0]+1) == 'c')
+	{
+		arg1 =TRUE;
+		adcSettings.circular=TRUE;
 
-        //this should be replaced with a thread wait for message
-	//setup adc conversion arguments
+		//cts mode
+	}
+	if (arg1 == TRUE)
+	{
 
-	//create thread
+		adcSelectedChannels = 0;
+		adcNumberOfSelectedChannel =0;
+		int i  =1;
+		while(argv[1][i] !='\0')
+		{
+			adcNumberOfSelectedChannel++;
+			//if the pin in question has a adc function alowed
+			if(hardwareCheckPins(&(argv[1][i]),HW_ADC))
+			{
+				commandSuccess =TRUE;
+				//setting mode on selected pin
+				hardwareSetPins(&(argv[1][i]),HW_ADC);
+				//or-ing channels to be 
 
+				int adcAddress = hardwareGetAdcAddress(&(argv[1][i]));
+				if((adcSelectedChannels & adcAddress) == adcAddress)
+				{
 
+					//covers the case where in is already selected
+					adcNumberOfSelectedChannel--;
+				}
+				adcSelectedChannels |= adcAddress;
+			}
+			else
+			{
+				//either pin does not exist or adc function does not exist
+				adcNumberOfSelectedChannel--;
+				chprintf(chp, "err pin not found\n");
+				commandSuccess = FALSE;
+			}
+		//incrementing char
+		i++;
+		adcSettings.num_channels =adcNumberOfSelectedChannel;
+
+		}
+	}
+	if (commandSuccess == TRUE)
+	{
+		chprintf(chp, "thread created\n");
+		int i = threadManager();// returns which memory pool we can use
+		if (i!=255)
+		{
+        		threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+		}
+		else
+		{
+			chprintf(chp, "ran outta threads\n");
+		}
+	}
 
 
 }
@@ -173,7 +249,6 @@ msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int
 			}
 			else
 			{
- 				return parseCmdAdc (chp,argc, argv);
 			}
 			break;
                 case CMD_DAC:
@@ -184,7 +259,6 @@ msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int
 			else
 			{	
 				chprintf(chp,"dac setup chosen");
-				return parseCmdDac(chp,argc,argv);
 			}
                         break;
                 case CMD_PWM:
@@ -196,10 +270,9 @@ msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int
                         {
                                 //check on uarts setup
                         }
-                        else(*argv[0] == '-')
-                        {       
+                        else if (*argv[0] == '-')
+                        {
                                 chprintf(chp,"UART setup chosen");
-                                return parseCmdDac(chp,argc,argv);
                         }
 			else
 			{
@@ -213,6 +286,17 @@ msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int
                 case CMD_I2C:
                         break;
                 case CMD_BLUETOOTH:
+			if (*argv[0] =='\0')
+			{
+				chprintf(chp,"name:");
+				chprintf(chp,",password:");
+				chprintf(chp,",status:");
+				chprintf(chp,",address:");
+
+			}
+			else
+			{
+			}
                         break;
                 case CMD_IO:
                         break;
@@ -222,151 +306,6 @@ msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int
 
 }
 
-ADCConversionGroup *parseCmdAdc (BaseSequentialStream *chp, int argc, char *argv[])
-{
-	// find first argument
-	int adcMode = 0;
-	int adcSelectedChannels = 0;
-	int adcNumberOfSelectedChannel = 0;
-	int adcSampleDivider = 0;
-	// check if continuous os one shot
-	if (*(argv[0]+1) =='c')
-	{
-		chprintf(chp, "Continuous Mode\n");
-		adcMode = TRUE;
-		//continuous
-	}
-	else if ( *(argv[0]+1)  == 'o')
-	{
-		chprintf(chp, "One Shot\n");
-
-	}
-	else
-	{
-		return FALSE;
-	}
-	// while characters in channel selection argument
-	int i =1;
-	int adcChannelAdded =0;
-	while (*(argv[1]+i) != '\0')
-	{
-		//switch for charcter	
-		switch (*(argv[1]+i))
-		{
-					chprintf(chp, "Channels Selected:");
-				case '1':
-			    		adcChannelAdded =ADC_CHSELR_CHSEL1;                                /* CHSELR */
-					adcNumberOfSelectedChannel++;
-					chprintf(chp, "1,");
-					break;
-				case '2':
-					adcChannelAdded =ADC_CHSELR_CHSEL2;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "2,");
-					break;
-				case '3':
-					adcChannelAdded =ADC_CHSELR_CHSEL3;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "3,");
-					break;
-				case '4':
-					adcChannelAdded =ADC_CHSELR_CHSEL4;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "4,");
-					break;
-				case '5':
-                                        adcChannelAdded=ADC_CHSELR_CHSEL5;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "5,");
-					break;
-				case '6':
-                                        adcChannelAdded =ADC_CHSELR_CHSEL6;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "6,");
-					break;
-                                case '7':
-                                        adcChannelAdded =ADC_CHSELR_CHSEL7;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "7,");
-                                        break;
-                                case '8':
-                                        adcChannelAdded =ADC_CHSELR_CHSEL8;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "8,");
-                                        break;
-                                case '9':
-                                        adcChannelAdded =ADC_CHSELR_CHSEL9;                                /* CHSELR */
-                                        adcNumberOfSelectedChannel++;
-					chprintf(chp, "9,");
-                                        break;
-				default:
-					return FALSE;
-				//not a valid  charc
-		}
-		if ((adcSelectedChannels && adcChannelAdded)!= adcChannelAdded)
-		{
-			adcSelectedChannels |= adcChannelAdded;
-		}
-		i++;
-	}
-/*
-define ADC_SMPR_SMP_1P5        0   < @brief 14 cycles conversion time   
-#define ADC_SMPR_SMP_7P5        1   < @brief 21 cycles conversion time.  
-#define ADC_SMPR_SMP_13P5       2   < @brief 28 cycles conversion time.  
-#define ADC_SMPR_SMP_28P5       3   < @brief 41 cycles conversion time.  
-#define ADC_SMPR_SMP_41P5       4   < @brief 54 cycles conversion time.  
-#define ADC_SMPR_SMP_55P5       5   < @brief 68 cycles conversion time.  
-#define ADC_SMPR_SMP_71P5       6   < @brief 84 cycles conversion time.  
-#define ADC_SMPR_SMP_239P5      7   < @brief 252 cycles conversion time. 	
-*/	
-	if (*(argv[2])=='\0')
-	{
-		chprintf(chp, "default frequency");
-	}
-	else if (strcmp(argv[2], "-1MHz") ==0)
-	{
-		chprintf(chp, "true");
-
-	}
-        else if (strcmp(argv[2], "-666kHz") ==0)
-        {
-                chprintf(chp, "true");
-
-        }
-        else if (strcmp(argv[2], "-500kHz") ==0)
-        {
-                chprintf(chp, "true");
-
-        }
-        else if (strcmp(argv[2], "-341kHz") ==0)
-        {
-                chprintf(chp, "true");
-
-        }
-        else if (strcmp(argv[2], "-259kHz") ==0)
-        {
-                chprintf(chp, "true");
-
-        }
-        else if (strcmp(argv[2], "-206kHz") ==0)
-        {
-                chprintf(chp, "true");
-
-        }
-        else if (strcmp(argv[2], "-167kHz") ==0)
-        {
-                chprintf(chp, "true");
-
-        }
-        adcSettings.circular=adcMode;
-        adcSettings.num_channels=adcNumberOfSelectedChannel;
-	return &adcSettings;
-	//looks at frequency argument (if exists)
-	// looks at output pointer (if exists)
-	//sets output pins, warn is not ok.
-	
-
-}
 
 static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 {
@@ -376,17 +315,33 @@ static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 
 	// if number
 		//check if valid baud rate
+			if(strcmp(argv[0], "-9600")==0)
+			{
+
+			}
+			else if(strcmp(argv[0], "38400")==0)
+			{
+
+			}
+			else if(strcmp(argv[0], "56800")==0)
+			{
+
+			}
+			else if(strcmp(argv[0], "115200")==0)
+			{
+			}
+			else if(strcmp(argv[0], "19200")==0)
+			{
+
+			}
+			else
+			{
+				chprintf(chp, "Command not valid");
+			}
+			
 			//set hardware pins on
 			//warns if must turn off other programs
 			// check if escape argument has been given
-}
-
-/*
-static int parseCmdIo(BaseSequentialStream *chp, int argc, char *argv[])
-{
-	// check if input or output
-		//parse pins
-		// set pins up
 }
 
 static int parseCmdDac(BaseSequentialStream *chp, int argc, char *argv[])
@@ -400,31 +355,67 @@ static int parseCmdPwm(BaseSequentialStream *chp, int argc, char *argv[])
 
 
 }
-
-static int parseCmdBluetooth(BaseSequentialStream *chp, int argc, char *argv[])
+//cleans up threads, returns pointer to wherenew thread can be made, null iff not
+int threadManager(void)
 {
+	int i=0;// thread iterator
+	while(i <threadCount)
+	{
+		if(threadArray[i]==NULL)
+		{
+			return i;
+		}
+		if(checkForMessages(threadArray[i]))
+		{
+			//removes thread
+			threadArray[i] =NULL;
+			threadCount--;
+			return i;
+
+		}
+	i++;
+	}
+	return 255;
+}
+//returns true if message was found, false if not indicating a thread can be cleaned up
+int checkForMessages(Thread *thdArray)
+{
+	if(chMsgGet(thdArray)!=NULL)
+	{
+		hello();
+		chMsgRelease(thdArray,NULL);
+		return TRUE;
+	}
+	else
+	{
+		return FALSE;
+	}
 
 
 }
 
-static int parseCmdDate(BaseSequentialStream *chp, int argc, char *argv[])
+
+tfunc_t outputResponse(BaseSequentialStream *chp)
 {
+	outputResponseData.serialString = NULL;
+	outputResponseData.adcOutputValues = NULL;
+	outputResponseData.numberOfValues = 0;
+	outputResponseData.caller = 0;
 
 
-}
-*/
 
-void outputResponse(void)
-{
 	while(1)
 	{
-        chBSemWait(&adcSemDataReady);	
-
-	        if (chBSemGetStateI(&adcSemDataReady))
+	        chBSemWait(&outputResponseDataReady);
+	
+	        if (!chBSemGetStateI(&outputResponseDataReady))
                 {
-                        chBSemResetI(&adcSemDataReady, FALSE);
-                }	
+			chprintf(chp, "semaphore ok");
+
+                        chBSemReset(&outputResponseDataReady, TRUE);
+                }
 
 	}
 
 }
+
