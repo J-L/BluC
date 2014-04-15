@@ -5,11 +5,11 @@
 #include "shell.h"
 #include "adc.h"
 #include "cmd.h"
+#include "hardware.h"
 #include "cmdadc.h"
 
 int value;
-adcsample_t samples[8];
-size_t nx = 0, ny = 0;
+adcsample_t samples[64];
 
 extern BinarySemaphore outputResponseDataReady;
 extern outputResponseStruct outputResponseData;
@@ -31,7 +31,7 @@ ADCConversionGroup adcSettings = {
     ADC_CFGR1_RES_12BIT,                              /* CFGRR1 */
     ADC_TR(0, 0),                                     /* TR */
     ADC_SMPR_SMP_28P5,
-    ADC_CHSELR_CHSEL1                                /* CHSELR */
+    0                                /* CHSELR */
 };
 
 
@@ -43,8 +43,7 @@ void hello(void)
 
 void adcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 {
-	(void)adcp;
-	if (samples == buffer) 
+/*	if (samples == buffer) 
 	{
 		nx += n;
   	}
@@ -52,18 +51,18 @@ void adcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 	{
 		ny += n;
 	}
-
+*/
 		chSysLockFromIsr();
 		if (chBSemGetStateI(&outputResponseDataReady))
 		{
-			outputResponseData.caller =0;
-			outputResponseData.adcOutputValues = &buffer;
+			outputResponseData.caller =HW_ADC;
+			outputResponseData.adcOutputValues = &samples;
 			outputResponseData.numberOfValues =n;
 			chBSemResetI(&outputResponseDataReady, FALSE);
 		}
 		chSysUnlockFromIsr();
-	
 }
+
 
 
 void adcErrorCallBack(ADCDriver *adcp, adcerror_t err) 
@@ -78,7 +77,5 @@ tfunc_t adcConversionThread(void)
 {
 	adcStart(&ADCD1, NULL);
   	adcStartConversion(&ADCD1, &adcSettings, &samples, 8);
-	chThdSleepMilliseconds(50);
-	chThdExit(NULL);
-  
+	return (msg_t)0;  
 }

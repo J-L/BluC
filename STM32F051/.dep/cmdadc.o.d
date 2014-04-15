@@ -52,7 +52,8 @@ build/obj/cmdadc.o: cmdadc.c ../../os/kernel/include/ch.h chconf.h \
  ../../os/hal/include/usb.h ../../os/hal/include/mmc_spi.h \
  ../../os/hal/include/serial_usb.h ../../os/various/chprintf.h \
  /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h \
- ../../os/various/shell.h ../../os/hal/include/adc.h cmd.h cmdadc.h
+ ../../os/various/shell.h ../../os/hal/include/adc.h cmd.h hardware.h \
+ cmdadc.h
 
 ../../os/kernel/include/ch.h:
 
@@ -227,5 +228,7 @@ mcuconf.h:
 ../../os/hal/include/adc.h:
 
 cmd.h:
+
+hardware.h:
 
 cmdadc.h:

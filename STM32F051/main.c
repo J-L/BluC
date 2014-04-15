@@ -28,9 +28,9 @@ MemoryPool mp;
 #define NUM_THREADS_POSSIBLE 3 
 int threadCount =0;
 Thread* threadArray[NUM_THREADS_POSSIBLE];
-WORKING_AREA(thread_area0, 256);
-WORKING_AREA(thread_area1, 256);
-WORKING_AREA(thread_area2, 256);
+WORKING_AREA(thread_area0, 512);
+WORKING_AREA(thread_area1, 512);
+WORKING_AREA(thread_area2, 512);
 
 Thread *sh = NULL;
 
@@ -86,7 +86,7 @@ int main(void) {
   halInit();
   chSysInit();
   hardwareInitialise();
-	chPoolInit(&mp, THD_WA_SIZE(256), NULL);
+	chPoolInit(&mp, THD_WA_SIZE(512), NULL);
 	chPoolFree(&mp, thread_area0);
 	chPoolFree(&mp, thread_area1);
 	chPoolFree(&mp, thread_area2);
@@ -104,7 +104,7 @@ int main(void) {
   /*
    * Creates the blinker threads.
 */
-	chThdCreateFromMemoryPool(&mp, NORMALPRIO, outputResponse, &SD1);
+	threadArray[0] =chThdCreateFromMemoryPool(&mp, NORMALPRIO, outputResponse, &SD1);
 	threadCount++;
 	chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
 	chThdCreateStatic(waThread2, sizeof(waThread2), NORMALPRIO, Thread2, NULL);

@@ -127,18 +127,17 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 			{
 				//either pin does not exist or adc function does not exist
 				adcNumberOfSelectedChannel--;
-				chprintf(chp, "err pin not found\n");
+				cmdErrPinFunction(chp);
 				commandSuccess = FALSE;
 			}
 		//incrementing char
 		i++;
 		adcSettings.num_channels =adcNumberOfSelectedChannel;
-
+		adcSettings.chselr =adcSelectedChannels;
 		}
 	}
 	if (commandSuccess == TRUE)
 	{
-		chprintf(chp, "thread created\n");
 		int i = threadManager();// returns which memory pool we can use
 		if (i!=255)
 		{
@@ -150,6 +149,69 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 		}
 	}
 
+
+}
+void cmdError(BaseSequentialStream *chp)
+{
+	chprintf(chp,"Command not understood.\n");
+}
+#define INPUT 1
+#define OUTPUT 2
+
+void cmdErrPinFunction(BaseSequentialStream *chp)
+{
+	chprintf(chp,"Pin Function Error");
+
+}
+
+void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
+{
+	int commandSuccess = FALSE;
+	int mode = FALSE;
+	int ioNumPins = 0;
+	if(*argv[0] == '\0')
+	{
+		cmdError(chp);
+		commandSuccess =FALSE;
+	}
+	else
+	{
+		if(argv[0][1] =='o')
+		{
+			mode = OUTPUT;
+			//command is to output
+
+		}
+		else if(argv[0][1] =='i')
+		{
+			mode = INPUT;
+			//command set to input
+		}
+		//mode is set
+		if (mode)
+		{
+			int i = 1;
+			commandSuccess =TRUE;
+			while(argv[1][i] !='\0')
+			{
+				ioNumPins++;
+				if(hardwareCheckPins(&(argv[1][i]),HW_IO)
+				{
+
+
+				}
+				else
+				{
+					cmdPinErrFunction(chp);
+					commandSuccess =FALSE;
+					ioNumPins--;
+				}
+
+
+			i++;
+			}
+		}
+	}
 
 }
 
@@ -358,32 +420,42 @@ static int parseCmdPwm(BaseSequentialStream *chp, int argc, char *argv[])
 //cleans up threads, returns pointer to wherenew thread can be made, null iff not
 int threadManager(void)
 {
+
 	int i=0;// thread iterator
-	while(i <threadCount)
+	while(i <2)
 	{
+//		chprintf((BaseSequentialStream*)&SD1, "it\n");
+
 		if(threadArray[i]==NULL)
 		{
-			return i;
-		}
-		if(checkForMessages(threadArray[i]))
-		{
-			//removes thread
-			threadArray[i] =NULL;
-			threadCount--;
+
+//			chprintf((BaseSequentialStream*)&SD1, "op1");
 			return i;
 
 		}
-	i++;
+		if(checkForMessages(threadArray[i]))
+		{
+//			hello();
+//			chprintf((BaseSequentialStream*)&SD1, "op2");
+
+			//removes thread
+			threadArray[i] =NULL;
+			return i;
+
+		}
+		i++;
 	}
+//	chprintf((BaseSequentialStream*)&SD1, "op3");
+
+
 	return 255;
 }
 //returns true if message was found, false if not indicating a thread can be cleaned up
 int checkForMessages(Thread *thdArray)
 {
-	if(chMsgGet(thdArray)!=NULL)
+	if(chThdTerminated(thdArray))
 	{
-		hello();
-		chMsgRelease(thdArray,NULL);
+		chThdWait(thdArray);
 		return TRUE;
 	}
 	else
@@ -401,21 +473,58 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 	outputResponseData.adcOutputValues = NULL;
 	outputResponseData.numberOfValues = 0;
 	outputResponseData.caller = 0;
-
-
-
+/*
+#define HW_NONE 0x00
+#define HW_INPUT 0x01
+#define HW_OUTPUT 0x02
+#define HW_ADC 0x04
+#define HW_DAC 0x08
+#define HW_UART 0x10
+#define HW_SPI 0x20
+#define HW_I2C 0x40
+#define HW_PWM 0x80
+*/
 	while(1)
 	{
 	        chBSemWait(&outputResponseDataReady);
 	
 	        if (!chBSemGetStateI(&outputResponseDataReady))
                 {
-			chprintf(chp, "semaphore ok");
+//			chprintf(chp, "semaphore ok");
+			switch(outputResponseData.caller)
+			{
+				case HW_ADC:;
+					int i = 0;
+					chprintf(chp,"%d:",adcNumberOfSelectedChannel);
+					while(i <adcNumberOfSelectedChannel)
+					{
+						int valToPrint = (int) (outputResponseData.adcOutputValues[i]);
+						chprintf(chp,"%d," ,valToPrint);
+						i++;
+					}
+						chprintf(chp,"\n");
+						 chThdSleepMilliseconds(10);
+					break;
+				case HW_INPUT:
+					chprintf(chp, "Something else \n");
+					break;
+				case HW_UART:
+					chprintf(chp, "Something else \n");
+					break;
+				case HW_SPI:
+					chprintf(chp, "Something else \n");
+					break;
+				case HW_I2C:
+					chprintf(chp, "Something else \n");
+					break;
+				default:
+					chprintf(chp, "default output response \n");
+					break;
 
+			}
                         chBSemReset(&outputResponseDataReady, TRUE);
                 }
 
 	}
 
 }
-
