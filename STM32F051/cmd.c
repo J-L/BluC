@@ -12,7 +12,6 @@
 extern int threadCount;
 extern Thread *threadArray[];
 
-extern ADCConversionGroup adcSettings;
 extern MemoryPool mp;
 extern adcsample_t samples;
 extern BinarySemaphore adcSemDataReady;
@@ -41,8 +40,9 @@ void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[])
 
 	//print returned value
 
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 void cmdGetBattery(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -58,8 +58,9 @@ void cmdGetBattery(BaseSequentialStream *chp, int argc, char *argv[])
         //print returned value
 
 
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 /*
@@ -74,12 +75,11 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 	int commandSuccess = FALSE;
 	int arg1 =FALSE;
 	int adcMode = 0;
-	int adcSampleDivider = 0;
 	//parse input arguments make settings
 	cmdParseArguments (chp,argc, argv,  CMD_ADC);
 	if(*argv[0] == '\0')
 	{
-		chprintf(chp, "adc status selected");
+
 		arg1 =FALSE;
 		commandSuccess =FALSE;
 	}
@@ -100,41 +100,16 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 	if (arg1 == TRUE)
 	{
 
-		adcSelectedChannels = 0;
-		adcNumberOfSelectedChannel =0;
-		int i  =1;
-		while(argv[1][i] !='\0')
-		{
-			adcNumberOfSelectedChannel++;
-			//if the pin in question has a adc function alowed
-			if(hardwareCheckPins(&(argv[1][i]),HW_ADC))
-			{
-				commandSuccess =TRUE;
-				//setting mode on selected pin
-				hardwareSetPins(&(argv[1][i]),HW_ADC);
-				//or-ing channels to be 
-
-				int adcAddress = hardwareGetAdcAddress(&(argv[1][i]));
-				if((adcSelectedChannels & adcAddress) == adcAddress)
-				{
-
-					//covers the case where in is already selected
-					adcNumberOfSelectedChannel--;
-				}
-				adcSelectedChannels |= adcAddress;
-			}
-			else
-			{
-				//either pin does not exist or adc function does not exist
-				adcNumberOfSelectedChannel--;
-				cmdErrPinFunction(chp);
-				commandSuccess = FALSE;
-			}
-		//incrementing char
-		i++;
-		adcSettings.num_channels =adcNumberOfSelectedChannel;
-		adcSettings.chselr =adcSelectedChannels;
-		}
+	adcSelectedChannels = 0;
+	adcNumberOfSelectedChannel =0;
+	adcNumberOfSelectedChannel++;
+	if(hardwareSetupPins(&(argv[1]),HW_ADC) && hardwareSetAdcChannels(&(argv[1])))
+	{
+		commandSuccess =TRUE;
+	}
+	else
+	{
+		commandSuccess = FALSE;
 	}
 	if (commandSuccess == TRUE)
 	{
@@ -155,20 +130,26 @@ void cmdError(BaseSequentialStream *chp)
 {
 	chprintf(chp,"Command not understood.\n");
 }
-#define INPUT 1
-#define OUTPUT 2
 
 void cmdErrPinFunction(BaseSequentialStream *chp)
 {
-	chprintf(chp,"Pin Function Error");
+	chprintf(chp,"Pin Function Error\n");
 
 }
+#define BIN 1
+#define HEX 2
 
 void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 {
+(void)argc;
+	int logic = FALSE;
 	int commandSuccess = FALSE;
 	int mode = FALSE;
 	int ioNumPins = 0;
+	int format = HEX;
+	//itype, otype refer to the type of input or output high z or push pull output
+	int i_type = HW_INPUT;
+	int o_type =HW_PP;
 	if(*argv[0] == '\0')
 	{
 		cmdError(chp);
@@ -178,31 +159,47 @@ void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 	{
 		if(argv[0][1] =='o')
 		{
-			mode = OUTPUT;
+			mode = HW_OUTPUT;
 			//command is to output
+
 
 		}
 		else if(argv[0][1] =='i')
 		{
-			mode = INPUT;
+			mode = HW_INPUT;
 			//command set to input
 		}
 		//mode is set
+		if(argv[0][2] =='b')
+		{
+			format = BIN;
+		}
 		if (mode)
 		{
+			if(argv[1][0] == '\0')
+			{
+				argv[1] = "-01234567\0";
+			}
+
 			int i = 1;
 			commandSuccess =TRUE;
 			while(argv[1][i] !='\0')
 			{
 				ioNumPins++;
-				if(hardwareCheckPins(&(argv[1][i]),HW_IO)
+				if( mode == HW_INPUT)
 				{
+					hardwareSetPins(&(argv[1][i]),i_type);
+					
 
 
 				}
+				else if( mode == HW_OUTPUT)
+				{
+					hardwareSetPins(&(argv[1][i]),o_type);
+				}
 				else
 				{
-					cmdPinErrFunction(chp);
+					cmdErrPinFunction(chp);
 					commandSuccess =FALSE;
 					ioNumPins--;
 				}
@@ -217,6 +214,10 @@ void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 
 void cmdDac(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+(void)chp;
+(void)argc;
+(void)argv;
+
 	//parse arguments
 	//initialise dac 
 
@@ -230,12 +231,15 @@ void cmdDac(BaseSequentialStream *chp, int argc, char *argv[])
 
 	//thread kill
 
-    chprintf(chp, "Hello World");  
 
 }
 
 void cmdUart(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+
+(void)chp;
+(void)argc;
+(void)argv;
 	//parse arguments
 
 	//if no arguments supplied, shows current configuration
@@ -243,14 +247,14 @@ void cmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 	//if arguments supplied,  change configuration
 
 	//if  start found, gogogo
-    chprintf(chp, "Hello World");  
 
 }
 
 void cmdSpi(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 void cmdBluetooth(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -261,23 +265,26 @@ void cmdBluetooth(BaseSequentialStream *chp, int argc, char *argv[])
 
 	//if arguments , changes configuration in memory (restart required)
 
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 
 
 void cmdI2c(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 
 void cmdPwm(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 void cmdDate(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -289,88 +296,21 @@ void cmdDate(BaseSequentialStream *chp, int argc, char *argv[])
 	//in argument,  set system time
 
 
-    chprintf(chp, "Hello World");  
-
+(void)chp;
+(void)argc;
+(void)argv;
 }
 
 
 //parses commands for sense. if no sense, prints error to console
 
-msg_t *cmdParseArguments (BaseSequentialStream *chp, int argc, char *argv[], int caller)
-{
-	//removes white space
-	int i = 0;
-	//checks option list for caller
-	switch(caller)
-	{
-		case CMD_ADC:
-			if (*argv[0] == '\0')
-			{
-				chprintf(chp, "adc status selected");
-				break;
-			}
-			else
-			{
-			}
-			break;
-                case CMD_DAC:
-			if(*argv[0] == '\0')
-			{
-				//check on dacs setup
-			}
-			else
-			{	
-				chprintf(chp,"dac setup chosen");
-			}
-                        break;
-                case CMD_PWM:
-                        break;
-                case CMD_DATE:
-                        break;
-                case CMD_UART:
-                        if(*argv[0] == '\0')
-                        {
-                                //check on uarts setup
-                        }
-                        else if (*argv[0] == '-')
-                        {
-                                chprintf(chp,"UART setup chosen");
-                        }
-			else
-			{
-				//if uart setup
-					//create thread to send it
-				//else  remind uart is not setup
-			}
-                        break;
-                case CMD_SPI:
-                        break;
-                case CMD_I2C:
-                        break;
-                case CMD_BLUETOOTH:
-			if (*argv[0] =='\0')
-			{
-				chprintf(chp,"name:");
-				chprintf(chp,",password:");
-				chprintf(chp,",status:");
-				chprintf(chp,",address:");
-
-			}
-			else
-			{
-			}
-                        break;
-                case CMD_IO:
-                        break;
-	}
-	//checks
-
-
-}
 
 
 static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 {
+(void)chp;
+(void)argc;
+(void)argv;
 	//check if first command is letter or number
 
 	// if letter
@@ -406,17 +346,6 @@ static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 			// check if escape argument has been given
 }
 
-static int parseCmdDac(BaseSequentialStream *chp, int argc, char *argv[])
-{
-
-
-}
-
-static int parseCmdPwm(BaseSequentialStream *chp, int argc, char *argv[])
-{
-
-
-}
 //cleans up threads, returns pointer to wherenew thread can be made, null iff not
 int threadManager(void)
 {

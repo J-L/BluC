@@ -15,6 +15,11 @@ struct pinUse;
 #define HW_SPI 0x20
 #define HW_I2C 0x40
 #define HW_PWM 0x80
+#define HW_PU 0x200
+#define HW_PD 0x400
+#define HW_OD 0x800
+#define HW_PP 0x1000
+
 
 #define PIN_0 0
 #define PIN_1 1
@@ -37,11 +42,19 @@ typedef struct {
 
 
 void hardwareInitialise(void);
-int hardwareSetPins(char *,int);
+int hardwareSetupPins(char *,int);
+int hardwareSetupPin(char *,int);
 int hardwareCheckPins(char *,int);
 int hardwarePinInterpret(char *);
 int hardwarePinParse(char *);
+int hardwareParseDecimal(char *);
+int hardwareReadPins(char *);
 int hardwareGetAdcAddress(char *);
+int hardwareSetAdcChannels(char *);
+int hardwareGetIoPort(char *);
+int hardwareGetIoPin(char *);
+
+
 //pwm acceptable pins
 //adc pins
 //dac accessible pins
