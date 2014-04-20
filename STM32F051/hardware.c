@@ -1,9 +1,16 @@
+#include "ch.h"
+#include "chprintf.h"
 #include "hal.h"
 #include "hardware.h"
-pinSetting hwPin[8];
+#include "ctype.h"
+pinSetting hwPin[9];
 extern ADCConversionGroup adcSettings;
 
-
+void hello(void)
+{
+        chprintf((BaseSequentialStream*)&SD1, "HelloWorld");
+	chThdSleepMilliseconds(1000);
+}
 
 
 void hardwareInitialise(void)
@@ -68,11 +75,12 @@ void hardwareInitialise(void)
 
 //sets mode for pin
 
-int hardwareSetupPin(char * pinToBeUsed, int mode)
+int hardwareSetupPin(int pinToBeUsed, int mode)
 {
-	int pinLocation = hardwarePinParse(pinToBeUsed);
-	if (pinLocation !=255)
+	int pinLocation = pinToBeUsed;
+	if (pinLocation !=ERR_PIN)
 	{
+
 		switch (mode)
 		{
 			case HW_NONE:
@@ -108,7 +116,8 @@ int hardwareSetupPin(char * pinToBeUsed, int mode)
 		}
 		//setting current mode, returning true
                 hwPin[pinLocation].currentSetting =mode;
-                return TRUE;
+		 return TRUE;
+
 	}
 
 }
@@ -117,61 +126,69 @@ int hardwareSetupPin(char * pinToBeUsed, int mode)
 
 
 //sets hardware mode of pins , returns 
-int hardwareSetupPins(char * pinsToBeUsed, int mode)
+int hardwareSetupPins(int * arrayOfPinLocations, int mode)
 {
-	if(!hardwareCheckPins(pinsToBeUsed,mode))
+	if(!hardwareCheckPins(arrayOfPinLocations,mode))
 	{
 		return FALSE;
 
 	}
 	int i = 1;
 	int pinSetSuccess;
-	while(pinsToBeUsed[i] !='\0')
+	while(arrayOfPinLocations[i] !=END_PIN)
 	{
-		pinSetSuccess =hardwareSetupPin(&pinsToBeUsed[i],mode);
+		pinSetSuccess =hardwareSetupPin(arrayOfPinLocations[i],mode);
 		if (pinSetSuccess ==FALSE)
 		{
+
 			return FALSE;
 			//setting pin failed, either due to pin location  fail or function or otherwise
 
 
 		}
-	
+		i++;
 	}
 	//all pins to be set were set
 	return TRUE;
+
 }
 
 
-int hardwareCheckPins(char * pinsToBeUsed, int mode)
+int hardwareCheckPins(int * arrayOfPinLocations, int mode)
 {
 	int i =1;
-	while(pinsToBeUsed[i] !='\0')
+	while(arrayOfPinLocations[i] !=END_PIN)
 	{
-	
-		int pinValue =FALSE;
-		pinValue = hardwarePinParse(pinsToBeUsed);
-		if(pinValue == 255)
+		if(!hardwareCheckPin(arrayOfPinLocations[i],mode))
 		{
 
 			return FALSE;
-		// pin does not exist in mapping
-		}
-		if((hwPin[pinValue].pinOptions & mode) != mode)
-		{
-			return FALSE;
-
-		}
-		i++;
 		//trying to set a function which does not exist on that pin.
+		}
+	i++;
+
 	}
 	return TRUE;
 
 }
-int hardwareCheckCurrentMode(char * pinToBeUsed)
+int hardwareCheckPin(int pinLocation,int mode)
+{
+
+	if((hwPin[pinLocation].pinOptions & mode) != mode)
+	{
+
+		return FALSE;
+	}
+	return TRUE;
+
+}
+
+int hardwareCheckCurrentModes(char * pinsToBeUsed)
 {
 	int pinValue =0;
-	pinValue = hardwarePinParse(pinToBeUsed);
+	int arrayOfPinLocations[8];
+	hardwareGetPinLocations(pinsToBeUsed, arrayOfPinLocations);
+
 	if(pinValue == 255)
 	{
 		return FALSE;
@@ -181,94 +198,116 @@ int hardwareCheckCurrentMode(char * pinToBeUsed)
 }
 
 //converts char to location
-int hardwarePinParse(char * pinToBeUsed)
-{
-	return hardwareParseDecimal(pinToBeUsed);
-}
 //rerurns adc loation
 int hardwareSetAdcCircular(int circular)
 {
-
+	adcSettings.circular =circular;
+	return 0;
 }
 
 
-int hardwareGetAdcLocation(char * pinToBeUsed)
+int hardwareGetAdcLocation(int pinToBeUsed)
 {
-	int pinLocation =hardwarePinParse(pinToBeUsed);
-	return hwPin[pinLocation].pinAdcAddress;
+	return hwPin[pinToBeUsed].pinAdcAddress;
 
 }
 
 
-int hardwareSetAdcChannels(char * pinsToBeUsed)
+int hardwareSetAdcChannels(int * pinsToBeUsed)
 {
 	int chselr =0; //channel select
 	int num_channels =0; //number of selected channels
 	adcSettings.chselr =0;
 	adcSettings.num_channels =0;
-	int i = 1;
-	while (pinsToBeUsed != '\0')
+	int i = 0;
+
+	while (pinsToBeUsed[i] != END_PIN)
 	{
 		num_channels++;
-		int tempCh = hardwareGetAdcLocation( pinsToBeUsed[i]);
-		if(!tempCh)
-		{
-			return FALSE ;
-			//no location found 
-		}
+		int tempCh = hwPin[pinsToBeUsed[i]].pinAdcAddress;
 		if ((tempCh & chselr) ==tempCh)
 		{
 			//channel has already beed selected
 			num_channels--;
 		}
 		chselr |=tempCh;
+		i++;
 	}
 	adcSettings.chselr = chselr;
 	adcSettings.num_channels =num_channels;
 	return TRUE;
 }
 
-int hardwareGetIoPort(char * pinToBeUsed)
+int * hardwareGetIoPort(int pinToBeUsed)
 {
-	int pinLocation = hardwarePinParse(pinToBeUsed);
-	return hwPin[pinLocation].pinPort;
+	return hwPin[pinToBeUsed].pinPort;
 }
-int hardwareGetIoPin(char * pinToBeUsed)
+int hardwareGetIoPin(int pinToBeUsed)
 {
-	int pinLocation = hardwarePinParse(pinToBeUsed);
-	return hwPin[pinLocation].pinNumber;
+	return hwPin[pinToBeUsed].pinNumber;
 
 }
 
-int hardwareParseDecimal(char * pinToBeUsed)
+int hardwareGetPinLocations(char * pins,int * arrayToBeFilled)
 {
-        switch (pinToBeUsed[0])
-        {
-                case '0':
-			return PIN_0;
-		case '1':
-			return PIN_1;
-		case '2':
-			return PIN_2;
-		case '3':
-			return PIN_3;
-		case '4':
-			return PIN_4;
-                case '5':
-                        return PIN_5;
-		case '6':
-			return PIN_6;
-		case '7':
-			return PIN_7;
-		default:
-                        //pin not found
-			 return 255;
-	}	
+	hardwareParseDecimalPins(pins,arrayToBeFilled);
+	return 0;
+
+}
+
+int  hardwareParseDecimalPins(char * pinsToBeUsed, int * arrayToBeFilled)
+{
+	int i = 1;
+	while(pinsToBeUsed[i] !='\0')
+	{
+        	switch (pinsToBeUsed[i])
+        	{
+                	case '0':
+				arrayToBeFilled[i]= PIN_0;
+				break;
+			case '1':
+				arrayToBeFilled[i]= PIN_1;
+				break;
+			case '2':
+				arrayToBeFilled[i]= PIN_2;
+				break;
+			case '3':
+				arrayToBeFilled[i]= PIN_3;
+				break;
+			case '4':
+				arrayToBeFilled[i]= PIN_4;
+				break;
+                	case '5':
+				arrayToBeFilled[i]= PIN_5;
+				break;
+			case '6':
+				arrayToBeFilled[i]= PIN_6;
+				break;
+			case '7':
+				arrayToBeFilled[i]= PIN_7;
+				break;
+			default:
+                        	//pin not found
+				arrayToBeFilled[i]= ERR_PIN;
+				break;
+		}
+
+	i++;
+	}
+	arrayToBeFilled[i]=END_PIN;
+	return 0;
 
 
 }
-int hardwareReadPins(char * pinsToBeUsed)
+
+int hardwareParseHex(char *pinsToBeUsed)
 {
-	int pinLoc=hardwarePinParse(pinsToBeUsed);
-	
+	return 0;
+}
+
+
+int hardwareReadPins(int *arrayOfPinLocations)
+{
+	(void)arrayOfPinLocations;
+	return 0;	
 }

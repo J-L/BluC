@@ -12,12 +12,12 @@
 extern int threadCount;
 extern Thread *threadArray[];
 
+extern ADCConversionGroup adcSettings;
+
 extern MemoryPool mp;
 extern adcsample_t samples;
 extern BinarySemaphore adcSemDataReady;
 char error[] = "Error Parsing String";
-extern int adcSelectedChannels;
-extern int adcNumberOfSelectedChannel;
 outputResponseStruct outputResponseData;
 
 
@@ -26,6 +26,10 @@ BSEMAPHORE_DECL(outputResponseDataReady, 0);
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+(void)chp;
+(void)argc;
+(void)argv;
+
 }
 
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -74,9 +78,7 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
 	int commandSuccess = FALSE;
 	int arg1 =FALSE;
-	int adcMode = 0;
 	//parse input arguments make settings
-	cmdParseArguments (chp,argc, argv,  CMD_ADC);
 	if(*argv[0] == '\0')
 	{
 
@@ -86,44 +88,43 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 	else if (*(argv[0]+1) == 'o')
 	{
 		//oneshot 
-		adcSettings.circular =FALSE;
+		hardwareSetAdcCircular(FALSE);
 		arg1 = TRUE;
 
 	}
 	else if (*(argv[0]+1) == 'c')
 	{
 		arg1 =TRUE;
-		adcSettings.circular=TRUE;
-
+		hardwareSetAdcCircular(TRUE);
 		//cts mode
 	}
 	if (arg1 == TRUE)
 	{
 
-	adcSelectedChannels = 0;
-	adcNumberOfSelectedChannel =0;
-	adcNumberOfSelectedChannel++;
-	if(hardwareSetupPins(&(argv[1]),HW_ADC) && hardwareSetAdcChannels(&(argv[1])))
-	{
-		commandSuccess =TRUE;
-	}
-	else
-	{
-		commandSuccess = FALSE;
-	}
-	if (commandSuccess == TRUE)
-	{
-		int i = threadManager();// returns which memory pool we can use
-		if (i!=255)
+		int arrayOfPinLocations[10];
+		hardwareGetPinLocations(argv[1], arrayOfPinLocations);
+		if(hardwareSetupPins(arrayOfPinLocations,HW_ADC)) 
 		{
-        		threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+			if(hardwareSetAdcChannels(arrayOfPinLocations))
+			{
+				chprintf(chp, "ran outta threadsfjhfkg\n");
+				commandSuccess = TRUE;
+			}
 		}
-		else
+		if (commandSuccess == TRUE)
 		{
-			chprintf(chp, "ran outta threads\n");
+			int i = threadManager();// returns which memory pool we can use
+			if (i!=255)
+			{
+        			threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+			}
+			else
+			{
+				chprintf(chp, "ran outta threads\n");
+			}
 		}
-	}
 
+	}
 
 }
 void cmdError(BaseSequentialStream *chp)
@@ -142,11 +143,10 @@ void cmdErrPinFunction(BaseSequentialStream *chp)
 void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 {
 (void)argc;
-	int logic = FALSE;
 	int commandSuccess = FALSE;
+//	int logic = FALSE;
 	int mode = FALSE;
 	int ioNumPins = 0;
-	int format = HEX;
 	//itype, otype refer to the type of input or output high z or push pull output
 	int i_type = HW_INPUT;
 	int o_type =HW_PP;
@@ -157,6 +157,7 @@ void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 	}
 	else
 	{
+
 		if(argv[0][1] =='o')
 		{
 			mode = HW_OUTPUT;
@@ -172,7 +173,6 @@ void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 		//mode is set
 		if(argv[0][2] =='b')
 		{
-			format = BIN;
 		}
 		if (mode)
 		{
@@ -181,33 +181,22 @@ void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
 				argv[1] = "-01234567\0";
 			}
 
-			int i = 1;
 			commandSuccess =TRUE;
-			while(argv[1][i] !='\0')
+			if( mode == HW_INPUT)
 			{
-				ioNumPins++;
-				if( mode == HW_INPUT)
-				{
-					hardwareSetPins(&(argv[1][i]),i_type);
-					
-
-
-				}
-				else if( mode == HW_OUTPUT)
-				{
-					hardwareSetPins(&(argv[1][i]),o_type);
-				}
-				else
-				{
-					cmdErrPinFunction(chp);
-					commandSuccess =FALSE;
-					ioNumPins--;
-				}
-
-
-			i++;
+//				hardwareSetupPins((argv[1]),i_type);
+			}
+			else if( mode == HW_OUTPUT)
+			{
+//				hardwareSetupPins((argv[1]),o_type);
+			}
+			else
+			{
+				cmdErrPinFunction(chp);
+				ioNumPins--;
 			}
 		}
+		hello();
 	}
 
 }
@@ -306,7 +295,7 @@ void cmdDate(BaseSequentialStream *chp, int argc, char *argv[])
 
 
 
-static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
+ int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 {
 (void)chp;
 (void)argc;
@@ -343,10 +332,19 @@ static int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 			
 			//set hardware pins on
 			//warns if must turn off other programs
+	return 0;
 			// check if escape argument has been given
 }
 
+void cmdConfig(BaseSequentialStream *chp, int argc, char *argv[])
+{
+(void)chp;
+(void)argc;
+(void)argv;
+
+}
 //cleans up threads, returns pointer to wherenew thread can be made, null iff not
+
 int threadManager(void)
 {
 
@@ -424,8 +422,7 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 			{
 				case HW_ADC:;
 					int i = 0;
-					chprintf(chp,"%d:",adcNumberOfSelectedChannel);
-					while(i <adcNumberOfSelectedChannel)
+					while(i <adcSettings.num_channels)
 					{
 						int valToPrint = (int) (outputResponseData.adcOutputValues[i]);
 						chprintf(chp,"%d," ,valToPrint);
@@ -455,5 +452,6 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
                 }
 
 	}
+	return FALSE;
 
 }

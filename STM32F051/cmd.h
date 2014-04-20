@@ -37,6 +37,7 @@ void cmdDate(BaseSequentialStream *, int , char *[]);
 void cmdWrite(BaseSequentialStream *, int , char *[]);
 void cmdRead(BaseSequentialStream *, int , char *[]);
 void cmdIo(BaseSequentialStream *, int , char *[]);
+void cmdConfig(BaseSequentialStream *, int , char *[]);
 
 //Extended functionality
 void cmdSleep(BaseSequentialStream *, int , char *[]);
@@ -69,6 +70,7 @@ static  const ShellCommand shCmds[] = {
 	{"date",  (shellcmd_t)  cmdDate},
 	{"adc",  (shellcmd_t)  cmdAdc},
 	{"dac",  (shellcmd_t)  cmdDac},
+	{"config",  (shellcmd_t)  cmdConfig},
 	{NULL, NULL}
 };
 

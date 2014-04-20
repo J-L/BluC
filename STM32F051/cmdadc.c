@@ -36,10 +36,6 @@ ADCConversionGroup adcSettings = {
 
 
 
-void hello(void)
-{
-	chprintf((BaseSequentialStream*)&SD1, "HelloWorld");
-}
 
 void adcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 {

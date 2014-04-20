@@ -1,5 +1,4 @@
-build/obj/hardware.o: hardware.c ../../os/hal/include/hal.h \
- ../../os/kernel/include/ch.h chconf.h \
+build/obj/hardware.o: hardware.c ../../os/kernel/include/ch.h chconf.h \
  ../../os/ports/GCC/ARMCMx/chtypes.h \
  /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stddef.h \
  /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdint.h \
@@ -24,8 +23,10 @@ build/obj/hardware.o: hardware.c ../../os/hal/include/hal.h \
  ../../os/kernel/include/chregistry.h ../../os/kernel/include/chinline.h \
  ../../os/kernel/include/chqueues.h ../../os/kernel/include/chstreams.h \
  ../../os/kernel/include/chfiles.h ../../os/kernel/include/chdebug.h \
- ../../boards/ST_STM32F0_DISCOVERY/board.h halconf.h mcuconf.h \
- ../../os/hal/platforms/STM32F0xx/hal_lld.h \
+ ../../os/various/chprintf.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h \
+ ../../os/hal/include/hal.h ../../boards/ST_STM32F0_DISCOVERY/board.h \
+ halconf.h mcuconf.h ../../os/hal/platforms/STM32F0xx/hal_lld.h \
  ../../os/hal/platforms/STM32/stm32.h \
  ../../os/hal/platforms/STM32F0xx/stm32f0xx.h \
  ../../os/ports/common/ARMCMx/CMSIS/include/core_cm0.h \
@@ -51,9 +52,9 @@ build/obj/hardware.o: hardware.c ../../os/hal/include/hal.h \
  ../../os/hal/include/sdc.h ../../os/hal/include/spi.h \
  ../../os/hal/platforms/STM32/SPIv2/spi_lld.h ../../os/hal/include/uart.h \
  ../../os/hal/include/usb.h ../../os/hal/include/mmc_spi.h \
- ../../os/hal/include/serial_usb.h hardware.h
-
-../../os/hal/include/hal.h:
+ ../../os/hal/include/serial_usb.h hardware.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/ctype.h \
+ /usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/_ansi.h
 
 ../../os/kernel/include/ch.h:
 
@@ -130,6 +131,12 @@ chconf.h:
 ../../os/kernel/include/chfiles.h:
 
 ../../os/kernel/include/chdebug.h:
+
+../../os/various/chprintf.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/lib/gcc/arm-none-eabi/4.8.3/include/stdarg.h:
+
+../../os/hal/include/hal.h:
 
 ../../boards/ST_STM32F0_DISCOVERY/board.h:
 
@@ -218,3 +225,7 @@ mcuconf.h:
 ../../os/hal/include/serial_usb.h:
 
 hardware.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/ctype.h:
+
+/usr/local/Cellar/gcc-arm-none-eabi-48/20131218/arm-none-eabi/include/_ansi.h:

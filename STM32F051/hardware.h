@@ -21,14 +21,16 @@ struct pinUse;
 #define HW_PP 0x1000
 
 
-#define PIN_0 0
-#define PIN_1 1
-#define PIN_2 2
-#define PIN_3 3
-#define PIN_4 4
-#define PIN_5 5
-#define PIN_6 6
-#define PIN_7 7
+#define END_PIN 0
+#define PIN_0 1
+#define PIN_1 2
+#define PIN_2 3
+#define PIN_3 4
+#define PIN_4 5
+#define PIN_5 6
+#define PIN_6 7
+#define PIN_7 8
+#define ERR_PIN 255
 
 
 typedef struct {
@@ -40,19 +42,21 @@ typedef struct {
 	int currentSetting;
 }pinSetting;
 
-
+void hello(void);
 void hardwareInitialise(void);
-int hardwareSetupPins(char *,int);
-int hardwareSetupPin(char *,int);
-int hardwareCheckPins(char *,int);
-int hardwarePinInterpret(char *);
-int hardwarePinParse(char *);
-int hardwareParseDecimal(char *);
-int hardwareReadPins(char *);
-int hardwareGetAdcAddress(char *);
-int hardwareSetAdcChannels(char *);
-int hardwareGetIoPort(char *);
-int hardwareGetIoPin(char *);
+int hardwareSetupPins(int *,int);
+int hardwareSetupPin(int,int);
+int hardwareCheckPins(int *,int );
+int hardwareCheckPin(int,int);
+int hardwareGetPinLocations(char *,int *);
+int hardwareParseDecimalPins(char *,int *);
+int hardwareReadPins(int *);
+
+int hardwareSetAdcCircular(int );
+int hardwareGetAdcAddress(int);
+int hardwareSetAdcChannels(int *);
+int * hardwareGetIoPort(int);
+int hardwareGetIoPin(int);
 
 
 //pwm acceptable pins
