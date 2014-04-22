@@ -76,54 +76,58 @@ cmdAdc
 
 void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+	int argIncrementer =0;
 	int commandSuccess = FALSE;
-	int arg1 =FALSE;
 	//parse input arguments make settings
 	if(*argv[0] == '\0')
 	{
-
-		arg1 =FALSE;
+		//fail, no options given
 		commandSuccess =FALSE;
 	}
 	else if (*(argv[0]+1) == 'o')
 	{
 		//oneshot 
+		argIncrementer++;
 		hardwareSetAdcCircular(FALSE);
-		arg1 = TRUE;
 
 	}
 	else if (*(argv[0]+1) == 'c')
 	{
-		arg1 =TRUE;
+		argIncrementer++;
 		hardwareSetAdcCircular(TRUE);
 		//cts mode
 	}
-	if (arg1 == TRUE && argv[1] !='\0')
+	else
+	{
+		hardwareSetAdcCircular(FALSE);
+
+	}
+	if (argv[argIncrementer] !='\0')
 	{
 
-		int arrayOfPinLocations[10];
-		hardwareGetPinLocations(argv[1], arrayOfPinLocations);
-		if(hardwareSetupPins(arrayOfPinLocations,HW_ADC)) 
+		int arrayOfPinLocations[NUM_OF_PIN];
+		if(!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinLocations))
 		{
-			if(hardwareSetAdcChannels(arrayOfPinLocations))
+			if(hardwareSetupPins(arrayOfPinLocations,HW_ADC)) 
 			{
-				chprintf(chp, "ran outta threadsfjhfkg\n");
-				commandSuccess = TRUE;
+				if(hardwareSetAdcChannels(arrayOfPinLocations))
+				{
+					commandSuccess = TRUE;
+				}
+			}
+			if (commandSuccess == TRUE)
+			{
+				int i = threadManager();// returns which memory pool we can use
+				if (i!=255)
+				{
+        				threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+				}
+				else
+				{
+					chprintf(chp, "ran outta threads\n");
+				}
 			}
 		}
-		if (commandSuccess == TRUE)
-		{
-			int i = threadManager();// returns which memory pool we can use
-			if (i!=255)
-			{
-        			threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
-			}
-			else
-			{
-				chprintf(chp, "ran outta threads\n");
-			}
-		}
-
 	}
 
 }

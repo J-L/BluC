@@ -31,7 +31,7 @@ struct pinUse;
 #define PIN_6 7
 #define PIN_7 8
 #define ERR_PIN 255
-
+#define NUM_OF_PIN 8
 
 typedef struct {
 	GPIO_TypeDef * pinPort;
