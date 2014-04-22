@@ -98,7 +98,7 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 		hardwareSetAdcCircular(TRUE);
 		//cts mode
 	}
-	if (arg1 == TRUE)
+	if (arg1 == TRUE && argv[1] !='\0')
 	{
 
 		int arrayOfPinLocations[10];
@@ -140,7 +140,7 @@ void cmdErrPinFunction(BaseSequentialStream *chp)
 #define BIN 1
 #define HEX 2
 
-void cmdIo(BaseSequentialStream *chp, int argc, char *argv[])
+void cmdInput(BaseSequentialStream *chp, int argc, char *argv[])
 {
 (void)argc;
 	int commandSuccess = FALSE;

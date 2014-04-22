@@ -36,7 +36,7 @@ void cmdSpi(BaseSequentialStream *, int , char *[]);
 void cmdDate(BaseSequentialStream *, int , char *[]);
 void cmdWrite(BaseSequentialStream *, int , char *[]);
 void cmdRead(BaseSequentialStream *, int , char *[]);
-void cmdIo(BaseSequentialStream *, int , char *[]);
+void cmdInput(BaseSequentialStream *, int , char *[]);
 void cmdConfig(BaseSequentialStream *, int , char *[]);
 
 //Extended functionality
@@ -64,7 +64,7 @@ static  const ShellCommand shCmds[] = {
 	{"battery",  (shellcmd_t)  cmdGetBattery},
 	{"bluetooth",  (shellcmd_t)  cmdBluetooth},
 	{"pwm",  (shellcmd_t)  cmdPwm},
-	{"io",  (shellcmd_t)  cmdIo},
+	{"input",  (shellcmd_t)  cmdInput},
 	{"spi",  (shellcmd_t)  cmdSpi},
 	{"i2c",  (shellcmd_t)  cmdI2c},
 	{"date",  (shellcmd_t)  cmdDate},
