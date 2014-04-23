@@ -146,61 +146,58 @@ void cmdErrPinFunction(BaseSequentialStream *chp)
 
 void cmdInput(BaseSequentialStream *chp, int argc, char *argv[])
 {
-(void)argc;
-	int commandSuccess = FALSE;
-//	int logic = FALSE;
-	int mode = FALSE;
-	int ioNumPins = 0;
-	//itype, otype refer to the type of input or output high z or push pull output
-	int i_type = HW_INPUT;
-	int o_type =HW_PP;
-	if(*argv[0] == '\0')
+	// allows skipping of arguments
+	int argIncrementer =0;
+	int argSuccess=0;
+	static int arrayOfPinLocations[NUM_OF_PIN];
+	int commandSuccess =FALSE;
+	if(argv[argIncrementer]=='\0')
 	{
-		cmdError(chp);
-		commandSuccess =FALSE;
-	}
-	else
-	{
-
-		if(argv[0][1] =='o')
+		//no argument given, look for free pins or used the ones used last time
+		if(arrayOfPinLocations[0] ==END_PIN)
 		{
-			mode = HW_OUTPUT;
-			//command is to output
-
-
-		}
-		else if(argv[0][1] =='i')
-		{
-			mode = HW_INPUT;
-			//command set to input
-		}
-		//mode is set
-		if(argv[0][2] =='b')
-		{
-		}
-		if (mode)
-		{
-			if(argv[1][0] == '\0')
-			{
-				argv[1] = "-01234567\0";
-			}
-
+			//no previosly selected pins, we have to get free pins
+			hardwareGetFreePins(&arrayOfPinLocations[0]);
 			commandSuccess =TRUE;
-			if( mode == HW_INPUT)
-			{
-//				hardwareSetupPins((argv[1]),i_type);
-			}
-			else if( mode == HW_OUTPUT)
-			{
-//				hardwareSetupPins((argv[1]),o_type);
-			}
-			else
-			{
-				cmdErrPinFunction(chp);
-				ioNumPins--;
-			}
 		}
-		hello();
+		else
+		{
+			commandSuccess =TRUE;
+			//previous pins ok. go team go
+		}
+	}
+	else 
+	{
+		//look at listed pins
+                if(!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinLocations))
+                {
+			commandSuccess=TRUE;
+		}
+		else
+		{
+			cmdError(chp);
+		}
+	}
+	if(commandSuccess)
+	{
+		if(hardwareSetupPins(&arrayOfPinLocations[0],HW_INPUT))
+		{
+			int arrayOfValues[NUM_OF_PIN];
+                            //           arrayOfPinLocations
+			hardwareReadPins(&arrayOfPinLocations[0],arrayOfValues);
+			int i =0;
+			while (!chBSemGetStateI(&outputResponseDataReady));
+			while(i<=NUM_OF_PIN && arrayOfPinLocations[i] != END_PIN)
+			{
+//				hello();
+				outputResponseData.inputPins[i] =arrayOfPinLocations[i]-1;
+				outputResponseData.inputValues[i] =arrayOfValues[i];
+				i++;
+			}
+
+			outputResponseData.caller=HW_INPUT;
+			chBSemReset(&outputResponseDataReady, FALSE);
+		}
 	}
 
 }
@@ -418,14 +415,14 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 	while(1)
 	{
 	        chBSemWait(&outputResponseDataReady);
-	
 	        if (!chBSemGetStateI(&outputResponseDataReady))
                 {
 //			chprintf(chp, "semaphore ok");
+
+			int i =0;
 			switch(outputResponseData.caller)
 			{
 				case HW_ADC:;
-					int i = 0;
 					while(i <adcSettings.num_channels)
 					{
 						int valToPrint = (int) (outputResponseData.adcOutputValues[i]);
@@ -436,7 +433,17 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 						 chThdSleepMilliseconds(10);
 					break;
 				case HW_INPUT:
-					chprintf(chp, "Something else \n");
+				//	hello();
+					while(i<=NUM_OF_PIN)
+					{
+						//hello();
+						if (outputResponseData.inputValues[i])
+						{
+							chprintf(chp, "%d,",(int)(outputResponseData.inputPins[i]));
+						}
+						i++;
+					}
+					chprintf(chp,"\n");
 					break;
 				case HW_UART:
 					chprintf(chp, "Something else \n");

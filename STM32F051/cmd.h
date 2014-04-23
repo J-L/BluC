@@ -81,6 +81,8 @@ static const ShellConfig shCfg = {
 typedef struct {
         char * serialString;
 	adcsample_t * adcOutputValues;
+	int inputPins[8];
+	int inputValues[8];
 	int numberOfValues;
 	int caller;
  

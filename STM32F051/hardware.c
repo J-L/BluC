@@ -128,6 +128,7 @@ int hardwareSetupPin(int pinToBeUsed, int mode)
 //sets hardware mode of pins , returns 
 int hardwareSetupPins(int * arrayOfPinLocations, int mode)
 {
+
 	if(!hardwareCheckPins(arrayOfPinLocations,mode))
 	{
 		return FALSE;
@@ -135,7 +136,7 @@ int hardwareSetupPins(int * arrayOfPinLocations, int mode)
 	}
 	int i = 1;
 	int pinSetSuccess;
-	while(arrayOfPinLocations[i] !=END_PIN)
+	while(arrayOfPinLocations[i] !=END_PIN && i<=NUM_OF_PIN)
 	{
 		pinSetSuccess =hardwareSetupPin(arrayOfPinLocations[i],mode);
 		if (pinSetSuccess ==FALSE)
@@ -157,7 +158,7 @@ int hardwareSetupPins(int * arrayOfPinLocations, int mode)
 int hardwareCheckPins(int * arrayOfPinLocations, int mode)
 {
 	int i =1;
-	while(arrayOfPinLocations[i] !=END_PIN)
+	while(arrayOfPinLocations[i] !=END_PIN &&i <=NUM_OF_PIN)
 	{
 		if(!hardwareCheckPin(arrayOfPinLocations[i],mode))
 		{
@@ -165,7 +166,7 @@ int hardwareCheckPins(int * arrayOfPinLocations, int mode)
 			return FALSE;
 		//trying to set a function which does not exist on that pin.
 		}
-	i++;
+		i++;
 
 	}
 	return TRUE;
@@ -173,7 +174,6 @@ int hardwareCheckPins(int * arrayOfPinLocations, int mode)
 }
 int hardwareCheckPin(int pinLocation,int mode)
 {
-
 	if((hwPin[pinLocation].pinOptions & mode) != mode)
 	{
 
@@ -182,11 +182,36 @@ int hardwareCheckPin(int pinLocation,int mode)
 	return TRUE;
 
 }
+int hardwareGetFreePins(int * arrayToBeReturned)
+{
+	int j = 0;// arraytobeused incrementer
+	int i= 1;//list of pins incrementer
+	while(i<=NUM_OF_PIN)
+	{
+		if(hardwareGetCurrentMode(i) ==HW_NONE)
+		{
+//			hello();
+			arrayToBeReturned[j]=i;
+			j++;
+		}
+		i++;
+	}
+	if (j<NUM_OF_PIN)
+	{
+		arrayToBeReturned[j]=END_PIN;
+	}
+	return TRUE;
+
+}
+int hardwareGetCurrentMode(int  pinToCheck)
+{
+	return hwPin[pinToCheck].currentSetting;
+}
 
 int hardwareCheckCurrentModes(char * pinsToBeUsed)
 {
 	int pinValue =0;
-	int arrayOfPinLocations[8];
+	int arrayOfPinLocations[NUM_OF_PIN];
 	hardwareGetPinLocations(pinsToBeUsed, arrayOfPinLocations);
 
 	if(pinValue == 255)
@@ -306,8 +331,13 @@ int hardwareParseHex(char *pinsToBeUsed)
 }
 
 
-int hardwareReadPins(int *arrayOfPinLocations)
+int hardwareReadPins(int *arrayOfPinLocations,int *arrayOfReturnedValues)
 {
-	(void)arrayOfPinLocations;
-	return 0;	
+	int i =0;
+	while(arrayOfPinLocations[i] != END_PIN)
+	{
+		arrayOfReturnedValues[i]=palReadPad(hwPin[arrayOfPinLocations[i]].pinPort, hwPin[arrayOfPinLocations[i]].pinNumber);
+		i++;
+	}
+	return TRUE;	
 }
