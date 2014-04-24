@@ -154,50 +154,43 @@ void cmdInput(BaseSequentialStream *chp, int argc, char *argv[])
 	if(argv[argIncrementer]=='\0')
 	{
 		//no argument given, look for free pins or used the ones used last time
-		if(arrayOfPinLocations[0] ==END_PIN)
-		{
 			//no previosly selected pins, we have to get free pins
-			hardwareGetFreePins(&arrayOfPinLocations[0]);
-			commandSuccess =TRUE;
-		}
-		else
+		hardwareGetFreePins(arrayOfPinLocations);
+		if(hardwareSetupPins(arrayOfPinLocations,HW_INPUT))
 		{
-			commandSuccess =TRUE;
-			//previous pins ok. go team go
+			commandSuccess=TRUE;
 		}
 	}
 	else 
 	{
+//		argIncrementer++;
 		//look at listed pins
                 if(!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinLocations))
                 {
-			commandSuccess=TRUE;
+			if(hardwareSetupPins(arrayOfPinLocations,HW_INPUT))
+			{
+//				hello();
+				commandSuccess=TRUE;
+			}
 		}
 		else
 		{
+			commandSuccess = FALSE;
 			cmdError(chp);
 		}
 	}
 	if(commandSuccess)
 	{
-		if(hardwareSetupPins(&arrayOfPinLocations[0],HW_INPUT))
+		int i =0;
+		outputResponseData.inputValue=hardwareReadPins(arrayOfPinLocations);
+		while (!chBSemGetStateI(&outputResponseDataReady));
+		outputResponseData.caller=HW_INPUT;
+		while(arrayOfPinLocations[i]!=END_PIN && i<NUM_OF_PIN)
 		{
-			int arrayOfValues[NUM_OF_PIN];
-                            //           arrayOfPinLocations
-			hardwareReadPins(&arrayOfPinLocations[0],arrayOfValues);
-			int i =0;
-			while (!chBSemGetStateI(&outputResponseDataReady));
-			while(i<=NUM_OF_PIN && arrayOfPinLocations[i] != END_PIN)
-			{
-//				hello();
-				outputResponseData.inputPins[i] =arrayOfPinLocations[i]-1;
-				outputResponseData.inputValues[i] =arrayOfValues[i];
-				i++;
-			}
-
-			outputResponseData.caller=HW_INPUT;
-			chBSemReset(&outputResponseDataReady, FALSE);
+			outputResponseData.pinsToClear[i] =arrayOfPinLocations[i];
+			i++;
 		}
+		chBSemReset(&outputResponseDataReady, FALSE);
 	}
 
 }
@@ -434,16 +427,7 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 					break;
 				case HW_INPUT:
 				//	hello();
-					while(i<=NUM_OF_PIN)
-					{
-						//hello();
-						if (outputResponseData.inputValues[i])
-						{
-							chprintf(chp, "%d,",(int)(outputResponseData.inputPins[i]));
-						}
-						i++;
-					}
-					chprintf(chp,"\n");
+					chprintf(chp, "%d,\n",(int)(outputResponseData.inputValue));
 					break;
 				case HW_UART:
 					chprintf(chp, "Something else \n");
@@ -459,6 +443,8 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 					break;
 
 			}
+			hello();
+			hardwareSetupPins(outputResponseData.pinsToClear,HW_NONE);
                         chBSemReset(&outputResponseDataReady, TRUE);
                 }
 

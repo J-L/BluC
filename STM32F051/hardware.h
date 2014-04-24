@@ -50,7 +50,7 @@ int hardwareCheckPins(int *,int );
 int hardwareCheckPin(int,int);
 int hardwareGetPinLocations(char *,int *);
 int hardwareParseDecimalPins(char *,int *);
-int hardwareReadPins(int *,int *);
+int hardwareReadPins(int *);
 int hardwareGetFreePins(int *);
 int hardwareGetCurrentMode(int);
 

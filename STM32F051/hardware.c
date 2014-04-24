@@ -136,7 +136,7 @@ int hardwareSetupPins(int * arrayOfPinLocations, int mode)
 	}
 	int i = 1;
 	int pinSetSuccess;
-	while(arrayOfPinLocations[i] !=END_PIN && i<=NUM_OF_PIN)
+	while(arrayOfPinLocations[i] !=END_PIN && i<NUM_OF_PIN)
 	{
 		pinSetSuccess =hardwareSetupPin(arrayOfPinLocations[i],mode);
 		if (pinSetSuccess ==FALSE)
@@ -158,7 +158,7 @@ int hardwareSetupPins(int * arrayOfPinLocations, int mode)
 int hardwareCheckPins(int * arrayOfPinLocations, int mode)
 {
 	int i =1;
-	while(arrayOfPinLocations[i] !=END_PIN &&i <=NUM_OF_PIN)
+	while(arrayOfPinLocations[i] !=END_PIN &&i <NUM_OF_PIN)
 	{
 		if(!hardwareCheckPin(arrayOfPinLocations[i],mode))
 		{
@@ -196,11 +196,11 @@ int hardwareGetFreePins(int * arrayToBeReturned)
 		}
 		i++;
 	}
-	if (j<NUM_OF_PIN)
+	if (j<=NUM_OF_PIN)
 	{
 		arrayToBeReturned[j]=END_PIN;
 	}
-	return TRUE;
+	return 0;
 
 }
 int hardwareGetCurrentMode(int  pinToCheck)
@@ -275,7 +275,10 @@ int hardwareGetIoPin(int pinToBeUsed)
 
 int hardwareGetPinLocations(char * pins,int * arrayToBeFilled)
 {
-	hardwareParseDecimalPins(pins,arrayToBeFilled);
+	if (hardwareParseDecimalPins(pins,&arrayToBeFilled[0]))
+	{
+		return 1;
+	}
 	return 0;
 
 }
@@ -285,41 +288,44 @@ int  hardwareParseDecimalPins(char * pinsToBeUsed, int * arrayToBeFilled)
 	int i = 1;
 	while(pinsToBeUsed[i] !='\0')
 	{
+		//	hello();
+
         	switch (pinsToBeUsed[i])
         	{
                 	case '0':
-				arrayToBeFilled[i]= PIN_0;
+				arrayToBeFilled[i-1]= PIN_0;
 				break;
 			case '1':
-				arrayToBeFilled[i]= PIN_1;
+				arrayToBeFilled[i-1]= PIN_1;
 				break;
 			case '2':
-				arrayToBeFilled[i]= PIN_2;
+				arrayToBeFilled[i-1]= PIN_2;
 				break;
 			case '3':
-				arrayToBeFilled[i]= PIN_3;
+				arrayToBeFilled[i-1]= PIN_3;
 				break;
 			case '4':
-				arrayToBeFilled[i]= PIN_4;
+				arrayToBeFilled[i-1]= PIN_4;
 				break;
                 	case '5':
-				arrayToBeFilled[i]= PIN_5;
+				arrayToBeFilled[i-1]= PIN_5;
 				break;
 			case '6':
-				arrayToBeFilled[i]= PIN_6;
+				arrayToBeFilled[i-1]= PIN_6;
 				break;
 			case '7':
-				arrayToBeFilled[i]= PIN_7;
+				arrayToBeFilled[i-1]= PIN_7;
 				break;
 			default:
                         	//pin not found
-				arrayToBeFilled[i]= ERR_PIN;
+				arrayToBeFilled[i-1]= END_PIN;
+				return 1;
 				break;
 		}
 
 	i++;
 	}
-	arrayToBeFilled[i]=END_PIN;
+	arrayToBeFilled[i-1]=END_PIN;
 	return 0;
 
 
@@ -331,13 +337,21 @@ int hardwareParseHex(char *pinsToBeUsed)
 }
 
 
-int hardwareReadPins(int *arrayOfPinLocations,int *arrayOfReturnedValues)
+int hardwareReadPins(int *arrayOfPinLocations)
 {
+//	hello();
 	int i =0;
-	while(arrayOfPinLocations[i] != END_PIN)
+	int value =0;
+	int logic = 0;
+	while(arrayOfPinLocations[i] != END_PIN && i <NUM_OF_PIN)
 	{
-		arrayOfReturnedValues[i]=palReadPad(hwPin[arrayOfPinLocations[i]].pinPort, hwPin[arrayOfPinLocations[i]].pinNumber);
+//		hello();
+		logic = palReadPad(hwPin[arrayOfPinLocations[i]].pinPort, hwPin[arrayOfPinLocations[i]].pinNumber);
+		if (logic)
+		{
+			value |= (1U<<(arrayOfPinLocations[i]-1));
+		}
 		i++;
 	}
-	return TRUE;	
+	return value;	
 }
