@@ -194,6 +194,44 @@ void cmdInput(BaseSequentialStream *chp, int argc, char *argv[])
 	}
 
 }
+void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
+{
+	int argIncrementer =0;
+	int commandSuccess = FALSE;
+	static int arrayOfPinLocations[NUM_OF_PIN];
+	static int arrayOfPinsToBeSet[NUM_OF_PIN];
+
+	hello();
+	if(argv[argIncrementer]=='\0')
+	{
+		//no argument given, report current output
+		hardwareGetFreePins(arrayOfPinLocations);
+	}
+	else
+	{
+		//need 2 arguments to make an output make sense 
+		if (argv[2] !='\0')
+		{
+			//argument give, lets see if it makes sense
+			argIncrementer++;
+			if(!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinLocations)&&!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinsToBeSet))
+			{
+				//both sets are value
+				if(hardwareSetupPins(arrayOfPinLocations,HW_OUTPUT))
+				{
+					hardwareSetPins(arrayOfPinLocations,arrayOfPinsToBeSet);
+					hello();
+				}
+
+
+			}
+		}
+	}
+
+
+
+}
+
 
 void cmdDac(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
@@ -443,7 +481,7 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 					break;
 
 			}
-			hello();
+//			hello();
 			hardwareSetupPins(outputResponseData.pinsToClear,HW_NONE);
                         chBSemReset(&outputResponseDataReady, TRUE);
                 }

@@ -17,10 +17,11 @@
 #define CMD_DEFINE	0x11
 #define CMD_BREAK	0x12
 #define CMD_KILL	0x13
-#define CMD_IO		0x14
-#define CMD_MAN		0x15
-#define CMD_UART	0x16
-#define CMD_BLUETOOTH	0x17
+#define CMD_INPUT	0x14
+#define CMD_OUTPUT	0x15
+#define CMD_MAN		0x16
+#define CMD_UART	0x17
+#define CMD_BLUETOOTH	0x18
 
 //base functionality
 void cmdGetTemp(BaseSequentialStream *, int , char *[]);
@@ -37,6 +38,7 @@ void cmdDate(BaseSequentialStream *, int , char *[]);
 void cmdWrite(BaseSequentialStream *, int , char *[]);
 void cmdRead(BaseSequentialStream *, int , char *[]);
 void cmdInput(BaseSequentialStream *, int , char *[]);
+void cmdOutput(BaseSequentialStream *, int , char *[]);
 void cmdConfig(BaseSequentialStream *, int , char *[]);
 
 //Extended functionality
@@ -65,6 +67,7 @@ static  const ShellCommand shCmds[] = {
 	{"bluetooth",  (shellcmd_t)  cmdBluetooth},
 	{"pwm",  (shellcmd_t)  cmdPwm},
 	{"input",  (shellcmd_t)  cmdInput},
+	{"output",  (shellcmd_t)  cmdOutput},
 	{"spi",  (shellcmd_t)  cmdSpi},
 	{"i2c",  (shellcmd_t)  cmdI2c},
 	{"date",  (shellcmd_t)  cmdDate},

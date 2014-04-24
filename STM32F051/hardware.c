@@ -355,3 +355,25 @@ int hardwareReadPins(int *arrayOfPinLocations)
 	}
 	return value;	
 }
+
+int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
+{
+	int i = 0;
+	int logic = FALSE;
+	while(arrayOfPinLocations[i] !=END_PIN&&i<NUM_OF_PIN)
+	{
+		int j = 0;
+		logic = FALSE;
+		while(arrayOfPinsToSet[j]!=END_PIN &&j<NUM_OF_PIN)
+		{
+			if(arrayOfPinLocations[i] ==arrayOfPinsToSet[j])
+			{
+				logic=TRUE;
+			}
+			j++;
+		}
+		palWritePad(hwPin[arrayOfPinLocations[i]].pinPort, hwPin[arrayOfPinLocations[i]].pinNumber,logic);
+		i++;
+
+	}
+}
