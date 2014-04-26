@@ -1,8 +1,6 @@
 
 #include "ch.h"
 #include "hal.h"
-#include "chprintf.h"
-#include "shell.h"
 #include "adc.h"
 #include "cmd.h"
 #include "hardware.h"
@@ -14,7 +12,7 @@ adcsample_t samples[64];
 extern BinarySemaphore outputResponseDataReady;
 extern outputResponseStruct outputResponseData;
 extern ADCConversionGroup adcsettings;
-
+int adcCaller =HW_ADC;
 
 
 //BSEMAPHORE_DECL(adcSemDataReady, 0);
@@ -26,8 +24,8 @@ extern ADCConversionGroup adcsettings;
 ADCConversionGroup adcSettings = {
     TRUE,
     ADCTEMPCHANNELS,
-    adcCallBack,
-    adcErrorCallBack,
+    hardwareAdcCallBack,
+    hardwareAdcErrorCallBack,
     ADC_CFGR1_RES_12BIT,                              /* CFGRR1 */
     ADC_TR(0, 0),                                     /* TR */
     ADC_SMPR_SMP_28P5,
@@ -36,8 +34,7 @@ ADCConversionGroup adcSettings = {
 
 
 
-
-void adcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
+void hardwareAdcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 {
 /*	if (samples == buffer) 
 	{
@@ -61,7 +58,7 @@ void adcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 
 
 
-void adcErrorCallBack(ADCDriver *adcp, adcerror_t err) 
+void hardwareAdcErrorCallBack(ADCDriver *adcp, adcerror_t err) 
 {
 	(void)adcp;
 	(void)err;
@@ -69,7 +66,7 @@ void adcErrorCallBack(ADCDriver *adcp, adcerror_t err)
 
 
 
-tfunc_t adcConversionThread(void) 
+tfunc_t hardwareAdcConversionThread(void) 
 {
 	adcStart(&ADCD1, NULL);
   	adcStartConversion(&ADCD1, &adcSettings, &samples, 8);

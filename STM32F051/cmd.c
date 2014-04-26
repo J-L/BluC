@@ -19,7 +19,7 @@ extern adcsample_t samples;
 extern BinarySemaphore adcSemDataReady;
 char error[] = "Error Parsing String";
 outputResponseStruct outputResponseData;
-
+int specialFlag;
 
 
 BSEMAPHORE_DECL(outputResponseDataReady, 0);
@@ -35,36 +35,45 @@ void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[])
 void cmdGetVoltage(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
 	// create working area for new thread
-
-	//set pheriperals
-
+	int argIncrementer =0;
+	hardwareSetAdcCircular(FALSE);	//set pheriperals
+	hardwareSetVoltageChannel();
+	int i = threadManager();// returns which memory pool we can use
+	if (i!=255)
+	{
+		threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, hardwareAdcConversionThread, NULL);
+	}
+	else
+	{
+		chprintf(chp, "ran outta threads\n");
+	}
 	//create thread
 
 	//wait for callback thread
 
 	//print returned value
 
-(void)chp;
-(void)argc;
-(void)argv;
 }
 
 void cmdGetBattery(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-        // create working area for new thread
-
-        //set pheriperals
-
+	int argIncrementer =0;
+	hardwareSetAdcCircular(FALSE);  //set pheriperals
+	hardwareSetVoltageChannel();
+	int i = threadManager();// returns which memory pool we can use
+	if (i!=255)
+	{
+		threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, hardwareAdcConversionThread, NULL);
+	}
+	else
+	{
+		chprintf(chp, "ran outta threads\n");
+	}
         //create thread
 
         //wait for callback thread
 
-        //print returned value
-
-
-(void)chp;
-(void)argc;
-(void)argv;
+      
 }
 
 /*
@@ -120,7 +129,7 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 				int i = threadManager();// returns which memory pool we can use
 				if (i!=255)
 				{
-        				threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, adcConversionThread, NULL);
+        				threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, hardwareAdcConversionThread, NULL);
 				}
 				else
 				{
@@ -303,9 +312,19 @@ void cmdI2c(BaseSequentialStream *chp, int argc, char *argv[])
 
 void cmdPwm(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
-(void)chp;
-(void)argc;
-(void)argv;
+	int commandSuccess =FALSE;
+	int argIncrementer = 0;
+	if (argv[argIncrementer]== '\0')
+	{
+		//no argument supplied wtf
+	}
+	else
+	{
+		int duty =hardwareCheckPwmResolution(argv[argIncrementer]);
+
+	}
+
+
 }
 
 void cmdDate(BaseSequentialStream *chp, int argc, char *argv[]) 

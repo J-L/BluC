@@ -3,8 +3,23 @@
 #include "hal.h"
 #include "hardware.h"
 #include "ctype.h"
-pinSetting hwPin[9];
+
+
+int value;
+adcsample_t samples[64];
+
 extern ADCConversionGroup adcSettings;
+
+//BSEMAPHORE_DECL(adcSemDataReady, 0);
+
+
+
+
+pinSetting hwPin[9];
+
+
+
+
 
 void hello(void)
 {
@@ -19,7 +34,7 @@ void hardwareInitialise(void)
 	hwPin[PIN_0].pinNumber = 0;
 	hwPin[PIN_0].pinOptions = HW_INPUT|HW_OUTPUT|HW_UART|HW_ADC;
 	hwPin[PIN_0].pinAdcAddress =ADC_CHSELR_CHSEL0;
-	hwPin[PIN_0].pinTimerAddress =0;
+	hwPin[PIN_0].pwmTimerAddress =PWMD2;
 	hwPin[PIN_0].currentSetting=HW_NONE;
 
         hwPin[PIN_1].pinPort = GPIOA;
@@ -262,6 +277,14 @@ int hardwareSetAdcChannels(int * pinsToBeUsed)
 	adcSettings.num_channels =num_channels;
 	return TRUE;
 }
+int hardwareSetVoltageChannel()
+{
+	adcSettings.chselr= ADC_CHSELR_CHSEL18;
+	adcSettings.num_channels = 1;
+	return TRUE;
+
+
+}
 
 int * hardwareGetIoPort(int pinToBeUsed)
 {
@@ -377,3 +400,12 @@ int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
 
 	}
 }
+
+
+int hardwareCheckPwmResolution(char * duty)
+{
+
+
+}
+
+

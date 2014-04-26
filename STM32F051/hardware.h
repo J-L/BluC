@@ -19,7 +19,7 @@ struct pinUse;
 #define HW_PD 0x400
 #define HW_OD 0x800
 #define HW_PP 0x1000
-
+#define HW_VOLT 0x2000
 
 #define END_PIN 0
 #define PIN_0 1
@@ -39,6 +39,7 @@ typedef struct {
 	int pinOptions;
 	int pinAdcAddress;
 	int pinTimerAddress;
+	PWMDriver pwmTimerAddress;
 	int currentSetting;
 }pinSetting;
 
@@ -50,9 +51,11 @@ int hardwareCheckPins(int *,int );
 int hardwareCheckPin(int,int);
 int hardwareGetPinLocations(char *,int *);
 int hardwareParseDecimalPins(char *,int *);
+int hardwareCheckPwmResolution(char *);
 int hardwareReadPins(int *);
 int hardwareGetFreePins(int *);
 int hardwareGetCurrentMode(int);
+int hardwareSetVoltageChannel(void);
 
 
 int hardwareSetAdcCircular(int );
@@ -60,6 +63,11 @@ int hardwareGetAdcAddress(int);
 int hardwareSetAdcChannels(int *);
 int * hardwareGetIoPort(int);
 int hardwareGetIoPin(int);
+
+
+
+
+
 
 
 //pwm acceptable pins
