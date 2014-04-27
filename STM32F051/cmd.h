@@ -69,6 +69,7 @@ static  const ShellCommand shCmds[] = {
 	{"input",  (shellcmd_t)  cmdInput},
 	{"output",  (shellcmd_t)  cmdOutput},
 	{"spi",  (shellcmd_t)  cmdSpi},
+	{"uart",  (shellcmd_t)  cmdUart},
 	{"i2c",  (shellcmd_t)  cmdI2c},
 	{"date",  (shellcmd_t)  cmdDate},
 	{"adc",  (shellcmd_t)  cmdAdc},

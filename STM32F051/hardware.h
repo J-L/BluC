@@ -44,6 +44,8 @@ struct pinUse;
 #define UART_BAUD_115200 5
 #define UART_BAUD_23400 6
 
+#define UART_NUM_ENCODING 7
+#define UART_ENCODING_8N1 0
 
 typedef struct {
 	GPIO_TypeDef * pinPort;
@@ -72,7 +74,8 @@ int hardwareGetAdcAddress(int);
 int hardwareSetAdcChannels(int *);
 int * hardwareGetIoPort(int);
 int hardwareGetIoPin(int);
-int hardwareSelectUartBaudRate(char *);
+int hardwareSetUartBaudRate(char *);
+int hardwareSetUartEncoding(char *);
 
 
 

@@ -5,7 +5,8 @@
 #include "ctype.h"
 pinSetting hwPin[9];
 
-const char* uartBaudRates[UART_NUM_BAUD_RATES]={"9600\0","14400","19200","38400","57600","115200","234000"};
+const char* uartValidBaudRates[UART_NUM_BAUD_RATES]={"-9600","-14400","-19200","-38400","-57600","-115200","-230400"};
+const char* uartValidEncoding[UART_NUM_ENCODING]={"-8N1"};
 
 extern ADCConversionGroup adcSettings;
 
@@ -388,13 +389,15 @@ String compare on inputted baudrate given by uart command
 Returns value of comparison, 255 if not kosher
 
 */
-int hardwareSelectUartBaudRate(char * input)
+int hardwareSetUartBaudRate(char * input)
 {
 	int i = 0;
 	while(i< UART_NUM_BAUD_RATES)
 	{
-		if(!strcmp(uartBaudRates[i],input) )
+		if(!strcmp(uartValidBaudRates[i],input) )
 		{
+//		hello();
+
 			return i;
 		}
 		i++;
@@ -402,5 +405,26 @@ int hardwareSelectUartBaudRate(char * input)
 	}
 	return ERR_CMD;
 
+
+}
+
+int hardwareSetUartEncoding(char *input)
+{
+	int i=0;
+	int argIncrementer = 0;
+	//arg 0 => number of bits
+	//arg 1 parityyyyy
+	//arg2 =>
+	while(i < UART_NUM_ENCODING)
+	{
+		if(!strcmp(uartValidEncoding[i],input))
+		{
+			return i;
+
+
+		}
+		i++;
+	}
+	return ERR_CMD;
 
 }

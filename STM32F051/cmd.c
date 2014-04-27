@@ -268,19 +268,39 @@ if arg[0] = 'start' then uart will be started
 
 void cmdUart(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+	int commandSuccess = FALSE;
+	if(!strcmp(argv[0],"-start"))
+	{
+		hello();
+	}
+	else if (!strcmp(argv[0],"-setup"))
+	{
+		int argIncrementer =1;
+		int baudRate =hardwareSetUartBaudRate(argv[argIncrementer]);
+		if (baudRate<ERR_CMD)
+		{
+			argIncrementer++;
+			if (argv[argIncrementer] != '\0')
+			{
+				//baud rate correct
+				int encoding =hardwareSetUartEncoding(argv[argIncrementer]);
+				if (encoding <ERR_CMD)
+				{
+					commandSuccess = TRUE;	
+				}
+			}
+			//excellent, it imples a working baud rate
+			//change baud rate
+		}
+	}
+	if(commandSuccess)
+	{
 
-(void)chp;
-(void)argc;
-(void)argv;
-	//parse arguments
 
-	//if no arguments supplied, shows current configuration
-
-	//if arguments supplied,  change configuration
-
-	//if  start found, gogogo
+	}
 
 }
+
 
 void cmdSpi(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
