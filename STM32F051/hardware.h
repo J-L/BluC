@@ -53,7 +53,7 @@ int hardwareParseDecimalPins(char *,int *);
 int hardwareReadPins(int *);
 int hardwareGetFreePins(int *);
 int hardwareGetCurrentMode(int);
-
+hardwareSetPins(int *, int * );
 
 int hardwareSetAdcCircular(int );
 int hardwareGetAdcAddress(int);

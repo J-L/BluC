@@ -37,6 +37,7 @@ void cmdDate(BaseSequentialStream *, int , char *[]);
 void cmdWrite(BaseSequentialStream *, int , char *[]);
 void cmdRead(BaseSequentialStream *, int , char *[]);
 void cmdInput(BaseSequentialStream *, int , char *[]);
+void cmdOutput(BaseSequentialStream *, int, char *[]);
 void cmdConfig(BaseSequentialStream *, int , char *[]);
 
 //Extended functionality
@@ -46,7 +47,6 @@ void cmdWhile(BaseSequentialStream *, int , char *[]);
 void cmdFor(BaseSequentialStream *, int , char *[]);
 void cmdDefine(BaseSequentialStream *, int , char *[]);
 void cmdBreak(BaseSequentialStream *, int , char *[]);
-
 
 
 
@@ -65,6 +65,7 @@ static  const ShellCommand shCmds[] = {
 	{"bluetooth",  (shellcmd_t)  cmdBluetooth},
 	{"pwm",  (shellcmd_t)  cmdPwm},
 	{"input",  (shellcmd_t)  cmdInput},
+	{"output",  (shellcmd_t)  cmdOutput},
 	{"spi",  (shellcmd_t)  cmdSpi},
 	{"i2c",  (shellcmd_t)  cmdI2c},
 	{"date",  (shellcmd_t)  cmdDate},
