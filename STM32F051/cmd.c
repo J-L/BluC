@@ -232,6 +232,10 @@ void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> input
 
 void cmdDac(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
