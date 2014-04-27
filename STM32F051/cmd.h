@@ -38,11 +38,8 @@ void cmdDate(BaseSequentialStream *, int , char *[]);
 void cmdWrite(BaseSequentialStream *, int , char *[]);
 void cmdRead(BaseSequentialStream *, int , char *[]);
 void cmdInput(BaseSequentialStream *, int , char *[]);
-<<<<<<< HEAD
 void cmdOutput(BaseSequentialStream *, int , char *[]);
-=======
 void cmdOutput(BaseSequentialStream *, int, char *[]);
->>>>>>> input
 void cmdConfig(BaseSequentialStream *, int , char *[]);
 
 //Extended functionality

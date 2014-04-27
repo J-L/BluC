@@ -4,6 +4,9 @@
 #include "hardware.h"
 #include "ctype.h"
 pinSetting hwPin[9];
+
+const char* uartBaudRates[UART_NUM_BAUD_RATES]={"9600\0","14400","19200","38400","57600","115200","234000"};
+
 extern ADCConversionGroup adcSettings;
 
 void hello(void)
@@ -376,4 +379,28 @@ int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
 		i++;
 
 	}
+}
+
+
+/*
+
+String compare on inputted baudrate given by uart command
+Returns value of comparison, 255 if not kosher
+
+*/
+int hardwareSelectUartBaudRate(char * input)
+{
+	int i = 0;
+	while(i< UART_NUM_BAUD_RATES)
+	{
+		if(!strcmp(uartBaudRates[i],input) )
+		{
+			return i;
+		}
+		i++;
+
+	}
+	return ERR_CMD;
+
+
 }

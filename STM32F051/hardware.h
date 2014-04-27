@@ -31,7 +31,19 @@ struct pinUse;
 #define PIN_6 7
 #define PIN_7 8
 #define ERR_PIN 255
+#define ERR_CMD 254
 #define NUM_OF_PIN 8
+
+//const char* uartBaudRates[7]={"9600\0","14400","19200","38400","57600","115200","234000"};
+#define UART_NUM_BAUD_RATES 7
+#define UART_BAUD_9600 0
+#define UART_BAUD_14400 1
+#define UART_BAUD_19200 2
+#define UART_BAUD_38400 3
+#define UART_BAUD_57600 4
+#define UART_BAUD_115200 5
+#define UART_BAUD_23400 6
+
 
 typedef struct {
 	GPIO_TypeDef * pinPort;
@@ -60,6 +72,9 @@ int hardwareGetAdcAddress(int);
 int hardwareSetAdcChannels(int *);
 int * hardwareGetIoPort(int);
 int hardwareGetIoPin(int);
+int hardwareSelectUartBaudRate(char *);
+
+
 
 
 //pwm acceptable pins

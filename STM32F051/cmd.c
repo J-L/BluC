@@ -21,7 +21,6 @@ char error[] = "Error Parsing String";
 outputResponseStruct outputResponseData;
 
 
-
 BSEMAPHORE_DECL(outputResponseDataReady, 0);
 
 void cmdGetTemp(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -232,10 +231,6 @@ void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
 
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> input
 
 void cmdDac(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
@@ -258,6 +253,18 @@ void cmdDac(BaseSequentialStream *chp, int argc, char *argv[])
 
 
 }
+
+/* sets up uart peripheral
+if argument[0] =  the following commands will change settings
+	arg[1] =  baud rate
+	arg[2] = break character
+
+
+if arg[0] = 'start' then uart will be started
+
+
+
+*/
 
 void cmdUart(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
@@ -331,46 +338,6 @@ void cmdDate(BaseSequentialStream *chp, int argc, char *argv[])
 
 
 
- int parseCmdUart(BaseSequentialStream *chp, int argc, char *argv[])
-{
-(void)chp;
-(void)argc;
-(void)argv;
-	//check if first command is letter or number
-
-	// if letter
-
-	// if number
-		//check if valid baud rate
-			if(strcmp(argv[0], "-9600")==0)
-			{
-
-			}
-			else if(strcmp(argv[0], "38400")==0)
-			{
-
-			}
-			else if(strcmp(argv[0], "56800")==0)
-			{
-
-			}
-			else if(strcmp(argv[0], "115200")==0)
-			{
-			}
-			else if(strcmp(argv[0], "19200")==0)
-			{
-
-			}
-			else
-			{
-				chprintf(chp, "Command not valid");
-			}
-			
-			//set hardware pins on
-			//warns if must turn off other programs
-	return 0;
-			// check if escape argument has been given
-}
 
 void cmdConfig(BaseSequentialStream *chp, int argc, char *argv[])
 {
