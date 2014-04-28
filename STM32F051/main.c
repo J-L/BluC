@@ -122,7 +122,7 @@ int main(void) {
     * Starts an ADC continuous conversion.
     */
 	shellInit();
-	while (TRUE) {
+
 		//call bt function
 		if (!sh)
 			sh = shellCreate(&shCfg, SHELL_WA_SIZE, NORMALPRIO);
@@ -130,6 +130,10 @@ int main(void) {
 			chThdRelease(sh);
 			sh = NULL;
 		}
+
+	while (TRUE)
+	{
+
     		chThdSleepMilliseconds(1000);
     	}
 

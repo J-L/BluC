@@ -82,6 +82,7 @@ static const ShellConfig shCfg = {
     (BaseSequentialStream *)&SD1,
     shCmds
 };
+
 typedef struct {
         char * serialString;
 	adcsample_t * adcOutputValues;

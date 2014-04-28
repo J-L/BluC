@@ -35,17 +35,17 @@ struct pinUse;
 #define NUM_OF_PIN 8
 
 //const char* uartBaudRates[7]={"9600\0","14400","19200","38400","57600","115200","234000"};
-#define UART_NUM_BAUD_RATES 7
-#define UART_BAUD_9600 0
-#define UART_BAUD_14400 1
-#define UART_BAUD_19200 2
-#define UART_BAUD_38400 3
-#define UART_BAUD_57600 4
-#define UART_BAUD_115200 5
-#define UART_BAUD_23400 6
+#define SERIAL_NUM_BAUD_RATES 7
+#define SERIAL_BAUD_9600 0
+#define SERIAL_BAUD_14400 1
+#define SERIAL_BAUD_19200 2
+#define SERIAL_BAUD_38400 3
+#define SERIAL_BAUD_57600 4
+#define SERIAL_BAUD_115200 5
+#define SERIAL_BAUD_23400 6
 
-#define UART_NUM_ENCODING 7
-#define UART_ENCODING_8N1 0
+#define SERIAL_NUM_ENCODING 7
+#define SERIAL_ENCODING_8N1 0
 
 typedef struct {
 	GPIO_TypeDef * pinPort;
@@ -69,15 +69,48 @@ int hardwareGetFreePins(int *);
 int hardwareGetCurrentMode(int);
 hardwareSetPins(int *, int * );
 
-int hardwareSetAdcCircular(int );
-int hardwareGetAdcAddress(int);
-int hardwareSetAdcChannels(int *);
-int * hardwareGetIoPort(int);
-int hardwareGetIoPin(int);
-int hardwareSetUartBaudRate(char *);
-int hardwareSetUartEncoding(char *);
+int hardwareAdcSetCircular(int );
+int hardwaretAdcSetAddress(int);
+int hardwareAdcSetChannels(int *);
+int * hardwareIoGetPort(int);
+int hardwareIoGetPin(int);
+
+tfunc_t hardwareSerialTransparentThread(void);
+/*
+static  const ShellCommand shCmds[] = {
+        {"temp",  (shellcmd_t)  cmdGetTemp},
+        {"voltage",  (shellcmd_t)  cmdGetVoltage},
+        {"battery",  (shellcmd_t)  cmdGetBattery},
+        {"bluetooth",  (shellcmd_t)  cmdBluetooth},
+        {"pwm",  (shellcmd_t)  cmdPwm},
+        {"input",  (shellcmd_t)  cmdInput},
+        {"output",  (shellcmd_t)  cmdOutput},
+        {"spi",  (shellcmd_t)  cmdSpi},
+        {"uart",  (shellcmd_t)  cmdUart},
+        {"i2c",  (shellcmd_t)  cmdI2c},
+        {"date",  (shellcmd_t)  cmdDate},
+        {"adc",  (shellcmd_t)  cmdAdc},
+        {"dac",  (shellcmd_t)  cmdDac},
+        {"config",  (shellcmd_t)  cmdConfig},
+        {NULL, NULL}
+};
+
+static const ShellConfig shCfg = {
+    (BaseSequentialStream *)&SD1,
+    shCmds
+};
+
+*/
 
 
+/*
+int hardwareSerialSetBaudRate(char *);
+int hardwareSerialSetEncoding(char *);
+int hardwareSerialRxCallback(UARTDriver *, uint16_t );
+int hardwareSerialRxBufferFull(UARTDriver *);
+int hardwareSerialTxBufferRead(UARTDriver *);
+int hardwareSerialTxBufferRead2(UARTDriver *);
+*/
 
 
 //pwm acceptable pins

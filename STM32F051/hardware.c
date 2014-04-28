@@ -1,14 +1,21 @@
+
+#include <stdio.h>
+#include <string.h>
 #include "ch.h"
 #include "chprintf.h"
 #include "hal.h"
 #include "hardware.h"
 #include "ctype.h"
+#include "shell.h"
 pinSetting hwPin[9];
 
-const char* uartValidBaudRates[UART_NUM_BAUD_RATES]={"-9600","-14400","-19200","-38400","-57600","-115200","-230400"};
-const char* uartValidEncoding[UART_NUM_ENCODING]={"-8N1"};
+//extern ShellConfig shCfg;
+const char* serialValidBaudRates[SERIAL_NUM_BAUD_RATES]={"-9600","-14400","-19200","-38400","-57600","-115200","-230400"};
+const char* serialValidEncoding[SERIAL_NUM_ENCODING]={"-8N1"};
 
 extern ADCConversionGroup adcSettings;
+extern char breakSequence;
+extern Thread * sh;
 
 void hello(void)
 {
@@ -228,21 +235,21 @@ int hardwareCheckCurrentModes(char * pinsToBeUsed)
 
 //converts char to location
 //rerurns adc loation
-int hardwareSetAdcCircular(int circular)
+int hardwareAdcSetCircular(int circular)
 {
 	adcSettings.circular =circular;
 	return 0;
 }
 
 
-int hardwareGetAdcLocation(int pinToBeUsed)
+int hardwareAdcGetLocation(int pinToBeUsed)
 {
 	return hwPin[pinToBeUsed].pinAdcAddress;
 
 }
 
 
-int hardwareSetAdcChannels(int * pinsToBeUsed)
+int hardwareAdcSetChannels(int * pinsToBeUsed)
 {
 	int chselr =0; //channel select
 	int num_channels =0; //number of selected channels
@@ -267,11 +274,11 @@ int hardwareSetAdcChannels(int * pinsToBeUsed)
 	return TRUE;
 }
 
-int * hardwareGetIoPort(int pinToBeUsed)
+int * hardwareIoGetPort(int pinToBeUsed)
 {
 	return hwPin[pinToBeUsed].pinPort;
 }
-int hardwareGetIoPin(int pinToBeUsed)
+int hardwareIoGetPin(int pinToBeUsed)
 {
 	return hwPin[pinToBeUsed].pinNumber;
 
@@ -389,12 +396,13 @@ String compare on inputted baudrate given by uart command
 Returns value of comparison, 255 if not kosher
 
 */
-int hardwareSetUartBaudRate(char * input)
+
+int hardwareSerialSetBaudRate(char * input)
 {
 	int i = 0;
-	while(i< UART_NUM_BAUD_RATES)
+	while(i< SERIAL_NUM_BAUD_RATES)
 	{
-		if(!strcmp(uartValidBaudRates[i],input) )
+		if(!strcmp(serialValidBaudRates[i],input) )
 		{
 //		hello();
 
@@ -408,16 +416,16 @@ int hardwareSetUartBaudRate(char * input)
 
 }
 
-int hardwareSetUartEncoding(char *input)
+int hardwareSerialSetEncoding(char *input)
 {
 	int i=0;
 	int argIncrementer = 0;
 	//arg 0 => number of bits
 	//arg 1 parityyyyy
 	//arg2 =>
-	while(i < UART_NUM_ENCODING)
+	while(i < SERIAL_NUM_ENCODING)
 	{
-		if(!strcmp(uartValidEncoding[i],input))
+		if(!strcmp(serialValidEncoding[i],input))
 		{
 			return i;
 
@@ -426,5 +434,25 @@ int hardwareSetUartEncoding(char *input)
 		i++;
 	}
 	return ERR_CMD;
+
+}
+tfunc_t hardwareSerialTransparentThread(void)
+{
+	while(1)
+	{
+		if(strstr("~~~~~~~~~",&breakSequence)!=NULL)
+		{
+			hello();
+//			sh =shellCreate(&shCfg, 512, NORMALPRIO);
+			return NULL;
+
+		}
+
+
+	}
+
+
+
+
 
 }

@@ -9,6 +9,9 @@
 #include  <string.h>
 #include "hardware.h"
 
+
+char breakSequence[8] ="~~~~~";
+
 extern int threadCount;
 extern Thread *threadArray[];
 
@@ -87,18 +90,18 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 	{
 		//oneshot 
 		argIncrementer++;
-		hardwareSetAdcCircular(FALSE);
+		hardwareAdcSetCircular(FALSE);
 
 	}
 	else if (*(argv[0]+1) == 'c')
 	{
 		argIncrementer++;
-		hardwareSetAdcCircular(TRUE);
+		hardwareAdcSetCircular(TRUE);
 		//cts mode
 	}
 	else
 	{
-		hardwareSetAdcCircular(FALSE);
+		hardwareAdcSetCircular(FALSE);
 
 	}
 	if (argv[argIncrementer] !='\0')
@@ -109,7 +112,7 @@ void cmdAdc(BaseSequentialStream *chp, int argc, char *argv[])
 		{
 			if(hardwareSetupPins(arrayOfPinLocations,HW_ADC)) 
 			{
-				if(hardwareSetAdcChannels(arrayOfPinLocations))
+				if(hardwareAdcSetChannels(arrayOfPinLocations))
 				{
 					commandSuccess = TRUE;
 				}
@@ -219,7 +222,7 @@ void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
 				if(hardwareSetupPins(arrayOfPinLocations,HW_OUTPUT))
 				{
 					hardwareSetPins(arrayOfPinLocations,arrayOfPinsToBeSet);
-					hello();
+//					hello();
 				}
 
 
@@ -251,7 +254,6 @@ void cmdDac(BaseSequentialStream *chp, int argc, char *argv[])
 
 	//thread kill
 
-
 }
 
 /* sets up uart peripheral
@@ -272,18 +274,19 @@ void cmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 	if(!strcmp(argv[0],"-start"))
 	{
 		hello();
+		commandSuccess =TRUE;
 	}
 	else if (!strcmp(argv[0],"-setup"))
 	{
 		int argIncrementer =1;
-		int baudRate =hardwareSetUartBaudRate(argv[argIncrementer]);
+		int baudRate =hardwareSerialSetBaudRate(argv[argIncrementer]);
 		if (baudRate<ERR_CMD)
 		{
 			argIncrementer++;
 			if (argv[argIncrementer] != '\0')
 			{
 				//baud rate correct
-				int encoding =hardwareSetUartEncoding(argv[argIncrementer]);
+				int encoding =hardwareSerialSetEncoding(argv[argIncrementer]);
 				if (encoding <ERR_CMD)
 				{
 					commandSuccess = TRUE;	
@@ -293,10 +296,37 @@ void cmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 			//change baud rate
 		}
 	}
+	else if (!strcmp(argv[0],"-break"))
+	{
+		if(argv[1] != '\0')
+		{
+
+			int i =1;
+			while(&(argv[1][i]) !='\0')
+			{
+				breakSequence[i-1]=argv[1][i];
+			}
+		}
+
+	}
 	if(commandSuccess)
 	{
 
+		//create new thread for serial passthrough
 
+		int i = threadManager();// returns which memory pool we can use
+		if (i!=255)
+		{
+			threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, hardwareSerialTransparentThread, NULL);
+			shellExit(NULL);
+
+
+		}
+		else
+		{
+			chprintf(chp, "ran outta threads\n");
+		}
+		//kill shell
 	}
 
 }
