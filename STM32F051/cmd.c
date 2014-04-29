@@ -203,25 +203,28 @@ void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
 	static int arrayOfPinLocations[NUM_OF_PIN];
 	static int arrayOfPinsToBeSet[NUM_OF_PIN];
 
-	hello();
+//	hello();
 	if(argv[argIncrementer]=='\0')
 	{
 		//no argument given, report current output
-		hardwareGetFreePins(arrayOfPinLocations);
+//		hardwareGetFreePins(arrayOfPinLocations);
 	}
 	else
 	{
 		//need 2 arguments to make an output make sense 
-		if (argv[2] !='\0')
+		if (argv[1] !='\0')
 		{
 			//argument give, lets see if it makes sense
 			argIncrementer++;
-			if(!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinLocations)&&!hardwareGetPinLocations(argv[argIncrementer], arrayOfPinsToBeSet))
+			if(!hardwareGetPinLocations(argv[0], arrayOfPinLocations)&&!hardwareGetPinLocations(argv[1], arrayOfPinsToBeSet))
 			{
+//				hello();
 				//both sets are value
 				if(hardwareSetupPins(arrayOfPinLocations,HW_OUTPUT))
 				{
 					hardwareSetPins(arrayOfPinLocations,arrayOfPinsToBeSet);
+//					hello();
+//					hello();
 //					hello();
 				}
 

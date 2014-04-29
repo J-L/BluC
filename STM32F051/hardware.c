@@ -100,7 +100,7 @@ int hardwareSetupPin(int pinToBeUsed, int mode)
 			case HW_INPUT:
 				palSetPadMode(hwPin[pinLocation].pinPort, hwPin[pinLocation].pinNumber, PAL_MODE_INPUT);      /*  INPUT      */
 				break;
-			case HW_PP:
+			case HW_OUTPUT:
 				palSetPadMode(hwPin[pinLocation].pinPort, hwPin[pinLocation].pinNumber, PAL_MODE_OUTPUT_PUSHPULL);      /*  INPUT      */
 				break;
 			case HW_ADC:
@@ -373,6 +373,7 @@ int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
 	int logic = FALSE;
 	while(arrayOfPinLocations[i] !=END_PIN&&i<NUM_OF_PIN)
 	{
+		chprintf(&SD1,"%d,",i);
 		int j = 0;
 		logic = FALSE;
 		while(arrayOfPinsToSet[j]!=END_PIN &&j<NUM_OF_PIN)
@@ -383,6 +384,7 @@ int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
 			}
 			j++;
 		}
+		hello();
 		palWritePad(hwPin[arrayOfPinLocations[i]].pinPort, hwPin[arrayOfPinLocations[i]].pinNumber,logic);
 		i++;
 
