@@ -203,7 +203,6 @@ void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
 	static int arrayOfPinLocations[NUM_OF_PIN];
 	static int arrayOfPinsToBeSet[NUM_OF_PIN];
 
-//	hello();
 	if(argv[argIncrementer]=='\0')
 	{
 		//no argument given, report current output
@@ -218,14 +217,10 @@ void cmdOutput(BaseSequentialStream *chp, int argc, char *argv[])
 			argIncrementer++;
 			if(!hardwareGetPinLocations(argv[0], arrayOfPinLocations)&&!hardwareGetPinLocations(argv[1], arrayOfPinsToBeSet))
 			{
-//				hello();
 				//both sets are value
 				if(hardwareSetupPins(arrayOfPinLocations,HW_OUTPUT))
 				{
 					hardwareSetPins(arrayOfPinLocations,arrayOfPinsToBeSet);
-//					hello();
-//					hello();
-//					hello();
 				}
 
 
@@ -276,7 +271,7 @@ void cmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 	int commandSuccess = FALSE;
 	if(!strcmp(argv[0],"-start"))
 	{
-		hello();
+//		hello();
 		commandSuccess =TRUE;
 	}
 	else if (!strcmp(argv[0],"-setup"))

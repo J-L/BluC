@@ -384,7 +384,6 @@ int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
 			}
 			j++;
 		}
-		hello();
 		palWritePad(hwPin[arrayOfPinLocations[i]].pinPort, hwPin[arrayOfPinLocations[i]].pinNumber,logic);
 		i++;
 
@@ -438,8 +437,14 @@ int hardwareSerialSetEncoding(char *input)
 	return ERR_CMD;
 
 }
+
+int hardwareSerialSetup(
+
 tfunc_t hardwareSerialTransparentThread(void)
 {
+	//setup  serial
+
+	
 	while(1)
 	{
 		if(strstr("~~~~~~~~~",&breakSequence)!=NULL)
