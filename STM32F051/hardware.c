@@ -438,7 +438,10 @@ int hardwareSerialSetEncoding(char *input)
 
 }
 
-int hardwareSerialSetup(
+int hardwareSerialSetup()
+{
+
+}
 
 tfunc_t hardwareSerialTransparentThread(void)
 {
