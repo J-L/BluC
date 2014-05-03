@@ -67,13 +67,15 @@ int hardwareParseDecimalPins(char *,int *);
 int hardwareReadPins(int *);
 int hardwareGetFreePins(int *);
 int hardwareGetCurrentMode(int);
-hardwareSetPins(int *, int * );
+int hardwareSetPins(int *, int * );
 
 int hardwareAdcSetCircular(int );
 int hardwaretAdcSetAddress(int);
 int hardwareAdcSetChannels(int *);
 int * hardwareIoGetPort(int);
 int hardwareIoGetPin(int);
+int hardwarePwmSetup(char *, int );
+
 
 tfunc_t hardwareSerialTransparentThread(void);
 /*

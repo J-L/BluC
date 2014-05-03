@@ -373,7 +373,7 @@ int hardwareSetPins(int *arrayOfPinLocations, int * arrayOfPinsToSet)
 	int logic = FALSE;
 	while(arrayOfPinLocations[i] !=END_PIN&&i<NUM_OF_PIN)
 	{
-		chprintf(&SD1,"%d,",i);
+//		chprintf(&SD1,"%d,",i);
 		int j = 0;
 		logic = FALSE;
 		while(arrayOfPinsToSet[j]!=END_PIN &&j<NUM_OF_PIN)
@@ -464,5 +464,26 @@ tfunc_t hardwareSerialTransparentThread(void)
 
 
 
+
+}
+int hardwarePwmSetup(char * arrayOfPins, int duty)
+{
+	pwmInit();
+	hardwareSetupPwmDuty(duty);
+	
+
+
+}
+
+int hardwarePwmSetupChannels(char * arrayOfPins)
+{
+
+
+}
+
+int hardwareSetupPwmDuty(int duty)
+{
+//	hardwarePwmConfig.period =duty;
+	return 0;
 
 }

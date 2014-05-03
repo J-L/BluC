@@ -14,7 +14,7 @@ adcsample_t samples[64];
 extern BinarySemaphore outputResponseDataReady;
 extern outputResponseStruct outputResponseData;
 extern ADCConversionGroup adcsettings;
-
+unsigned int adcCounter =0;
 
 
 //BSEMAPHORE_DECL(adcSemDataReady, 0);
@@ -48,6 +48,7 @@ void adcCallBack(ADCDriver *adcp, adcsample_t *buffer, size_t n)
 		ny += n;
 	}
 */
+		adcCounter++;
 		chSysLockFromIsr();
 		if (chBSemGetStateI(&outputResponseDataReady))
 		{

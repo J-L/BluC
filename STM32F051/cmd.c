@@ -1,4 +1,4 @@
-
+#include <stdlib.h> 
 #include "ch.h"
 #include "hal.h"
 #include "shell.h"
@@ -9,9 +9,9 @@
 #include  <string.h>
 #include "hardware.h"
 
-
+unsigned int adcCounter2 =0;
 char breakSequence[8] ="~~~~~";
-
+extern unsigned int adcCounter;
 extern int threadCount;
 extern Thread *threadArray[];
 
@@ -22,7 +22,7 @@ extern adcsample_t samples;
 extern BinarySemaphore adcSemDataReady;
 char error[] = "Error Parsing String";
 outputResponseStruct outputResponseData;
-
+char outputBuffer[2][100];
 
 BSEMAPHORE_DECL(outputResponseDataReady, 0);
 
@@ -268,6 +268,7 @@ if arg[0] = 'start' then uart will be started
 
 void cmdUart(BaseSequentialStream *chp, int argc, char *argv[]) 
 {
+	int baudRate =0;
 	int commandSuccess = FALSE;
 	if(!strcmp(argv[0],"-start"))
 	{
@@ -277,18 +278,18 @@ void cmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 	else if (!strcmp(argv[0],"-setup"))
 	{
 		int argIncrementer =1;
-		int baudRate =hardwareSerialSetBaudRate(argv[argIncrementer]);
+//		int baudRate =hardwareSerialSetBaudRate(argv[argIncrementer]);
 		if (baudRate<ERR_CMD)
 		{
 			argIncrementer++;
 			if (argv[argIncrementer] != '\0')
 			{
 				//baud rate correct
-				int encoding =hardwareSerialSetEncoding(argv[argIncrementer]);
-				if (encoding <ERR_CMD)
-				{
+//				int encoding =hardwareSerialSetEncoding(argv[argIncrementer]);
+	//			if (encoding <ERR_CMD)
+//				{
 					commandSuccess = TRUE;	
-				}
+	//			}
 			}
 			//excellent, it imples a working baud rate
 			//change baud rate
@@ -315,8 +316,8 @@ void cmdUart(BaseSequentialStream *chp, int argc, char *argv[])
 		int i = threadManager();// returns which memory pool we can use
 		if (i!=255)
 		{
-			threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, hardwareSerialTransparentThread, NULL);
-			shellExit(NULL);
+//			threadArray[i] = chThdCreateFromMemoryPool(&mp, NORMALPRIO, hardwareSerialTransparentThread, NULL);
+//			shellExit(NULL);
 
 
 		}
@@ -365,6 +366,20 @@ void cmdPwm(BaseSequentialStream *chp, int argc, char *argv[])
 (void)chp;
 (void)argc;
 (void)argv;
+	static int arrayOfPinLocations[NUM_OF_PIN];
+	int commandSuccess = FALSE;
+	if (argv[0]!= '\0')
+	{
+		if(!hardwareGetPinLocations(argv[0], arrayOfPinLocations))
+		{
+
+			if(argv[1]!='\0')
+			{
+//			int duty = atoi(argv[1][1]);
+			hello();
+			}
+		}
+	}
 }
 
 void cmdDate(BaseSequentialStream *chp, int argc, char *argv[]) 
@@ -475,12 +490,14 @@ tfunc_t outputResponse(BaseSequentialStream *chp)
 				case HW_ADC:;
 					while(i <adcSettings.num_channels)
 					{
+
 						int valToPrint = (int) (outputResponseData.adcOutputValues[i]);
 						chprintf(chp,"%d," ,valToPrint);
 						i++;
 					}
-						chprintf(chp,"\n");
-						 chThdSleepMilliseconds(10);
+						adcCounter2++;
+						chprintf(chp,"%d,%d,\n",adcCounter,adcCounter2);
+				//		 chThdSleepMilliseconds(10);
 					break;
 				case HW_INPUT:
 				//	hello();
